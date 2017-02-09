@@ -7,8 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		9DC8E8751E4B39F200C04F79 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC8E8731E4B39F200C04F79 /* UICollectionView.swift */; };
-		9DC8E8761E4B39F200C04F79 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC8E8741E4B39F200C04F79 /* UITableView.swift */; };
+		9D0CDAD61E4B5A3000BB945B /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0CDAD51E4B5A3000BB945B /* UIEdgeInsets.swift */; };
+		9D44D0EE1E4C2F8600F6A335 /* ElongationAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D44D0ED1E4C2F8600F6A335 /* ElongationAppearance.swift */; };
+		9D44D0F31E4C301000F6A335 /* LoremSwiftum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D44D0F21E4C301000F6A335 /* LoremSwiftum.swift */; };
+		9D44D0F61E4C3A5E00F6A335 /* Villa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D44D0F51E4C3A5E00F6A335 /* Villa.swift */; };
+		9DAB0FFA1E4C234E008C1D8B /* DemoElongationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9DAB0FF81E4C234E008C1D8B /* DemoElongationCell.xib */; };
+		9DAB0FFD1E4C244D008C1D8B /* DemoElongationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DAB0FFB1E4C244D008C1D8B /* DemoElongationCell.swift */; };
+		9DC8E8841E4B3CAD00C04F79 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC8E8821E4B3CAD00C04F79 /* UICollectionView.swift */; };
+		9DC8E8851E4B3CAD00C04F79 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC8E8831E4B3CAD00C04F79 /* UITableView.swift */; };
+		9DC8E8921E4B3D0800C04F79 /* ElongationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC8E88E1E4B3D0800C04F79 /* ElongationViewController.swift */; };
+		9DC8E8931E4B3D0800C04F79 /* ElongationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC8E8901E4B3D0800C04F79 /* ElongationCell.swift */; };
+		9DC8E8951E4B45F300C04F79 /* ElongationPreview.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE4FAC31E4B1A02008502A3 /* ElongationPreview.framework */; };
+		9DC8E8961E4B45F300C04F79 /* ElongationPreview.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 9DE4FAC31E4B1A02008502A3 /* ElongationPreview.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		9DE4FAC81E4B1A02008502A3 /* ElongationPreview.h in Headers */ = {isa = PBXBuildFile; fileRef = 9DE4FAC61E4B1A02008502A3 /* ElongationPreview.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		9DE4FAD51E4B1A15008502A3 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4FAD41E4B1A15008502A3 /* AppDelegate.swift */; };
 		9DE4FAD71E4B1A15008502A3 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DE4FAD61E4B1A15008502A3 /* ViewController.swift */; };
@@ -17,9 +27,41 @@
 		9DE4FADF1E4B1A15008502A3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9DE4FADD1E4B1A15008502A3 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		9DC8E8971E4B45F300C04F79 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9DE4FABA1E4B1A02008502A3 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9DE4FAC21E4B1A02008502A3;
+			remoteInfo = ElongationPreview;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		9DC8E8991E4B45F300C04F79 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				9DC8E8961E4B45F300C04F79 /* ElongationPreview.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
-		9DC8E8731E4B39F200C04F79 /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
-		9DC8E8741E4B39F200C04F79 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		9D0CDAD51E4B5A3000BB945B /* UIEdgeInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
+		9D44D0ED1E4C2F8600F6A335 /* ElongationAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElongationAppearance.swift; sourceTree = "<group>"; };
+		9D44D0F21E4C301000F6A335 /* LoremSwiftum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoremSwiftum.swift; sourceTree = "<group>"; };
+		9D44D0F51E4C3A5E00F6A335 /* Villa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Villa.swift; sourceTree = "<group>"; };
+		9DAB0FF81E4C234E008C1D8B /* DemoElongationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoElongationCell.xib; sourceTree = "<group>"; };
+		9DAB0FFB1E4C244D008C1D8B /* DemoElongationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoElongationCell.swift; sourceTree = "<group>"; };
+		9DC8E8821E4B3CAD00C04F79 /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
+		9DC8E8831E4B3CAD00C04F79 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
+		9DC8E88E1E4B3D0800C04F79 /* ElongationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElongationViewController.swift; sourceTree = "<group>"; };
+		9DC8E8901E4B3D0800C04F79 /* ElongationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElongationCell.swift; sourceTree = "<group>"; };
 		9DE4FAC31E4B1A02008502A3 /* ElongationPreview.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ElongationPreview.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE4FAC61E4B1A02008502A3 /* ElongationPreview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ElongationPreview.h; sourceTree = "<group>"; };
 		9DE4FAC71E4B1A02008502A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -44,19 +86,72 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC8E8951E4B45F300C04F79 /* ElongationPreview.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		9DC8E8721E4B39E000C04F79 /* Extensions */ = {
+		9D44D0F11E4C301000F6A335 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				9DC8E8731E4B39F200C04F79 /* UICollectionView.swift */,
-				9DC8E8741E4B39F200C04F79 /* UITableView.swift */,
+				9D44D0F21E4C301000F6A335 /* LoremSwiftum.swift */,
 			);
-			name = Extensions;
+			path = Helpers;
+			sourceTree = "<group>";
+		};
+		9D44D0F41E4C3A5100F6A335 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				9D44D0F51E4C3A5E00F6A335 /* Villa.swift */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		9DC8E8811E4B3CAD00C04F79 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				9DC8E8821E4B3CAD00C04F79 /* UICollectionView.swift */,
+				9D0CDAD51E4B5A3000BB945B /* UIEdgeInsets.swift */,
+				9DC8E8831E4B3CAD00C04F79 /* UITableView.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		9DC8E8861E4B3CEB00C04F79 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				9DC8E88D1E4B3D0800C04F79 /* ViewControllers */,
+				9DC8E88F1E4B3D0800C04F79 /* Views */,
+				9D44D0ED1E4C2F8600F6A335 /* ElongationAppearance.swift */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		9DC8E88D1E4B3D0800C04F79 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				9DC8E88E1E4B3D0800C04F79 /* ElongationViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		9DC8E88F1E4B3D0800C04F79 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9DC8E8901E4B3D0800C04F79 /* ElongationCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		9DCED2131E4CA9AC008A39DB /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				9DAB0FF81E4C234E008C1D8B /* DemoElongationCell.xib */,
+				9DAB0FFB1E4C244D008C1D8B /* DemoElongationCell.swift */,
+			);
+			name = Views;
 			sourceTree = "<group>";
 		};
 		9DE4FAB91E4B1A02008502A3 = {
@@ -82,6 +177,8 @@
 			children = (
 				9DE4FAC61E4B1A02008502A3 /* ElongationPreview.h */,
 				9DE4FAC71E4B1A02008502A3 /* Info.plist */,
+				9DC8E8861E4B3CEB00C04F79 /* Source */,
+				9DC8E8811E4B3CAD00C04F79 /* Extensions */,
 			);
 			path = ElongationPreview;
 			sourceTree = "<group>";
@@ -89,13 +186,15 @@
 		9DE4FAD31E4B1A15008502A3 /* ElongationPreviewDemo */ = {
 			isa = PBXGroup;
 			children = (
-				9DC8E8721E4B39E000C04F79 /* Extensions */,
+				9D44D0F41E4C3A5100F6A335 /* Model */,
 				9DE4FAD41E4B1A15008502A3 /* AppDelegate.swift */,
 				9DE4FAD61E4B1A15008502A3 /* ViewController.swift */,
 				9DE4FAD81E4B1A15008502A3 /* Main.storyboard */,
 				9DE4FADB1E4B1A15008502A3 /* Assets.xcassets */,
 				9DE4FADD1E4B1A15008502A3 /* LaunchScreen.storyboard */,
 				9DE4FAE01E4B1A15008502A3 /* Info.plist */,
+				9DCED2131E4CA9AC008A39DB /* Views */,
+				9D44D0F11E4C301000F6A335 /* Helpers */,
 			);
 			path = ElongationPreviewDemo;
 			sourceTree = "<group>";
@@ -139,10 +238,12 @@
 				9DE4FACE1E4B1A15008502A3 /* Sources */,
 				9DE4FACF1E4B1A15008502A3 /* Frameworks */,
 				9DE4FAD01E4B1A15008502A3 /* Resources */,
+				9DC8E8991E4B45F300C04F79 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
+				9DC8E8981E4B45F300C04F79 /* PBXTargetDependency */,
 			);
 			name = ElongationPreviewDemo;
 			productName = ElongationPreviewDemo;
@@ -203,6 +304,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DAB0FFA1E4C234E008C1D8B /* DemoElongationCell.xib in Resources */,
 				9DE4FADF1E4B1A15008502A3 /* LaunchScreen.storyboard in Resources */,
 				9DE4FADC1E4B1A15008502A3 /* Assets.xcassets in Resources */,
 				9DE4FADA1E4B1A15008502A3 /* Main.storyboard in Resources */,
@@ -216,6 +318,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9DC8E8851E4B3CAD00C04F79 /* UITableView.swift in Sources */,
+				9D0CDAD61E4B5A3000BB945B /* UIEdgeInsets.swift in Sources */,
+				9DC8E8931E4B3D0800C04F79 /* ElongationCell.swift in Sources */,
+				9DC8E8841E4B3CAD00C04F79 /* UICollectionView.swift in Sources */,
+				9D44D0EE1E4C2F8600F6A335 /* ElongationAppearance.swift in Sources */,
+				9DC8E8921E4B3D0800C04F79 /* ElongationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -223,14 +331,23 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9DC8E8751E4B39F200C04F79 /* UICollectionView.swift in Sources */,
-				9DC8E8761E4B39F200C04F79 /* UITableView.swift in Sources */,
+				9DAB0FFD1E4C244D008C1D8B /* DemoElongationCell.swift in Sources */,
 				9DE4FAD71E4B1A15008502A3 /* ViewController.swift in Sources */,
 				9DE4FAD51E4B1A15008502A3 /* AppDelegate.swift in Sources */,
+				9D44D0F61E4C3A5E00F6A335 /* Villa.swift in Sources */,
+				9D44D0F31E4C301000F6A335 /* LoremSwiftum.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		9DC8E8981E4B45F300C04F79 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9DE4FAC21E4B1A02008502A3 /* ElongationPreview */;
+			targetProxy = 9DC8E8971E4B45F300C04F79 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		9DE4FAD81E4B1A15008502A3 /* Main.storyboard */ = {
@@ -397,6 +514,7 @@
 		9DE4FAE21E4B1A15008502A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2VFCBFYPFW;
 				INFOPLIST_FILE = ElongationPreviewDemo/Info.plist;
@@ -411,6 +529,7 @@
 		9DE4FAE31E4B1A15008502A3 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 2VFCBFYPFW;
 				INFOPLIST_FILE = ElongationPreviewDemo/Info.plist;
