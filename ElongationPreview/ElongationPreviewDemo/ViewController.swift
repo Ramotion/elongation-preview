@@ -12,9 +12,7 @@ import ElongationPreview
 
 class ViewController: ElongationViewController {
   
-  var datasource: [Villa] = Array(1...7).map { i in
-    return Villa(country: Lorem.name, locality: Lorem.firstName, description: Lorem.sentences(1), owner: Lorem.name, imageName: "\(i)")
-  }
+  var datasource: [Villa] = Villa.testData
   
 }
 
@@ -59,20 +57,28 @@ extension ViewController {
   }
   
   override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+    super.tableView(tableView, willDisplay: cell, forRowAt: indexPath)
     guard let cell = cell as? DemoElongationCell else { return }
     
     let villa = datasource[indexPath.row]
     
+    let font: UIFont
+    if #available(iOS 8.2, *) {
+      font = UIFont.systemFont(ofSize: 25, weight: UIFontWeightLight)
+    } else {
+      font = UIFont.systemFont(ofSize: 25)
+    }
+    
     let attributedLocality = NSMutableAttributedString(string: villa.locality.uppercased(), attributes: [
-      NSFontAttributeName: UIFont.boldSystemFont(ofSize: 30),
-      NSKernAttributeName: 5,
+      NSFontAttributeName: font,
+      NSKernAttributeName: 8,
       NSForegroundColorAttributeName: UIColor.white
       ])
     
     cell.topImageView.image = UIImage(named: villa.imageName)
     cell.localityLabel.attributedText = attributedLocality
     cell.countryLabel.text = villa.country
-    cell.aboutTitleLabel.text = villa.owner
+    cell.aboutTitleLabel.text = villa.title
     cell.aboutDescriptionLabel.text = villa.description
   }
   
