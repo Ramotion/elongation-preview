@@ -48,7 +48,6 @@ open class ElongationCell: UITableViewCell {
     selectedBackgroundView = nil
     clipsToBounds = true
     contentView.clipsToBounds = true
-    contentView.backgroundColor = UIColor.white
     
     contentView.addSubview(dimmingView)
     dimmingView.alpha = 0
@@ -59,20 +58,20 @@ open class ElongationCell: UITableViewCell {
   
   open func expand(_ value: Bool) {
     isExpanded = value
+    
     UIView.animate(withDuration: 0.3) {
       let backColor: UIColor = value ? .black : .white
       self.backgroundColor = backColor
       self.contentView.backgroundColor = backColor
       
       let frontViewHeight = self.appearance.frontViewHeight
-      self.frontViewHeightConstraint.constant = self.appearance.frontViewHeight
       self.backViewTopConstraint.constant = value ? frontViewHeight - self.appearance.backViewOffset : self.appearance.backViewOffset
       self.backViewHeightConstraint.constant = value ? self.appearance.backViewHeight : frontViewHeight - self.appearance.backViewOffset
-            
+      
       let frontViewScale = value ? self.appearance.frontViewScaleFactor : 1
       self.frontView.transform = CGAffineTransform(scaleX: frontViewScale, y: frontViewScale)
       
-      self.setNeedsLayout()
+      self.contentView.setNeedsLayout()
       self.contentView.layoutIfNeeded()
     }
   }
@@ -87,7 +86,6 @@ open class ElongationCell: UITableViewCell {
     UIView.animate(withDuration: 0.2) {
       self.dimmingView.alpha = alpha
       self.contentView.backgroundColor = value ? .black : .white
-      print(self.appearance.frontViewHeight)
     }
   }
   

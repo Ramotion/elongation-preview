@@ -175,10 +175,9 @@
 		9DE4FAC51E4B1A02008502A3 /* ElongationPreview */ = {
 			isa = PBXGroup;
 			children = (
-				9DE4FAC61E4B1A02008502A3 /* ElongationPreview.h */,
-				9DE4FAC71E4B1A02008502A3 /* Info.plist */,
 				9DC8E8861E4B3CEB00C04F79 /* Source */,
 				9DC8E8811E4B3CAD00C04F79 /* Extensions */,
+				9DF14FEA1E4DD40200F20A63 /* Resources */,
 			);
 			path = ElongationPreview;
 			sourceTree = "<group>";
@@ -197,6 +196,15 @@
 				9D44D0F11E4C301000F6A335 /* Helpers */,
 			);
 			path = ElongationPreviewDemo;
+			sourceTree = "<group>";
+		};
+		9DF14FEA1E4DD40200F20A63 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				9DE4FAC61E4B1A02008502A3 /* ElongationPreview.h */,
+				9DE4FAC71E4B1A02008502A3 /* Info.plist */,
+			);
+			name = Resources;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
