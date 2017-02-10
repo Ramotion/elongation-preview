@@ -36,6 +36,13 @@ open class ElongationCell: UITableViewCell {
     commonInit()
   }
   
+  open override func layoutSubviews() {
+    super.layoutSubviews()
+    if #available(iOS 10, *) {
+      UIView.animate(withDuration: 0.3) { self.contentView.layoutIfNeeded() }
+    }
+  }
+  
   private func commonInit() {
     selectionStyle = .none
     selectedBackgroundView = nil
