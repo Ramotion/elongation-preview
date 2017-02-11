@@ -26,9 +26,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // Customize ElongationAppearance
-    var apperance = ElongationAppearance.defaultAppearance
-    apperance.backViewOffset = 0
-    apperance.frontViewScaleFactor = 0.8
+    var apperance = ElongationAppearance()
+    apperance.frontViewScaleFactor = 0.9
+    apperance.frontViewHeight = 195
+    apperance.backViewHeight = 170
+    apperance.backViewOffset = 30
+    
+    // Save created appearance object as default
     ElongationAppearance.defaultAppearance = apperance
     
     return true

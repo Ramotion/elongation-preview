@@ -62,16 +62,9 @@ extension ViewController {
     
     let villa = datasource[indexPath.row]
     
-    let font: UIFont
-    if #available(iOS 8.2, *) {
-      font = UIFont.systemFont(ofSize: 25, weight: UIFontWeightLight)
-    } else {
-      font = UIFont.systemFont(ofSize: 25)
-    }
-    
     let attributedLocality = NSMutableAttributedString(string: villa.locality.uppercased(), attributes: [
-      NSFontAttributeName: font,
-      NSKernAttributeName: 8,
+      NSFontAttributeName: UIFont.robotoFont(ofSize: 22),
+      NSKernAttributeName: 8.5,
       NSForegroundColorAttributeName: UIColor.white
       ])
     
