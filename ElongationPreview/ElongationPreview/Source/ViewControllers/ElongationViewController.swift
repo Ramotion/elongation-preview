@@ -233,3 +233,16 @@ extension ElongationViewController {
   }
  
 }
+
+// MARK: - Transition
+extension ElongationViewController: UIViewControllerTransitioningDelegate {
+  
+  public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    return ElongationTransition(presenting: false)
+  }
+  
+  public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+    return ElongationTransition(presenting: true)
+  }
+  
+}
