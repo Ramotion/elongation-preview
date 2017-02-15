@@ -18,8 +18,38 @@ open class ElongationDetailViewController: UITableViewController {
  
   override open func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
-    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(dismissViewController))
+    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(headerViewTapped))
     headerView.addGestureRecognizer(tapGesture)
+  }
+  
+  
+  
+}
+
+// MARK: - Actions ⚡
+extension ElongationDetailViewController {
+  
+  func headerViewTapped(_ gesture: UITapGestureRecognizer) {
+    let location = gesture.location(in: headerView)
+    let point = headerView.convert(location, from: view)
+    let action = ElongationConfig.shared.headerTouchAction
+    guard let touchedView = headerView.hitTest(point, with: nil) else {
+      return
+    }
+    
+    switch action {
+    case .collpaseOnBoth: dismissViewController()
+    case .collapseOnTop:
+      if touchedView == headerView.scalableView {
+        dismissViewController()
+      }
+    case .collapseOnBottom:
+      if touchedView == headerView.bottomView {
+        dismissViewController()
+      }
+    default: break
+    }
+    
   }
   
   func dismissViewController() {
