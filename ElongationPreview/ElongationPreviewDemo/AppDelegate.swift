@@ -26,14 +26,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     // Customize ElongationAppearance
-    var apperance = ElongationAppearance()
-    apperance.frontViewScaleFactor = 0.9
-    apperance.frontViewHeight = 195
-    apperance.backViewHeight = 170
-    apperance.backViewOffset = 30
+    var apperance = ElongationConfig()
+    apperance.scaleViewScaleFactor = 0.9
+    apperance.topViewHeight = 190
+    apperance.bottomViewHeight = 170
+    apperance.bottomViewOffset = 20
+    apperance.parallaxFactor = 0
     
     // Save created appearance object as default
-    ElongationAppearance.defaultAppearance = apperance
+    ElongationConfig.shared = apperance
     
     return true
   }
