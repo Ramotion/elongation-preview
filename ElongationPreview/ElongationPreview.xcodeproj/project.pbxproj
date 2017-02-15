@@ -8,7 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		9D0CDAD61E4B5A3000BB945B /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0CDAD51E4B5A3000BB945B /* UIEdgeInsets.swift */; };
-		9D44D0EE1E4C2F8600F6A335 /* ElongationAppearance.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D44D0ED1E4C2F8600F6A335 /* ElongationAppearance.swift */; };
+		9D2931431E5047560052021F /* Expandable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D2931421E5047560052021F /* Expandable.swift */; };
+		9D44D0EE1E4C2F8600F6A335 /* ElongationConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D44D0ED1E4C2F8600F6A335 /* ElongationConfig.swift */; };
 		9D44D0F31E4C301000F6A335 /* LoremSwiftum.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D44D0F21E4C301000F6A335 /* LoremSwiftum.swift */; };
 		9D44D0F61E4C3A5E00F6A335 /* Villa.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D44D0F51E4C3A5E00F6A335 /* Villa.swift */; };
 		9D69D1311E4EF2A900D38C59 /* Roboto-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D69D12F1E4EF2A900D38C59 /* Roboto-Medium.ttf */; };
@@ -16,6 +17,10 @@
 		9D69D1371E4EF2FF00D38C59 /* DemoElongationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D69D1351E4EF2FF00D38C59 /* DemoElongationCell.swift */; };
 		9D69D1381E4EF2FF00D38C59 /* DemoElongationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 9D69D1361E4EF2FF00D38C59 /* DemoElongationCell.xib */; };
 		9D69D13B1E4EF31C00D38C59 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D69D13A1E4EF31C00D38C59 /* UIFont.swift */; };
+		9D69D13D1E4F339300D38C59 /* ElongationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D69D13C1E4F339300D38C59 /* ElongationTransition.swift */; };
+		9D69D13F1E4F344B00D38C59 /* ElongationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D69D13E1E4F344B00D38C59 /* ElongationDetailViewController.swift */; };
+		9D89372F1E537F4000FDC29D /* ElongationHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D89372E1E537F4000FDC29D /* ElongationHeader.swift */; };
+		9D8937311E539DDD00FDC29D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8937301E539DDD00FDC29D /* DetailViewController.swift */; };
 		9DC8E8841E4B3CAD00C04F79 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC8E8821E4B3CAD00C04F79 /* UICollectionView.swift */; };
 		9DC8E8851E4B3CAD00C04F79 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC8E8831E4B3CAD00C04F79 /* UITableView.swift */; };
 		9DC8E8921E4B3D0800C04F79 /* ElongationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC8E88E1E4B3D0800C04F79 /* ElongationViewController.swift */; };
@@ -56,7 +61,8 @@
 
 /* Begin PBXFileReference section */
 		9D0CDAD51E4B5A3000BB945B /* UIEdgeInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
-		9D44D0ED1E4C2F8600F6A335 /* ElongationAppearance.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElongationAppearance.swift; sourceTree = "<group>"; };
+		9D2931421E5047560052021F /* Expandable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Expandable.swift; sourceTree = "<group>"; };
+		9D44D0ED1E4C2F8600F6A335 /* ElongationConfig.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElongationConfig.swift; sourceTree = "<group>"; };
 		9D44D0F21E4C301000F6A335 /* LoremSwiftum.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoremSwiftum.swift; sourceTree = "<group>"; };
 		9D44D0F51E4C3A5E00F6A335 /* Villa.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Villa.swift; sourceTree = "<group>"; };
 		9D69D12F1E4EF2A900D38C59 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Medium.ttf"; sourceTree = "<group>"; };
@@ -64,6 +70,10 @@
 		9D69D1351E4EF2FF00D38C59 /* DemoElongationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DemoElongationCell.swift; sourceTree = "<group>"; };
 		9D69D1361E4EF2FF00D38C59 /* DemoElongationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DemoElongationCell.xib; sourceTree = "<group>"; };
 		9D69D13A1E4EF31C00D38C59 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
+		9D69D13C1E4F339300D38C59 /* ElongationTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElongationTransition.swift; sourceTree = "<group>"; };
+		9D69D13E1E4F344B00D38C59 /* ElongationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElongationDetailViewController.swift; sourceTree = "<group>"; };
+		9D89372E1E537F4000FDC29D /* ElongationHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElongationHeader.swift; sourceTree = "<group>"; };
+		9D8937301E539DDD00FDC29D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9DC8E8821E4B3CAD00C04F79 /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		9DC8E8831E4B3CAD00C04F79 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
 		9DC8E88E1E4B3D0800C04F79 /* ElongationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElongationViewController.swift; sourceTree = "<group>"; };
@@ -156,7 +166,9 @@
 			children = (
 				9DC8E88D1E4B3D0800C04F79 /* ViewControllers */,
 				9DC8E88F1E4B3D0800C04F79 /* Views */,
-				9D44D0ED1E4C2F8600F6A335 /* ElongationAppearance.swift */,
+				9D44D0ED1E4C2F8600F6A335 /* ElongationConfig.swift */,
+				9D69D13C1E4F339300D38C59 /* ElongationTransition.swift */,
+				9D2931421E5047560052021F /* Expandable.swift */,
 			);
 			path = Source;
 			sourceTree = "<group>";
@@ -165,6 +177,7 @@
 			isa = PBXGroup;
 			children = (
 				9DC8E88E1E4B3D0800C04F79 /* ElongationViewController.swift */,
+				9D69D13E1E4F344B00D38C59 /* ElongationDetailViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -173,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				9DC8E8901E4B3D0800C04F79 /* ElongationCell.swift */,
+				9D89372E1E537F4000FDC29D /* ElongationHeader.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -210,6 +224,7 @@
 			children = (
 				9DE4FAD41E4B1A15008502A3 /* AppDelegate.swift */,
 				9DE4FAD61E4B1A15008502A3 /* ViewController.swift */,
+				9D8937301E539DDD00FDC29D /* DetailViewController.swift */,
 				9DE4FAD81E4B1A15008502A3 /* Main.storyboard */,
 				9DE4FADB1E4B1A15008502A3 /* Assets.xcassets */,
 				9DE4FADD1E4B1A15008502A3 /* LaunchScreen.storyboard */,
@@ -354,10 +369,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				9DC8E8851E4B3CAD00C04F79 /* UITableView.swift in Sources */,
+				9D69D13F1E4F344B00D38C59 /* ElongationDetailViewController.swift in Sources */,
+				9D2931431E5047560052021F /* Expandable.swift in Sources */,
 				9D0CDAD61E4B5A3000BB945B /* UIEdgeInsets.swift in Sources */,
 				9DC8E8931E4B3D0800C04F79 /* ElongationCell.swift in Sources */,
+				9D69D13D1E4F339300D38C59 /* ElongationTransition.swift in Sources */,
 				9DC8E8841E4B3CAD00C04F79 /* UICollectionView.swift in Sources */,
-				9D44D0EE1E4C2F8600F6A335 /* ElongationAppearance.swift in Sources */,
+				9D44D0EE1E4C2F8600F6A335 /* ElongationConfig.swift in Sources */,
+				9D89372F1E537F4000FDC29D /* ElongationHeader.swift in Sources */,
 				9DC8E8921E4B3D0800C04F79 /* ElongationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -372,6 +391,7 @@
 				9D44D0F61E4C3A5E00F6A335 /* Villa.swift in Sources */,
 				9D44D0F31E4C301000F6A335 /* LoremSwiftum.swift in Sources */,
 				9D69D1371E4EF2FF00D38C59 /* DemoElongationCell.swift in Sources */,
+				9D8937311E539DDD00FDC29D /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

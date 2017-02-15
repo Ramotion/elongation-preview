@@ -21,18 +21,6 @@ class DemoElongationCell: ElongationCell {
   @IBOutlet var aboutTitleLabel: UILabel!
   @IBOutlet var aboutDescriptionLabel: UILabel!
   
-  override func layoutSubviews() {
-    super.layoutSubviews()
+  @IBOutlet var topImageViewTopConstraint: NSLayoutConstraint!
     
-    // Prevent `labelsView` from scaling
-    UIView.animate(withDuration: 0.3) {
-      if self.isExpanded {
-        let frontViewIdentity = self.frontView.transform.inverted()
-        self.labelsView.transform = frontViewIdentity
-      } else {
-        self.labelsView.transform = self.frontView.transform
-      }
-    }
-  }
-  
 }

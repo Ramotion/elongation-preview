@@ -24,11 +24,6 @@ extension ViewController {
     setup()
   }
   
-  override func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    print(ElongationAppearance.defaultAppearance.frontViewHeight)
-  }
-  
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
   }
@@ -39,7 +34,19 @@ extension ViewController {
 private extension ViewController {
   
   func setup() {
+    view.backgroundColor = UIColor.black
     tableView.registerNib(DemoElongationCell.self)
+  }
+  
+}
+
+// MARK: - Actions ⚡
+extension ViewController {
+  
+  override func openDetailView(for indexPath: IndexPath) {
+    let id = String(describing: DetailViewController.self)
+    guard let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: id) as? DetailViewController else { return }
+    expand(viewController: detailViewController)
   }
   
 }
@@ -64,7 +71,7 @@ extension ViewController {
     
     let attributedLocality = NSMutableAttributedString(string: villa.locality.uppercased(), attributes: [
       NSFontAttributeName: UIFont.robotoFont(ofSize: 22),
-      NSKernAttributeName: 8.5,
+      NSKernAttributeName: 8.2,
       NSForegroundColorAttributeName: UIColor.white
       ])
     
