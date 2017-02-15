@@ -12,19 +12,25 @@ import UIKit
 open class ElongationViewController: UITableViewController {
   
   // MARK: Public properties
+  
+  /// `IndexPath` of expanded cell.
   public var expandedIndexPath: IndexPath?
+  
+  /// Should cell change it's state to `expand` on tap.
+  /// Default value: `true`
+  public var shouldExpand = true
   
   public enum State {
     case normal, expanded
   }
   
+  /// Current view state.
+  /// Default value: `.normal`
   public var state: State = .normal {
     didSet {
       let expanded = state == .expanded
       tapGesture.isEnabled = expanded
       tableView.isScrollEnabled = !expanded
-      tableView.backgroundColor = expanded ? UIColor.black : UIColor.white
-      //    tableView.allowsSelection = !expanded
     }
   }
   
@@ -90,12 +96,18 @@ extension ElongationViewController {
     moveCells(from: indexPath, force: true)
   }
   
-  
   /// Present modal view controller for cell at given `IndexPath`.
   ///
   /// - Parameter indexPath: IndexPath of source cell.
-  public func openDetailView(for indexPath: IndexPath) {
-    print(#function, indexPath)
+  open func openDetailView(for indexPath: IndexPath) {
+    let viewController = ElongationDetailViewController(nibName: nil, bundle: nil)
+    expand(viewController: viewController)
+  }
+  
+  public func expand(viewController: ElongationDetailViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
+    viewController.modalPresentationStyle = .custom
+    viewController.transitioningDelegate = self
+    present(viewController, animated: animated, completion: completion)
   }
   
   // MARK: Private
@@ -109,16 +121,44 @@ extension ElongationViewController {
     
     if realPoint.y < cellFrame.minY || realPoint.y > cellFrame.maxY {
       collapseCells()
+      return
     }
     
     guard let indexPath = tableView.indexPathForRow(at: location), let cell = tableView.cellForRow(at: indexPath) as? ElongationCell else { return }
     let point = cell.convert(location, from: tableView)
     
-    guard let touchedView = cell.hitTest(point, with: nil) else { return }
-    switch touchedView {
-    case cell.backView: openDetailView(for: path)
-    default: collapseCells()
+    let elongationCellTouchAction = ElongationConfig.shared.cellTouchAction
+    
+    guard let touchedView = cell.hitTest(point, with: nil) else {
+      collapseCells()
+      return
     }
+    
+    switch touchedView {
+    case cell.bottomView:
+      
+      switch elongationCellTouchAction {
+      case .expandOnBoth, .expandOnBottom, .collapseOnTopExpandOnBottom:
+        openDetailView(for: path)
+      case .collapseOnBoth, .collapseOnBottomExpandOnTop: collapseCells()
+      default: break
+      }
+      
+    case cell.scalableView:
+      switch elongationCellTouchAction {
+      case .collapseOnBoth, .collapseOnTopExpandOnBottom: collapseCells()
+      case .collapseOnBottomExpandOnTop, .expandOnBoth, .expandOnTop: openDetailView(for: path)
+      default: break
+      }
+      
+    default:
+      switch elongationCellTouchAction {
+      case .expandOnBoth: openDetailView(for: path)
+      case .collapseOnBoth: collapseCells()
+      default: break
+      }
+    }
+    
   }
   
   fileprivate func moveCells(from indexPath: IndexPath, force: Bool? = nil, animated: Bool = true) {
@@ -151,6 +191,15 @@ extension ElongationViewController {
     }
   }
   
+  fileprivate func changeOffset(of cell: ElongationCell) {
+    let cellFrame = cell.frame
+    let cellFrameInTable = tableView.convert(cellFrame, to: UIScreen.main.coordinateSpace)
+    let cellOffset = cellFrameInTable.origin.y + cellFrameInTable.size.height
+    let tableHeight = tableView.bounds.size.height + cellFrameInTable.size.height
+    let cellOffsetFactor = cellOffset / tableHeight
+    cell.setFrontViewOffset(cellOffsetFactor)
+  }
+  
 }
 
 // MARK: - TableView 📚
@@ -160,18 +209,27 @@ extension ElongationViewController {
     guard let cell = cell as? ElongationCell else { return }
     let expanded = state == .expanded
     cell.dim(expanded, animated: expanded)
+    changeOffset(of: cell)
   }
   
   open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    guard shouldExpand else { return }
     moveCells(from: indexPath)
   }
   
   open override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     let isExpanded = cellStatesDictionary[indexPath] ?? false
-    let apperance = ElongationAppearance.defaultAppearance
-    let frontViewHeight = apperance.frontViewHeight
-    let expandedCellHeight = apperance.backViewHeight + frontViewHeight - apperance.backViewOffset
+    let apperance = ElongationConfig.shared
+    let frontViewHeight = apperance.topViewHeight
+    let expandedCellHeight = apperance.bottomViewHeight + frontViewHeight - apperance.bottomViewOffset
     return isExpanded ? expandedCellHeight : frontViewHeight
+  }
+  
+  open override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    guard scrollView === tableView else { return }
+    for case let cell as ElongationCell in tableView.visibleCells {
+      changeOffset(of: cell)
+    }
   }
  
 }
