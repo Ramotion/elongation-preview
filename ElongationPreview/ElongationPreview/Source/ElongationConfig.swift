@@ -24,14 +24,14 @@ public struct ElongationConfig {
   }
   
   /// What `elongationCell` should do on touch
-  public var cellTouchAction = CellTouchAction.collapseOnBoth
+  public var cellTouchAction = CellTouchAction.collapseOnTopExpandOnBottom
   
   public enum HeaderTouchAction {
     case collpaseOnBoth, collapseOnTop, collapseOnBottom, noAction
   }
   
   /// What `elongationHeader` should do on touch
-  public var headerTouchAction = HeaderTouchAction.collpaseOnBoth
+  public var headerTouchAction = HeaderTouchAction.collapseOnTop
   
   
   // MARK: Appearance 🎨
