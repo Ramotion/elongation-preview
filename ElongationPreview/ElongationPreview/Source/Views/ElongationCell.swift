@@ -23,22 +23,26 @@ open class ElongationCell: UITableViewCell, Expandable {
   @IBOutlet public var scalableViewTopConstraint: NSLayoutConstraint!
   @IBOutlet public var scalableViewBottomConstraint: NSLayoutConstraint!
   
+  @IBOutlet public var parallaxViewCenterConstraint: NSLayoutConstraint!
+  @IBOutlet public var parallaxViewHeightConstraint: NSLayoutConstraint!
+  
   @IBOutlet public var bottomView: UIView!
   @IBOutlet public var bottomViewHeightConstraint: NSLayoutConstraint!
   @IBOutlet public var bottomViewTopConstraint: NSLayoutConstraint!
   @IBOutlet public var bottomViewBottomConstraint: NSLayoutConstraint!
   
+  // MARK: Internal properties
+  var topSeparatorLine: UIView?
+  var bottomSeparatorLine: UIView?
+  
   // MARK: Private properties
   fileprivate var dimmingView: UIView!
-  fileprivate var topSeparatorLine: UIView?
-  fileprivate var bottomSeparatorLine: UIView?
   fileprivate var appearance: ElongationConfig {
     return ElongationConfig.shared
   }
   
   fileprivate var scalableViewTopOffset: CGFloat!
   fileprivate var scalableViewBottomOffset: CGFloat!
-  fileprivate var scalableViewLastParrallaxOffset: CGFloat!
   
   // MARK: Constructor
   public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -81,11 +85,12 @@ extension ElongationCell {
   open override func willMove(toSuperview newSuperview: UIView?) {
     super.willMove(toSuperview: newSuperview)
     
-    topViewHeightConstraint?.constant = appearance.topViewHeight
-    guard appearance.parallaxEnabled else { return }
-    scalableViewBottomConstraint?.constant -= 2 * appearance.parallaxFactor
-    scalableViewTopOffset = scalableViewTopConstraint?.constant ?? 0
-    scalableViewBottomOffset = scalableViewBottomConstraint?.constant ?? 0
+    topViewHeightConstraint?.constant = appearance.topViewHeight - ((appearance.separatorHeight ?? 0) * 2)
+    topViewTopConstraint.constant = appearance.separatorHeight ?? 0
+    if appearance.parallaxEnabled, let parallaxFactor = appearance.parallaxFactor {
+      parallaxViewHeightConstraint?.constant = appearance.topViewHeight + parallaxFactor
+    }
+    setupCustomSeparatorIfNeeded()
   }
   
   open override func layoutSubviews() {
@@ -95,10 +100,6 @@ extension ElongationCell {
     }
   }
   
-  open override func updateConstraints() {
-    
-    super.updateConstraints()
-  }
   
 }
 
@@ -128,6 +129,33 @@ private extension ElongationCell {
     topSeparator.backgroundColor = color
   }
   
+  func setupCustomSeparatorIfNeeded() {
+    guard appearance.customSeparatorEnabled, let separatorHeight = appearance.separatorHeight else { return }
+    let topSeparator = UIView()
+    let bottomSeparator = UIView()
+    
+    let separators = [topSeparator, bottomSeparator]
+    
+    for separator in separators {
+      contentView.addSubview(separator)
+      separator.backgroundColor = appearance.separatorColor
+      separator.translatesAutoresizingMaskIntoConstraints = false
+      
+      let topOrBottomAttribute: NSLayoutAttribute = separator === topSeparator ? .top : .bottom
+      
+      contentView.addConstraints([
+        NSLayoutConstraint(item: separator, attribute: .right, relatedBy: .equal, toItem: contentView, attribute: .right, multiplier: 1, constant: 0),
+        NSLayoutConstraint(item: separator, attribute: .left, relatedBy: NSLayoutRelation.equal, toItem: contentView, attribute: .left, multiplier: 1, constant: 0),
+        NSLayoutConstraint(item: separator, attribute: topOrBottomAttribute, relatedBy: .equal, toItem: contentView, attribute: topOrBottomAttribute, multiplier: 1, constant: 0)
+        ])
+      
+      separator.addConstraint(NSLayoutConstraint(item: separator, attribute: .height, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1, constant: separatorHeight))
+    }
+    
+    topSeparatorLine = topSeparator
+    bottomSeparatorLine = bottomSeparator
+  }
+  
 }
 
 // MARK: - Actions ⚡
@@ -140,9 +168,14 @@ extension ElongationCell {
     if animated {
       UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
         self.updateCellState()
-      }, completion: nil)
+        
+        self.hideSeparator(value, animated: false)
+      }, completion: { _ in
+        
+      })
     } else {
       updateCellState()
+      hideSeparator(value, animated: false)
     }
   }
   
@@ -151,25 +184,23 @@ extension ElongationCell {
     if animated {
       UIView.animate(withDuration: 0.2) {
         self.dimmingView.alpha = alpha
-        self.contentView.backgroundColor = value ? .black : .white
+        self.contentView.backgroundColor = value ? .black : .clear
       }
     } else {
       self.dimmingView.alpha = alpha
-      self.contentView.backgroundColor = value ? .black : .white
+      self.contentView.backgroundColor = value ? .black : .clear
     }
   }
   
   // MARK: Private
   fileprivate func updateCellState() {
-    let backColor: UIColor = isExpanded ? .black : .white
+    let backColor: UIColor = isExpanded ? .black : .clear
     backgroundColor = backColor
     contentView.backgroundColor = backColor
     
-    if appearance.parallaxEnabled {
-      let value = scalableViewLastParrallaxOffset ?? 0
-      scalableViewTopConstraint.constant = isExpanded ? 0 : -value
-      scalableViewBottomConstraint.constant = isExpanded ? 0 : value
-      print(value)
+    if let separatorHeight = appearance.separatorHeight {
+      topViewHeightConstraint.constant = isExpanded ? appearance.topViewHeight : appearance.topViewHeight - separatorHeight * 2
+      topViewTopConstraint.constant = isExpanded ? 0 : separatorHeight
     }
     
     let frontViewHeight = self.appearance.topViewHeight
@@ -182,15 +213,31 @@ extension ElongationCell {
     contentView.setNeedsLayout()
     contentView.layoutIfNeeded()
   }
+
+  func hideSeparator(_ value: Bool, animated: Bool) {
+    if animated {
+      UIView.animate(withDuration: 0.15) {
+        self.topSeparatorLine?.alpha = value ? 0 : 1
+        self.bottomSeparatorLine?.alpha = value ? 0 : 1
+      }
+    } else {
+      self.topSeparatorLine?.alpha = value ? 0 : 1
+      self.bottomSeparatorLine?.alpha = value ? 0 : 1
+    }
+  }
   
-  func setFrontViewOffset(_ offset: CGFloat) {
-    guard appearance.parallaxEnabled, let topConstraint = scalableViewTopConstraint, let bottomConstraint = scalableViewBottomConstraint else { return }
-    let boundOffset = max(0, min(1, offset))
-    let pixelOffset = (1 - boundOffset) * 2 * appearance.parallaxFactor
+  func parallaxOffset(offsetY: CGFloat, height: CGFloat) {
+    guard let centerConstraint = parallaxViewCenterConstraint, let parallaxFactor = appearance.parallaxFactor else {
+      return
+    }
     
-    topConstraint.constant = scalableViewTopOffset - pixelOffset
-    bottomConstraint.constant = scalableViewBottomOffset + pixelOffset
-    scalableViewLastParrallaxOffset = pixelOffset
+    var deltaY = (frame.origin.y + frame.height / 2) - offsetY
+    deltaY = min(height, max(deltaY, 0))
+    
+    var move = deltaY / height * parallaxFactor
+    move = move / 2.0 - move
+    
+    centerConstraint.constant = move
   }
   
 }
