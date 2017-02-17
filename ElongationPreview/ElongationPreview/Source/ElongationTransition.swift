@@ -58,7 +58,7 @@ class ElongationTransition: NSObject {
 extension ElongationTransition: UIViewControllerAnimatedTransitioning {
   
   open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-    return presenting ? 0.4 : 0.4
+    return presenting ? appearance.detailPresetingDuration : appearance.detailDismissingDuration
   }
   
   open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {

@@ -18,6 +18,14 @@ public struct ElongationConfig {
   public static var shared = ElongationConfig()
   
   // MARK: Behaviour 🔧
+  public enum ExpandingBehaviour {
+    case centerInView
+    case scrollToTop
+    case scrollToBottom
+    case doNothing
+  }
+  
+  public var expandingBehaviour: ExpandingBehaviour = .centerInView
   
   public enum CellTouchAction {
     case collapseOnTopExpandOnBottom, collapseOnBottomExpandOnTop, collapseOnBoth, expandOnBoth, expandOnTop, expandOnBottom
@@ -36,23 +44,29 @@ public struct ElongationConfig {
   
   // MARK: Appearance 🎨
 
-  /// Actual height of `frontView`. Default value: 200
+  /// Actual height of `topView`. 
+  /// Default value: `200`
   public var topViewHeight: CGFloat = 200
   
-  /// `frontView` scale value which will be used for making CGAffineTransform
+  /// `topView` scale value which will be used for making CGAffineTransform
   /// to `expanded` state
   /// Default value: `0.9`
   public var scaleViewScaleFactor: CGFloat = 0.9
   
   /// Parallax effect factor.
-  /// Default value: `50`
-  public var parallaxFactor: CGFloat = 50
+  /// Default value: `nil`
+  public var parallaxFactor: CGFloat?
   
+  /// Should we enable parallax effect on ElongationCell
+  /// Will be `true` if `separator` not `nil` && greater than zero
   public var parallaxEnabled: Bool {
-    return parallaxFactor > 0
+    switch parallaxFactor {
+    case .none: return false
+    case .some(let value): return value > 0
+    }
   }
   
-  /// Offset of `bottomView` against `frontView`
+  /// Offset of `bottomView` against `topView`
   /// Default value: `20`
   public var bottomViewOffset: CGFloat = 20
   
@@ -73,8 +87,16 @@ public struct ElongationConfig {
   public var customSeparatorEnabled: Bool {
     switch separatorHeight {
     case .none: return false
-    case .some(_): return true
+    case .some(let value): return value > 0
     }
   }
+  
+  /// Duration of `detail` view controller presention animation
+  /// Default value: `0.3`
+  public var detailPresetingDuration: TimeInterval = 0.3
+  
+  /// Duration of `detail` view controller dismissing animation
+  /// Default value: `0.4`
+  public var detailDismissingDuration: TimeInterval = 0.4
   
 }
