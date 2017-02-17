@@ -16,6 +16,7 @@ open class ElongationCell: UITableViewCell, Expandable {
   
   @IBOutlet public var topView: UIView!
   @IBOutlet public var topViewHeightConstraint: NSLayoutConstraint!
+  @IBOutlet public var topViewTopConstraint: NSLayoutConstraint!
   
   /// This is the top view which can be scaled if `scaleFactor` was configured in `ElongationAppearance`.
   /// Also to this view can be applied 'parallax' effect.
@@ -30,6 +31,8 @@ open class ElongationCell: UITableViewCell, Expandable {
   @IBOutlet public var bottomViewHeightConstraint: NSLayoutConstraint!
   @IBOutlet public var bottomViewTopConstraint: NSLayoutConstraint!
   @IBOutlet public var bottomViewBottomConstraint: NSLayoutConstraint!
+  
+  @IBOutlet public var swipeGestureRecognizer: UIGestureRecognizer!
   
   // MARK: Internal properties
   var topSeparatorLine: UIView?
@@ -99,7 +102,6 @@ extension ElongationCell {
       UIView.animate(withDuration: 0.3) { self.contentView.layoutIfNeeded() }
     }
   }
-  
   
 }
 
@@ -239,6 +241,27 @@ extension ElongationCell {
     
     centerConstraint.constant = move
   }
+  
+}
+
+// MARK: - Gestures
+extension ElongationCell {
+  
+  open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+    super.touchesMoved(touches, with: event)
+    guard isExpanded, let touch = touches.first else { return }
+    let location = touch.location(in: self)
+    print(#function, location)
+    guard let view = hitTest(location, with: nil) else { return }
+    switch view {
+    case topView:
+      print("topView:", location)
+    case bottomView:
+      print("bottomView:", location)
+    default: break
+    }
+  }
+  
   
 }
 
