@@ -31,12 +31,16 @@ open class ElongationViewController: UITableViewController {
       let expanded = state == .expanded
       tapGesture.isEnabled = expanded
       tableView.isScrollEnabled = !expanded
+      tableView.allowsSelection = !expanded
     }
   }
   
   // MARK: Private properties
   fileprivate var cellStatesDictionary: [IndexPath: Bool] = [:]
   fileprivate var tapGesture: UITapGestureRecognizer!
+  fileprivate var config: ElongationConfig {
+    return ElongationConfig.shared
+  }
   
 }
 
@@ -46,6 +50,14 @@ extension ElongationViewController {
   override open func viewDidLoad() {
     super.viewDidLoad()
     setup()
+  }
+  
+  override open func viewWillAppear(_ animated: Bool) {
+    super.viewWillAppear(animated)
+    
+    // We need to call this method to set parallax start offset
+    guard config.parallaxEnabled else { return }
+    scrollViewDidScroll(tableView)
   }
   
 }
@@ -127,7 +139,7 @@ extension ElongationViewController {
     guard let indexPath = tableView.indexPathForRow(at: location), let cell = tableView.cellForRow(at: indexPath) as? ElongationCell else { return }
     let point = cell.convert(location, from: tableView)
     
-    let elongationCellTouchAction = ElongationConfig.shared.cellTouchAction
+    let elongationCellTouchAction = config.cellTouchAction
     
     guard let touchedView = cell.hitTest(point, with: nil) else {
       collapseCells()
@@ -174,6 +186,7 @@ extension ElongationViewController {
     // Fade in overlay view on visible cells except expanding one
     for case let elongationCell as ElongationCell in tableView.visibleCells where elongationCell != cell {
       elongationCell.dim(shouldExpand)
+      elongationCell.hideSeparator(shouldExpand, animated: animated)
     }
 
     if !animated {
@@ -187,17 +200,17 @@ extension ElongationViewController {
     
     // Scroll to calculated rect only if it's not going to collapse whole tableView
     if force == nil {
-      tableView.scrollToRow(at: indexPath, at: .middle, animated: animated)
+      switch config.expandingBehaviour {
+      case .centerInView:
+        tableView.scrollToRow(at: indexPath, at: .middle, animated: animated)
+      case .scrollToBottom:
+        tableView.scrollToRow(at: indexPath, at: .bottom, animated: animated)
+      case .scrollToTop:
+        tableView.scrollToRow(at: indexPath, at: .top, animated: animated)
+      default: break
+      }
+      
     }
-  }
-  
-  fileprivate func changeOffset(of cell: ElongationCell) {
-    let cellFrame = cell.frame
-    let cellFrameInTable = tableView.convert(cellFrame, to: UIScreen.main.coordinateSpace)
-    let cellOffset = cellFrameInTable.origin.y + cellFrameInTable.size.height
-    let tableHeight = tableView.bounds.size.height + cellFrameInTable.size.height
-    let cellOffsetFactor = cellOffset / tableHeight
-    cell.setFrontViewOffset(cellOffsetFactor)
   }
   
 }
@@ -205,11 +218,22 @@ extension ElongationViewController {
 // MARK: - TableView 📚
 extension ElongationViewController {
   
+  /// Must call `super` if you override this method in subclass.
   open override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     guard let cell = cell as? ElongationCell else { return }
     let expanded = state == .expanded
     cell.dim(expanded, animated: expanded)
-    changeOffset(of: cell)
+    cell.hideSeparator(expanded, animated: expanded)
+    
+    // 'Remove' separators from top and bottom cells
+    let numberOfRowsInSection = tableView.numberOfRows(inSection: indexPath.section)
+    if indexPath.row == 0 || indexPath.row == numberOfRowsInSection - 1 {
+      let separator = indexPath.row == 0 ? cell.topSeparatorLine : cell.bottomSeparatorLine
+      separator?.backgroundColor = UIColor.black
+    } else {
+      cell.topSeparatorLine?.backgroundColor = config.separatorColor
+      cell.bottomSeparatorLine?.backgroundColor = config.separatorColor
+    }
   }
   
   open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -219,16 +243,16 @@ extension ElongationViewController {
   
   open override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     let isExpanded = cellStatesDictionary[indexPath] ?? false
-    let apperance = ElongationConfig.shared
-    let frontViewHeight = apperance.topViewHeight
-    let expandedCellHeight = apperance.bottomViewHeight + frontViewHeight - apperance.bottomViewOffset
+    let frontViewHeight = config.topViewHeight
+    let expandedCellHeight = config.bottomViewHeight + frontViewHeight - config.bottomViewOffset
     return isExpanded ? expandedCellHeight : frontViewHeight
   }
   
+  /// Must call `super` if you override this method in subclass.
   open override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    guard scrollView === tableView else { return }
+    guard scrollView === tableView, config.parallaxEnabled else { return }
     for case let cell as ElongationCell in tableView.visibleCells {
-      changeOffset(of: cell)
+      cell.parallaxOffset(offsetY: tableView.contentOffset.y, height: tableView.bounds.height)
     }
   }
  
