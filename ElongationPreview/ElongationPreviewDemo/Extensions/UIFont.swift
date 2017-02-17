@@ -12,7 +12,7 @@ import UIKit
 extension UIFont {
   
   enum FontWeight: String {
-    case regular, medium
+    case regular, medium, bold
   }
   
   static func robotoFont(ofSize: CGFloat, weight: FontWeight = .regular) -> UIFont {

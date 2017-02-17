@@ -14,7 +14,7 @@ class DetailViewController: ElongationDetailViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
-    tableView.backgroundColor = UIColor.white
+    tableView.backgroundColor = UIColor.black
     tableView.register(UITableViewCell.self)
   }
   

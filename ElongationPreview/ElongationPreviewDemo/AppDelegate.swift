@@ -25,13 +25,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
       self.window?.bringSubview(toFront: view)
     }
     
-    // Customize ElongationAppearance
+    // Customize ElongationConfig
     var config = ElongationConfig()
     config.scaleViewScaleFactor = 0.9
     config.topViewHeight = 190
     config.bottomViewHeight = 170
     config.bottomViewOffset = 20
-    config.parallaxFactor = 0
+    config.parallaxFactor = 100
+    config.separatorHeight = 2
+    config.separatorColor = UIColor.black
+    
+    // Durations for presenting/dismissing detail screen
+    config.detailPresetingDuration = 0.4
+    config.detailDismissingDuration = 0.4
     
     // Customize behaviour
     config.headerTouchAction = .collpaseOnBoth

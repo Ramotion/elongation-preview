@@ -22,5 +22,11 @@ class DemoElongationCell: ElongationCell {
   @IBOutlet var aboutDescriptionLabel: UILabel!
   
   @IBOutlet var topImageViewTopConstraint: NSLayoutConstraint!
+  
+  override func willMove(toSuperview newSuperview: UIView?) {
+    super.willMove(toSuperview: newSuperview)
+    let config = ElongationConfig.shared
+    topImageView?.contentMode = config.parallaxEnabled ? .center : .scaleAspectFill
+  }
     
 }

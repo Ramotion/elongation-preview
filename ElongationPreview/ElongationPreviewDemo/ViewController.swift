@@ -34,7 +34,7 @@ extension ViewController {
 private extension ViewController {
   
   func setup() {
-    view.backgroundColor = UIColor.black
+    tableView.backgroundColor = UIColor.black
     tableView.registerNib(DemoElongationCell.self)
   }
   
@@ -70,7 +70,7 @@ extension ViewController {
     let villa = datasource[indexPath.row]
     
     let attributedLocality = NSMutableAttributedString(string: villa.locality.uppercased(), attributes: [
-      NSFontAttributeName: UIFont.robotoFont(ofSize: 22),
+      NSFontAttributeName: UIFont.robotoFont(ofSize: 22, weight: .medium),
       NSKernAttributeName: 8.2,
       NSForegroundColorAttributeName: UIColor.white
       ])
