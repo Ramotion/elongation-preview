@@ -83,7 +83,6 @@ extension ElongationTransition {
     guard
       let path = root.expandedIndexPath, // get expanded indexPath
       let rootTableView = root.tableView, // get `tableView` from root
-      let detailTableView = detail.tableView, // get `tableView` from detail
       let cell = rootTableView.cellForRow(at: path) as? ElongationCell, // get expanded cell from root `tableView`
       let view = detailView // unwrap optional `detailView`
       else { return }
@@ -92,12 +91,8 @@ extension ElongationTransition {
     let elongationHeader = cell.elongationHeader
     detail.headerView = elongationHeader
     
-    let tempView = UIView()
-    tempView.backgroundColor = UIColor.white
-    
     // Add coming `view` to temporary `containerView`
     containerView.addSubview(view)
-    containerView.addSubview(tempView)
     
     // Update `bottomView`s top constraint and invalidate layout
     elongationHeader.bottomViewTopConstraint.constant = appearance.topViewHeight
@@ -107,9 +102,7 @@ extension ElongationTransition {
     let rect = rootTableView.rectForRow(at: path)
     let cellFrame = rootTableView.convert(rect, to: containerView)
 
-//    detailTableView.frame = CGRect(x: 0, y: 0, width: detailViewFinalFrame.width, height: cellFrame.height)
     view.frame = CGRect(x: 0, y: cellFrame.minY, width: detailViewFinalFrame.width, height: cellFrame.height)
-    tempView.frame = CGRect(x: 0, y: cellFrame.maxY, width: detailViewFinalFrame.width, height: 0)
     
     // Animate to new state
     UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
@@ -122,10 +115,7 @@ extension ElongationTransition {
       elongationHeader.contentView.layoutIfNeeded()
       
       view.frame = detailViewFinalFrame
-//      detailTableView.frame = detailViewFinalFrame
-//      tempView.frame = detailViewFinalFrame
     }) { (completed) in
-      tempView.removeFromSuperview()
       rootView?.removeFromSuperview()
       context.completeTransition(completed)
     }
@@ -148,15 +138,17 @@ extension ElongationTransition {
       let view = context.view(forKey: detailViewKey), // actual view of `detail` view controller
       let rootTableView = root.tableView, // `tableView` of root view controller
       let detailTableView = detail.tableView, // `tableView` of detail view controller
-      let path = root.expandedIndexPath // `indexPath` of expanded cell
+      let path = root.expandedIndexPath, // `indexPath` of expanded cell
+      let expandedCell = rootTableView.cellForRow(at: path) as? ElongationCell
     else { return }
     
     // Collapse root view controller without animation
     root.collapseCells(animated: false)
-
+    expandedCell.topViewTopConstraint.constant = 0
+    expandedCell.topViewHeightConstraint.constant = appearance.topViewHeight
+    expandedCell.hideSeparator(true, animated: false)
     
     let contentView = header.contentView
-
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0)
     view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
     let image = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
@@ -204,7 +196,6 @@ extension ElongationTransition {
       contentView.setNeedsLayout()
       contentView.layoutIfNeeded()
     }, completion: { (completed) in
-      print(detailTableView.frame)
       view.removeFromSuperview()
       context.completeTransition(completed)
     })
