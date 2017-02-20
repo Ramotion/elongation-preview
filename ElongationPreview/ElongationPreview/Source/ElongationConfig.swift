@@ -19,8 +19,11 @@ public struct ElongationConfig {
   
   // MARK: Behaviour 🔧
   public enum ExpandingBehaviour {
+    /// Scroll tableView's content to center.
     case centerInView
+    /// Scroll tableView's content to top.
     case scrollToTop
+    /// Scroll tableView's content to bottom.
     case scrollToBottom
     case doNothing
   }
@@ -41,6 +44,11 @@ public struct ElongationConfig {
   /// What `elongationHeader` should do on touch
   public var headerTouchAction = HeaderTouchAction.collapseOnTop
   
+  /// Enable gestures on `ElongationCell` & `ElongationHeader`.
+  /// These gestures will give ability to expand/dismiss the cell and detail view controller.
+  /// Default value: `true`
+  public var isSwipeGesturesEnabled = true
+  
   
   // MARK: Appearance 🎨
 
@@ -57,9 +65,9 @@ public struct ElongationConfig {
   /// Default value: `nil`
   public var parallaxFactor: CGFloat?
   
-  /// Should we enable parallax effect on ElongationCell
+  /// Should we enable parallax effect on ElongationCell (read-only).
   /// Will be `true` if `separator` not `nil` && greater than zero
-  public var parallaxEnabled: Bool {
+  public var isParallaxEnabled: Bool {
     switch parallaxFactor {
     case .none: return false
     case .some(let value): return value > 0
@@ -82,8 +90,8 @@ public struct ElongationConfig {
   /// Default value: `.white`
   public var separatorColor: UIColor = .white
   
-  /// Should we create custom separator view
-  /// Will be `true` if `separator` not `nil` && greater than zero
+  /// Should we create custom separator view (read-only).
+  /// Will be `true` if `separator` not `nil` && greater than zero.
   public var customSeparatorEnabled: Bool {
     switch separatorHeight {
     case .none: return false
