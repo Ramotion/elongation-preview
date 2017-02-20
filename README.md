@@ -1,13 +1,13 @@
-[![header](/assets/header.png)](https://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=expanding-collection-logo)
+[![header](/assets/header.png)](https://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview-logo)
 
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
-[![CocoaPods](https://img.shields.io/cocoapods/p/expanding-collection.svg)](https://cocoapods.org/pods/expanding-collection)
-[![CocoaPods](https://img.shields.io/cocoapods/v/expanding-collection.svg)](http://cocoapods.org/pods/expanding-collection)
-[![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/expanding-collection.svg)](https://cdn.rawgit.com/Ramotion/expanding-collection/master/docs/index.html)
+[![CocoaPods](https://img.shields.io/cocoapods/p/elongation-preview.svg)](https://cocoapods.org/pods/elongation-preview)
+[![CocoaPods](https://img.shields.io/cocoapods/v/elongation-preview.svg)](http://cocoapods.org/pods/elongation-preview)
+[![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/elongation-preview.svg)](https://cdn.rawgit.com/Ramotion/elongation-preview/master/docs/index.html)
 
-[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Ramotion/expanding-collection)
-[![Travis](https://travis-ci.org/Ramotion/expanding-collection.svg?branch=master)](https://travis-ci.org/Ramotion/expanding-collection)
-[![codebeat badge](https://codebeat.co/badges/6a009992-5bf2-4730-aa35-f3b20ce7693d)](https://codebeat.co/projects/github-com-ramotion-expanding-collection)
+[![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Ramotion/elongation-preview)
+[![Travis](https://travis-ci.org/Ramotion/elongation-preview.svg?branch=master)](https://travis-ci.org/Ramotion/elongation-preview)
+[![codebeat badge](https://codebeat.co/badges/6a009992-5bf2-4730-aa35-f3b20ce7693d)](https://codebeat.co/projects/github-com-ramotion-elongation-preview)
 
 <br>
 
@@ -15,7 +15,7 @@
 This project is maintained by Ramotion, Inc.<br>
 We specialize in the designing and coding of custom UI for Mobile Apps and Websites.<br><br>**Looking for developers for your project?**
 
-<a href="http://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=expanding-collection-contact-us/#Get_in_Touch" > <img src="https://github.com/Ramotion/navigation-stack/raw/master/contact_our_team@2x.png" width="150" height="30"></a>
+<a href="http://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview-contact-us/#Get_in_Touch" > <img src="https://github.com/Ramotion/navigation-stack/raw/master/contact_our_team@2x.png" width="150" height="30"></a>
 
 <br>
 
@@ -27,7 +27,7 @@ We specialize in the designing and coding of custom UI for Mobile Apps and Websi
 <br>
 
 ## Installation
-You can install this `ElongationPreview` in several ways:
+You can install `ElongationPreview` in several ways:
 
 - Add source files to your project.
 
@@ -35,7 +35,7 @@ You can install this `ElongationPreview` in several ways:
 
 - Use [CocoaPods](https://cocoapods.org):
 ``` ruby
-pod 'elongation-preview'
+pod 'ElongationPreview'
 ```
 
 <br>
@@ -142,5 +142,5 @@ See [LICENSE](./LICENSE) for details.
 
 ## Follow us
 
-[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/ramotion/expanding-collection)
+[![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/ramotion/elongation-preview)
 [![Twitter Follow](https://img.shields.io/twitter/follow/ramotion.svg?style=social)](https://twitter.com/ramotion)
