@@ -12,8 +12,6 @@ import ElongationPreview
 
 class DemoElongationCell: ElongationCell {
   
-  @IBOutlet var labelsView: UIView!
-  
   @IBOutlet var topImageView: UIImageView!
   @IBOutlet var localityLabel: UILabel!
   @IBOutlet var countryLabel: UILabel!
@@ -26,7 +24,7 @@ class DemoElongationCell: ElongationCell {
   override func willMove(toSuperview newSuperview: UIView?) {
     super.willMove(toSuperview: newSuperview)
     let config = ElongationConfig.shared
-    topImageView?.contentMode = config.parallaxEnabled ? .center : .scaleAspectFill
+    topImageView?.contentMode = config.isParallaxEnabled ? .center : .scaleAspectFill
   }
     
 }

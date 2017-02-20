@@ -75,11 +75,11 @@ extension ViewController {
       NSForegroundColorAttributeName: UIColor.white
       ])
     
-    cell.topImageView.image = UIImage(named: villa.imageName)
-    cell.localityLabel.attributedText = attributedLocality
-    cell.countryLabel.text = villa.country
-    cell.aboutTitleLabel.text = villa.title
-    cell.aboutDescriptionLabel.text = villa.description
+    cell.topImageView?.image = UIImage(named: villa.imageName)
+    cell.localityLabel?.attributedText = attributedLocality
+    cell.countryLabel?.text = villa.country
+    cell.aboutTitleLabel?.text = villa.title
+    cell.aboutDescriptionLabel?.text = villa.description
   }
   
 }
