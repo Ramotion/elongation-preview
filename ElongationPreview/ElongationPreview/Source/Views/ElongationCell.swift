@@ -21,8 +21,6 @@ open class ElongationCell: UITableViewCell, Expandable {
   /// This is the top view which can be scaled if `scaleFactor` was configured in `ElongationAppearance`.
   /// Also to this view can be applied 'parallax' effect.
   @IBOutlet public var scalableView: UIView!
-  @IBOutlet public var scalableViewTopConstraint: NSLayoutConstraint!
-  @IBOutlet public var scalableViewBottomConstraint: NSLayoutConstraint!
   
   @IBOutlet public var parallaxViewCenterConstraint: NSLayoutConstraint!
   @IBOutlet public var parallaxViewHeightConstraint: NSLayoutConstraint!
@@ -30,9 +28,7 @@ open class ElongationCell: UITableViewCell, Expandable {
   @IBOutlet public var bottomView: UIView!
   @IBOutlet public var bottomViewHeightConstraint: NSLayoutConstraint!
   @IBOutlet public var bottomViewTopConstraint: NSLayoutConstraint!
-  @IBOutlet public var bottomViewBottomConstraint: NSLayoutConstraint!
   
-  @IBOutlet public var swipeGestureRecognizer: UIGestureRecognizer!
   
   // MARK: Internal properties
   var topSeparatorLine: UIView?
@@ -62,7 +58,6 @@ open class ElongationCell: UITableViewCell, Expandable {
   private func commonInit() {
     configureCell()
     addDimmingView()
-    addCustomSeparatorIfNeeded()
   }
   
   open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
@@ -87,12 +82,7 @@ extension ElongationCell {
   
   open override func willMove(toSuperview newSuperview: UIView?) {
     super.willMove(toSuperview: newSuperview)
-    
-    topViewHeightConstraint?.constant = appearance.topViewHeight - ((appearance.separatorHeight ?? 0) * 2)
-    topViewTopConstraint.constant = appearance.separatorHeight ?? 0
-    if appearance.parallaxEnabled, let parallaxFactor = appearance.parallaxFactor {
-      parallaxViewHeightConstraint?.constant = appearance.topViewHeight + parallaxFactor
-    }
+    setupConstraintsIfNeeded()
     setupCustomSeparatorIfNeeded()
   }
   
@@ -106,16 +96,16 @@ extension ElongationCell {
 }
 
 // MARK: - Setup ⛏
-private extension ElongationCell {
+extension ElongationCell {
   
-  func configureCell() {
+  public func configureCell() {
     selectionStyle = .none
     selectedBackgroundView = nil
     clipsToBounds = true
     contentView.clipsToBounds = true
   }
   
-  func addDimmingView() {
+  fileprivate func addDimmingView() {
     dimmingView = UIView()
     contentView.addSubview(dimmingView)
     dimmingView.alpha = 0
@@ -124,14 +114,7 @@ private extension ElongationCell {
     dimmingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
   }
   
-  func addCustomSeparatorIfNeeded() {
-    guard appearance.customSeparatorEnabled else { return }
-    let color = appearance.separatorColor
-    let topSeparator = UIView()
-    topSeparator.backgroundColor = color
-  }
-  
-  func setupCustomSeparatorIfNeeded() {
+  fileprivate func setupCustomSeparatorIfNeeded() {
     guard appearance.customSeparatorEnabled, let separatorHeight = appearance.separatorHeight else { return }
     let topSeparator = UIView()
     let bottomSeparator = UIView()
@@ -139,7 +122,7 @@ private extension ElongationCell {
     let separators = [topSeparator, bottomSeparator]
     
     for separator in separators {
-      contentView.addSubview(separator)
+      contentView.insertSubview(separator, belowSubview: dimmingView)
       separator.backgroundColor = appearance.separatorColor
       separator.translatesAutoresizingMaskIntoConstraints = false
       
@@ -160,6 +143,20 @@ private extension ElongationCell {
   
 }
 
+// MARK: - Layout 🔬
+extension ElongationCell {
+  
+  func setupConstraintsIfNeeded() {
+    let separatorHeight = appearance.separatorHeight ?? 0
+    topViewHeightConstraint?.constant = appearance.topViewHeight - (separatorHeight * 2)
+    topViewTopConstraint?.constant = separatorHeight
+    if appearance.isParallaxEnabled, let parallaxFactor = appearance.parallaxFactor {
+      parallaxViewHeightConstraint?.constant = appearance.topViewHeight + parallaxFactor
+    }
+  }
+  
+}
+
 // MARK: - Actions ⚡
 extension ElongationCell {
   
@@ -172,9 +169,7 @@ extension ElongationCell {
         self.updateCellState()
         
         self.hideSeparator(value, animated: false)
-      }, completion: { _ in
-        
-      })
+      }, completion: nil)
     } else {
       updateCellState()
       hideSeparator(value, animated: false)
@@ -244,44 +239,22 @@ extension ElongationCell {
   
 }
 
-// MARK: - Gestures
-extension ElongationCell {
-  
-  open override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-    super.touchesMoved(touches, with: event)
-    guard isExpanded, let touch = touches.first else { return }
-    let location = touch.location(in: self)
-    print(#function, location)
-    guard let view = hitTest(location, with: nil) else { return }
-    switch view {
-    case topView:
-      print("topView:", location)
-    case bottomView:
-      print("bottomView:", location)
-    default: break
-    }
-  }
-  
-  
-}
-
 // MARK: - Endode/Decode
 extension ElongationCell {
   
-  private struct Keys {
+  fileprivate struct Keys {
     static let isExpanded = "isExpanded"
-    static let frontViewHeightConstraint = "frontViewHeightConstraint"
     static let dimmingView = "dimmingView"
     
     static let scalableView = "scalableView"
     
     static let topView = "topView"
     static let topViewHeightConstraint = "topViewHeightConstraint"
+    static let topViewTopConstraint = "topViewTopConstraint"
     
     static let bottomView = "backView"
     static let bottomViewHeightConstraint = "bottomViewHeightConstraint"
     static let bottomViewTopConstraint = "bottomViewTopConstraint"
-    static let bottomViewBottomConstraint = "bottomViewBottomConstraint"
   }
   
   var cellCopy: ElongationCell? {
@@ -295,15 +268,18 @@ extension ElongationCell {
   open override func encode(with aCoder: NSCoder) {
     super.encode(with: aCoder)
     aCoder.encode(isExpanded, forKey: Keys.isExpanded)
+    
     aCoder.encode(topView, forKey: Keys.topView)
-    aCoder.encode(scalableView, forKey: Keys.scalableView)
     aCoder.encode(topViewHeightConstraint, forKey: Keys.topViewHeightConstraint)
+    aCoder.encode(topViewTopConstraint, forKey: Keys.topViewTopConstraint)
+    
     aCoder.encode(bottomView, forKey: Keys.bottomView)
     aCoder.encode(bottomViewTopConstraint, forKey: Keys.bottomViewTopConstraint)
     aCoder.encode(bottomViewHeightConstraint, forKey: Keys.bottomViewHeightConstraint)
-    aCoder.encode(bottomViewBottomConstraint, forKey: Keys.bottomViewBottomConstraint)
+    
+    aCoder.encode(scalableView, forKey: Keys.scalableView)
   }
-  
+
   fileprivate func decode(from coder: NSCoder) {
     
     if let isExpanded = coder.decodeObject(forKey: Keys.isExpanded) as? Bool {
@@ -314,16 +290,16 @@ extension ElongationCell {
       self.topView = topView
     }
     
-    if let scalableView = coder.decodeObject(forKey: Keys.scalableView) as? UIView {
-      self.scalableView = scalableView
-    }
-    
     if let topViewHeightConstraint = coder.decodeObject(forKey: Keys.topViewHeightConstraint) as? NSLayoutConstraint {
       self.topViewHeightConstraint = topViewHeightConstraint
     }
     
-    if let backView = coder.decodeObject(forKey: Keys.bottomView) as? UIView {
-      self.bottomView = backView
+    if let topViewTopConstraint = coder.decodeObject(forKey: Keys.topViewTopConstraint) as? NSLayoutConstraint {
+      self.topViewTopConstraint = topViewTopConstraint
+    }
+    
+    if let bottomView = coder.decodeObject(forKey: Keys.bottomView) as? UIView {
+      self.bottomView = bottomView
     }
     
     if let bottomViewTopConstraint = coder.decodeObject(forKey: Keys.bottomViewTopConstraint) as? NSLayoutConstraint {
@@ -334,8 +310,8 @@ extension ElongationCell {
       self.bottomViewHeightConstraint = bottomViewHeightConstraint
     }
     
-    if let bottomViewBottomConstraint = coder.decodeObject(forKey: Keys.bottomViewBottomConstraint) as? NSLayoutConstraint {
-      self.bottomViewBottomConstraint = bottomViewBottomConstraint
+    if let scalableView = coder.decodeObject(forKey: Keys.scalableView) as? UIView {
+      self.scalableView = scalableView
     }
     
   }
