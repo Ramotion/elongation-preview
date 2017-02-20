@@ -78,7 +78,7 @@ Now you must register reusable cell in `tableView`. If you prefer to use Storybo
 
 `scalableView` — the view which will be scaled when you tap on the cell.
  
-`topView` — static top view, add here all the views which want be scaled and must stay on their position.
+`topView` — static top view, add here all the views which wont be scaled and must stay on their position.
 
 And these constraints: `topViewHeightConstraint`, `topViewTopConstraint`, `bottomViewHeightConstraint`, `bottomViewTopConstraint`.
 
