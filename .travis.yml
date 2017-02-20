@@ -1,0 +1,6 @@
+osx_image: xcode8
+language: objective-c
+
+xcode_project: ElongationPreview/ElongationPreview.xcodeproj
+xcode_scheme: ElongationPreview
+xcode_sdk: iphonesimulator
