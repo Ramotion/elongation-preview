@@ -10,20 +10,69 @@ import UIKit
 
 
 
-open class ElongationDetailViewController: UITableViewController {
+open class ElongationDetailViewController: SwipableTableViewController {
   
   var isExpanded = true
   
   open var headerView: ElongationHeader!
- 
-  override open func viewDidAppear(_ animated: Bool) {
-    super.viewDidAppear(animated)
-    let tapGesture = UITapGestureRecognizer(target: self, action: #selector(headerViewTapped))
-    headerView.addGestureRecognizer(tapGesture)
+  
+  fileprivate var config: ElongationConfig {
+    return .shared
   }
+ 
+}
+
+// MARK: - Lifecycle 🌎
+extension ElongationDetailViewController {
   
-  
-  
+  override func gestureRecognizerSwiped(_ gesture: UIPanGestureRecognizer) {
+    guard config.isSwipeGesturesEnabled else { return }
+    let location = gesture.location(in: tableView)
+    
+    let point = headerView.convert(location, from: tableView)
+    
+    guard headerView.point(inside: location, with: nil), let view = headerView.hitTest(point, with: nil) else { return }
+    if gesture.state == .began {
+      startY = point.y
+    }
+    
+    
+    let newY = point.y
+    let goingToBottom = startY < newY
+    
+    let rangeReached = abs(startY - newY) > 30
+    
+    if rangeReached {
+      gesture.isEnabled = false
+      gesture.isEnabled = true
+    }
+    
+    switch view {
+    case headerView.scalableView where swipedView == headerView.scalableView && rangeReached:
+      if goingToBottom {
+        guard !isBeingDismissed else { return }
+        dismissViewController()
+      }
+      startY = newY
+    case headerView.bottomView where swipedView == headerView.bottomView && rangeReached:
+      if goingToBottom {
+        
+      }
+      
+      startY = newY
+    default: break
+    }
+    
+    swipedView = view
+  }
+ 
+  open override func scrollViewDidScroll(_ scrollView: UIScrollView) {
+    guard scrollView === tableView, config.isSwipeGesturesEnabled else { return }
+    if scrollView.contentOffset.y < 0, swipedView === headerView?.scalableView {
+      scrollView.setContentOffset(.zero, animated: false)
+    }
+  }
+
 }
 
 // MARK: - Actions ⚡

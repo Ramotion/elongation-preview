@@ -9,7 +9,7 @@
 import UIKit
 
 
-open class ElongationViewController: UITableViewController {
+open class ElongationViewController: SwipableTableViewController {
   
   // MARK: Public properties
   
@@ -30,8 +30,8 @@ open class ElongationViewController: UITableViewController {
     didSet {
       let expanded = state == .expanded
       tapGesture.isEnabled = expanded
-      tableView.isScrollEnabled = !expanded
       tableView.allowsSelection = !expanded
+      tableView.panGestureRecognizer.isEnabled = !expanded
     }
   }
   
@@ -41,6 +41,7 @@ open class ElongationViewController: UITableViewController {
   fileprivate var config: ElongationConfig {
     return ElongationConfig.shared
   }
+  fileprivate var parallaxConfigured = false
   
 }
 
@@ -56,7 +57,8 @@ extension ElongationViewController {
     super.viewWillAppear(animated)
     
     // We need to call this method to set parallax start offset
-    guard config.parallaxEnabled else { return }
+    guard config.isParallaxEnabled, !parallaxConfigured else { return }
+    parallaxConfigured = true
     scrollViewDidScroll(tableView)
   }
   
@@ -94,6 +96,7 @@ extension ElongationViewController {
     for (path, state) in cellStatesDictionary where state {
       moveCells(from: path, force: false, animated: animated)
     }
+//    scrollViewDidScroll(tableView)
   }
   
   /// Expand cell at given `IndexPath`.
@@ -201,16 +204,50 @@ extension ElongationViewController {
     // Scroll to calculated rect only if it's not going to collapse whole tableView
     if force == nil {
       switch config.expandingBehaviour {
-      case .centerInView:
-        tableView.scrollToRow(at: indexPath, at: .middle, animated: animated)
-      case .scrollToBottom:
-        tableView.scrollToRow(at: indexPath, at: .bottom, animated: animated)
-      case .scrollToTop:
-        tableView.scrollToRow(at: indexPath, at: .top, animated: animated)
+      case .centerInView: tableView.scrollToRow(at: indexPath, at: .middle, animated: animated)
+      case .scrollToBottom: tableView.scrollToRow(at: indexPath, at: .bottom, animated: animated)
+      case .scrollToTop: tableView.scrollToRow(at: indexPath, at: .top, animated: animated)
       default: break
       }
-      
     }
+    
+  }
+  
+  override func gestureRecognizerSwiped(_ gesture: UIPanGestureRecognizer) {
+    let point = gesture.location(in: tableView)
+    guard let path = tableView.indexPathForRow(at: point), path == expandedIndexPath, let cell = tableView.cellForRow(at: path) as? ElongationCell else { return }
+    let convertedPoint = cell.convert(point, from: tableView)
+    guard let view = cell.hitTest(convertedPoint, with: nil) else { return }
+    
+    if gesture.state == .began {
+      startY = convertedPoint.y
+    }
+    
+    let newY = convertedPoint.y
+    let goingToBottom = startY < newY
+    
+    let rangeReached = abs(startY - newY) > 50
+    
+    switch view {
+    case cell.scalableView where swipedView == cell.scalableView && rangeReached:
+      if goingToBottom {
+        collapseCells(animated: true)
+      } else {
+        openDetailView(for: path)
+      }
+      startY = newY
+    case cell.bottomView where swipedView == cell.bottomView && rangeReached:
+      if goingToBottom {
+        openDetailView(for: path)
+      } else {
+        collapseCells(animated: true)
+      }
+      
+      startY = newY
+    default: break
+    }
+    
+    swipedView = view
   }
   
 }
@@ -225,7 +262,7 @@ extension ElongationViewController {
     cell.dim(expanded, animated: expanded)
     cell.hideSeparator(expanded, animated: expanded)
     
-    // 'Remove' separators from top and bottom cells
+    // Remove separators from top and bottom cells.
     let numberOfRowsInSection = tableView.numberOfRows(inSection: indexPath.section)
     if indexPath.row == 0 || indexPath.row == numberOfRowsInSection - 1 {
       let separator = indexPath.row == 0 ? cell.topSeparatorLine : cell.bottomSeparatorLine
@@ -250,7 +287,7 @@ extension ElongationViewController {
   
   /// Must call `super` if you override this method in subclass.
   open override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    guard scrollView === tableView, config.parallaxEnabled else { return }
+    guard scrollView === tableView, config.isParallaxEnabled else { return }
     for case let cell as ElongationCell in tableView.visibleCells {
       cell.parallaxOffset(offsetY: tableView.contentOffset.y, height: tableView.bounds.height)
     }
