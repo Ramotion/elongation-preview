@@ -98,7 +98,7 @@ extension ElongationCell {
 // MARK: - Setup ⛏
 extension ElongationCell {
   
-  public func configureCell() {
+  open func configureCell() {
     selectionStyle = .none
     selectedBackgroundView = nil
     clipsToBounds = true

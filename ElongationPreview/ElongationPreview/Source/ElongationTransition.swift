@@ -88,35 +88,71 @@ extension ElongationTransition {
       else { return }
 
     // Create `ElongationHeader` from `ElongationCell` and set it as `headerView` to `detail` view controller
-    let elongationHeader = cell.elongationHeader
-    detail.headerView = elongationHeader
+    let header = cell.elongationHeader
+    detail.headerView = header
+    
+    // Whole view snapshot
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0)
+    view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
+    let fullImage = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
+    UIGraphicsEndImageContext()
+    
+    // Header snapshot
+    UIGraphicsBeginImageContextWithOptions(header.frame.size, true, 0)
+    fullImage.draw(at: CGPoint(x: 0, y: 0))
+    let headerSnapsot = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
+    UIGraphicsEndImageContext()
+    
+    // TableView snapshot
+    let cellsSize = CGSize(width: view.frame.width, height: view.frame.height - header.frame.height)
+    UIGraphicsBeginImageContextWithOptions(cellsSize, true, 0)
+    fullImage.draw(at: CGPoint(x: 0, y: -header.frame.height))
+    let tableSnapshot = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
+    UIGraphicsEndImageContext()
+    
+    let headerSnapshotView = UIImageView(image: headerSnapsot)
+    let tableViewSnapshotView = UIImageView(image: tableSnapshot)
+    
+    let tempView = UIView()
+    tempView.backgroundColor = header.bottomView.backgroundColor
     
     // Add coming `view` to temporary `containerView`
     containerView.addSubview(view)
+    containerView.addSubview(tempView)
+    containerView.addSubview(tableViewSnapshotView)
     
     // Update `bottomView`s top constraint and invalidate layout
-    elongationHeader.bottomViewTopConstraint.constant = appearance.topViewHeight
-    elongationHeader.bottomView.setNeedsLayout()
+    header.bottomViewTopConstraint.constant = appearance.topViewHeight
+    header.bottomView.setNeedsLayout()
     
     // Get frame of expanded cell and convert it to `containerView` coordinates
     let rect = rootTableView.rectForRow(at: path)
     let cellFrame = rootTableView.convert(rect, to: containerView)
 
     view.frame = CGRect(x: 0, y: cellFrame.minY, width: detailViewFinalFrame.width, height: cellFrame.height)
+    headerSnapshotView.frame = CGRect(x: 0, y: cellFrame.minY, width: cellFrame.width, height: cellFrame.height)
+    tableViewSnapshotView.frame = CGRect(x: 0, y: detailViewFinalFrame.maxY, width: cellsSize.width, height: cellsSize.height)
+    tempView.frame = CGRect(x: 0, y: cellFrame.maxY, width: detailViewFinalFrame.width, height: 0)
     
     // Animate to new state
     UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
       root.view?.alpha = 0
       
-      elongationHeader.scalableView.transform = .identity // reset scale to 1.0
-      elongationHeader.contentView.frame = CGRect(x: 0, y: 0, width: cellFrame.width, height: cellFrame.height + self.appearance.bottomViewOffset)
+      header.scalableView.transform = .identity // reset scale to 1.0
+      header.contentView.frame = CGRect(x: 0, y: 0, width: cellFrame.width, height: cellFrame.height + self.appearance.bottomViewOffset)
       
-      elongationHeader.contentView.setNeedsLayout()
-      elongationHeader.contentView.layoutIfNeeded()
+      header.contentView.setNeedsLayout()
+      header.contentView.layoutIfNeeded()
       
       view.frame = detailViewFinalFrame
+      headerSnapshotView.frame = CGRect(x: 0, y: 0, width: cellFrame.width, height: cellFrame.height)
+      tableViewSnapshotView.frame = CGRect(x: 0, y: header.frame.height, width: detailViewFinalFrame.width, height: cellsSize.height)
+      tempView.frame = CGRect(x: 0, y: headerSnapshotView.frame.maxY, width: detailViewFinalFrame.width, height: detailViewFinalFrame.height)
     }) { (completed) in
       rootView?.removeFromSuperview()
+      tempView.removeFromSuperview()
+      headerSnapshotView.removeFromSuperview()
+      tableViewSnapshotView.removeFromSuperview()
       context.completeTransition(completed)
     }
     
@@ -149,13 +185,13 @@ extension ElongationTransition {
     expandedCell.hideSeparator(true, animated: false)
     
     let contentView = header.contentView
-    UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0)
+    UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0)
     view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
     let image = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
     UIGraphicsEndImageContext()
     
     let size = CGSize(width: view.frame.width, height: view.frame.height - header.frame.height)
-    UIGraphicsBeginImageContext(size)
+    UIGraphicsBeginImageContextWithOptions(size, true, 0)
     image.draw(at: CGPoint(x: 0, y: -header.frame.height))
     let croppedImage = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
     UIGraphicsEndImageContext()
