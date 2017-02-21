@@ -177,24 +177,38 @@ extension ElongationTransition {
     expandedCell.topViewHeightConstraint.constant = appearance.topViewHeight
     expandedCell.hideSeparator(true, animated: false)
     
-    let contentView = header.contentView
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0)
     view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
     let image = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
     UIGraphicsEndImageContext()
     
-    let size = CGSize(width: view.frame.width, height: view.frame.height - header.frame.height)
-    UIGraphicsBeginImageContextWithOptions(size, true, 0)
-    image.draw(at: CGPoint(x: 0, y: -header.frame.height))
-    let croppedImage = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
+    let topViewSize = CGSize(width: view.bounds.width, height: appearance.topViewHeight)
+    UIGraphicsBeginImageContextWithOptions(topViewSize, true, 0)
+    image.draw(at: .zero)
+    let topViewImage = UIGraphicsGetImageFromCurrentImageContext()
     UIGraphicsEndImageContext()
     
-    let tableViewSnapshotView = UIImageView(image: croppedImage)
+    let bottomViewSize = CGSize(width: view.bounds.width, height: appearance.bottomViewHeight)
+    UIGraphicsBeginImageContextWithOptions(bottomViewSize, true, 0)
+    image.draw(at: CGPoint(x: 0, y: -appearance.topViewHeight))
+    let bottomViewImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    let size = CGSize(width: view.bounds.width, height: view.bounds.height - header.frame.height)
+    UIGraphicsBeginImageContextWithOptions(size, true, 0)
+    image.draw(at: CGPoint(x: 0, y: -header.frame.height))
+    let tableViewImage = UIGraphicsGetImageFromCurrentImageContext()
+    UIGraphicsEndImageContext()
+    
+    let bottomViewImageView = UIImageView(image: bottomViewImage)
+    let topViewImageView = UIImageView(image: topViewImage)
+    let tableViewSnapshotView = UIImageView(image: tableViewImage)
     
     
     // Add `header` and `tableView` snapshot to temporary container
+    containerView.addSubview(bottomViewImageView)
     containerView.addSubview(tableViewSnapshotView)
-    containerView.addSubview(header)
+    containerView.addSubview(topViewImageView)
     
     
     // Prepare view to dismissing
@@ -204,26 +218,19 @@ extension ElongationTransition {
     
     // Place views at their start points.
     let offset = detailTableView.contentOffset.y
-    header.frame = CGRect(x: 0, y: -offset, width: header.frame.width, height: header.frame.height)
+    topViewImageView.frame = CGRect(x: 0, y: -offset, width: topViewSize.width, height: topViewSize.height)
+    bottomViewImageView.frame = CGRect(x: 0, y: -offset + topViewSize.height, width: view.bounds.width, height: bottomViewSize.height)
     tableViewSnapshotView.frame = CGRect(x: 0, y: header.frame.maxY, width: view.bounds.width, height: tableViewSnapshotView.frame.height)
     
     UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
       root.view?.alpha = 1
       
-      header.bottomViewTopConstraint.constant = self.appearance.bottomViewOffset
-      header.bottomView.setNeedsLayout()
-      
       tableViewSnapshotView.alpha = 0
-      contentView.backgroundColor = UIColor.white
       
       // Animate views to collapsed cell size
-      header.frame = CGRect(x: 0, y: cellFrame.origin.y, width: header.frame.width, height: cellFrame.height)
-      contentView.frame = CGRect(x: 0, y: 0, width: header.frame.width, height: cellFrame.height)
+      topViewImageView.frame = CGRect(x: 0, y: cellFrame.origin.y, width: header.frame.width, height: cellFrame.height)
+      bottomViewImageView.frame = CGRect(x: 0, y: cellFrame.origin.y, width: header.frame.width, height: cellFrame.height)
       tableViewSnapshotView.frame = CGRect(x: 0, y: cellFrame.origin.y, width: view.bounds.width, height: cellFrame.height)
-      
-      // Invalidate `contentView` layout to update `backView`
-      contentView.setNeedsLayout()
-      contentView.layoutIfNeeded()
     }, completion: { (completed) in
       view.removeFromSuperview()
       context.completeTransition(completed)
