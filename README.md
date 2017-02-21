@@ -1,9 +1,9 @@
 [![header](/assets/header.png)](https://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview-logo)
 
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
-[![CocoaPods](https://img.shields.io/cocoapods/p/elongation-preview.svg)](https://cocoapods.org/pods/elongation-preview)
-[![CocoaPods](https://img.shields.io/cocoapods/v/elongation-preview.svg)](http://cocoapods.org/pods/elongation-preview)
-[![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/elongation-preview.svg)](https://cdn.rawgit.com/Ramotion/elongation-preview/master/docs/index.html)
+[![CocoaPods](https://img.shields.io/cocoapods/p/elongation-preview.svg)](https://cocoapods.org/pods/ElongationPreview)
+[![CocoaPods](https://img.shields.io/cocoapods/v/ElongationPreview.svg)](http://cocoapods.org/pods/ElongationPreview)
+[![CocoaPods](https://img.shields.io/cocoapods/metrics/doc-percent/ElongationPreview.svg)](https://cdn.rawgit.com/Ramotion/elongation-preview/master/docs/index.html)
 
 [![Carthage compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Ramotion/elongation-preview)
 [![Travis](https://travis-ci.org/Ramotion/elongation-preview.svg?branch=master)](https://travis-ci.org/Ramotion/elongation-preview)
