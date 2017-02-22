@@ -253,14 +253,24 @@ extension ElongationCell {
   }
 
   func hideSeparator(_ value: Bool, animated: Bool) {
+    if let separatorHeight = appearance.separatorHeight {
+      topViewHeightConstraint.constant = value ? appearance.topViewHeight : appearance.topViewHeight - separatorHeight * 2
+      topViewTopConstraint.constant = value ? 0 : separatorHeight
+    }
+    topView.setNeedsLayout()
+    
     if animated {
       UIView.animate(withDuration: 0.15) {
         self.topSeparatorLine?.alpha = value ? 0 : 1
         self.bottomSeparatorLine?.alpha = value ? 0 : 1
+        self.contentView.setNeedsLayout()
+        self.contentView.layoutIfNeeded()
       }
     } else {
       self.topSeparatorLine?.alpha = value ? 0 : 1
       self.bottomSeparatorLine?.alpha = value ? 0 : 1
+      contentView.setNeedsLayout()
+      contentView.layoutIfNeeded()
     }
   }
   

@@ -175,7 +175,8 @@ extension ElongationTransition {
     root.collapseCells(animated: false)
     expandedCell.topViewTopConstraint.constant = 0
     expandedCell.topViewHeightConstraint.constant = appearance.topViewHeight
-    expandedCell.hideSeparator(true, animated: false)
+    expandedCell.hideSeparator(false, animated: true)
+    expandedCell.topView.setNeedsLayout()
     
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, true, 0)
     view.drawHierarchy(in: view.bounds, afterScreenUpdates: true)
@@ -231,6 +232,7 @@ extension ElongationTransition {
       topViewImageView.frame = CGRect(x: 0, y: cellFrame.origin.y, width: header.frame.width, height: cellFrame.height)
       bottomViewImageView.frame = CGRect(x: 0, y: cellFrame.origin.y, width: header.frame.width, height: cellFrame.height)
       tableViewSnapshotView.frame = CGRect(x: 0, y: cellFrame.origin.y, width: view.bounds.width, height: cellFrame.height)
+      expandedCell.contentView.layoutIfNeeded()
     }, completion: { (completed) in
       view.removeFromSuperview()
       context.completeTransition(completed)

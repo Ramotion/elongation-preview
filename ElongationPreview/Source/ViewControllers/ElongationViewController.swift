@@ -277,9 +277,10 @@ extension ElongationViewController {
     guard let cell = cell as? ElongationCell else { return }
     let expanded = state == .expanded
     cell.dim(expanded, animated: expanded)
-    cell.hideSeparator(expanded, animated: expanded)
     
     // Remove separators from top and bottom cells.
+    guard config.customSeparatorEnabled else { return }
+    cell.hideSeparator(expanded, animated: expanded)
     let numberOfRowsInSection = tableView.numberOfRows(inSection: indexPath.section)
     if indexPath.row == 0 || indexPath.row == numberOfRowsInSection - 1 {
       let separator = indexPath.row == 0 ? cell.topSeparatorLine : cell.bottomSeparatorLine
