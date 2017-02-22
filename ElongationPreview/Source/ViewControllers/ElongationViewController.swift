@@ -86,12 +86,12 @@ private extension ElongationViewController {
     setupTableView()
     setupTapGesture()
     
-//    if #available(iOS 10, *), traitCollection.forceTouchCapability == .available, config.forceTouchPreviewInteractionEnabled {
-//      interaction = UIPreviewInteraction(view: view)
-//      interaction.delegate = self
-//    } else if config.forceTouchPreviewInteractionEnabled {
+    if #available(iOS 10, *), traitCollection.forceTouchCapability == .available, config.forceTouchPreviewInteractionEnabled {
+      interaction = UIPreviewInteraction(view: view)
+      interaction.delegate = self
+    } else if config.forceTouchPreviewInteractionEnabled {
       setupLongPressGesture()
-//    }
+    }
   }
   
   private func setupTableView() {
