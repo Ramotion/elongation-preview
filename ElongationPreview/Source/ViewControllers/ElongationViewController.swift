@@ -8,6 +8,9 @@
 
 import UIKit
 
+@available(iOS 10, *)
+fileprivate var interaction: UIPreviewInteraction!
+
 /**
  
  UITableViewController subclass.
@@ -49,6 +52,7 @@ open class ElongationViewController: SwipableTableViewController {
   // MARK: Private properties
   fileprivate var cellStatesDictionary: [IndexPath: Bool] = [:]
   fileprivate var tapGesture: UITapGestureRecognizer!
+  fileprivate var longPressGesture: UILongPressGestureRecognizer!
   fileprivate var config: ElongationConfig {
     return ElongationConfig.shared
   }
@@ -81,6 +85,13 @@ private extension ElongationViewController {
   func setup() {
     setupTableView()
     setupTapGesture()
+    
+    if #available(iOS 10, *), traitCollection.forceTouchCapability == .available, config.forceTouchPreviewIntearctionEnabled {
+      interaction = UIPreviewInteraction(view: view)
+      interaction.delegate = self
+    } else if config.forceTouchPreviewIntearctionEnabled {
+      setupLongPressGesture()
+    }
   }
   
   private func setupTableView() {
@@ -91,6 +102,11 @@ private extension ElongationViewController {
     tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped(_:)))
     tapGesture.isEnabled = false
     tableView.addGestureRecognizer(tapGesture)
+  }
+  
+  private func setupLongPressGesture() {
+    longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureAction(_:)))
+    tableView.addGestureRecognizer(longPressGesture)
   }
   
 }
@@ -266,6 +282,13 @@ extension ElongationViewController {
     swipedView = view
   }
   
+  @objc fileprivate func longPressGestureAction(_ sender: UILongPressGestureRecognizer) {
+    let location = sender.location(in: tableView)
+    guard sender.state == .began, let path = tableView.indexPathForRow(at: location) else { return }
+    expandedIndexPath = path
+    openDetailView(for: path)
+  }
+  
 }
 
 // MARK: - TableView 📚
@@ -309,6 +332,41 @@ extension ElongationViewController {
       cell.parallaxOffset(offsetY: tableView.contentOffset.y, height: tableView.bounds.height)
     }
   }
+
+}
+
+// MARK: - 3D Touch Preview Interaction
+@available(iOS 10.0, *)
+extension ElongationViewController: UIPreviewInteractionDelegate {
+  
+  public func previewInteractionDidCancel(_ previewInteraction: UIPreviewInteraction) {
+    collapseCells()
+    
+    // This trick will prevent expanding cell in `didSelectRowAt indexPath` method
+    tableView.allowsSelection = false
+    DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+      self.tableView.allowsSelection = true
+    }
+  }
+  
+  public func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdatePreviewTransition transitionProgress: CGFloat, ended: Bool) {
+    guard ended else { return }
+    let location = previewInteraction.location(in: tableView)
+    guard let path = tableView.indexPathForRow(at: location) else { return }
+    if path == expandedIndexPath {
+      openDetailView(for: path)
+      previewInteraction.cancel()
+    } else {
+      moveCells(from: path)
+    }
+  }
+  
+  public func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdateCommitTransition transitionProgress: CGFloat, ended: Bool) {
+    guard ended else { return }
+    guard let path = expandedIndexPath else { return }
+    openDetailView(for: path)
+  }
+  
 }
 
 // MARK: - Transition
