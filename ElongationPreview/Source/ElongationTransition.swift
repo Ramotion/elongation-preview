@@ -74,15 +74,24 @@ extension ElongationTransition {
     let detailViewFinalFrame = context.finalFrame(for: detail) // Final frame for presenting view controller
     
     guard
-      let path = root.expandedIndexPath, // get expanded indexPath
       let rootTableView = root.tableView, // get `tableView` from root
+      let path = root.expandedIndexPath ?? rootTableView.indexPathForSelectedRow, // get expanded or selected indexPath
       let cell = rootTableView.cellForRow(at: path) as? ElongationCell, // get expanded cell from root `tableView`
       let view = detailView // unwrap optional `detailView`
       else { return }
+    
+    // Determine are `root` view is in expanded state.
+    // We need to know that because animation depends on the state.
+    let isExpanded = root.state == .expanded
+    
 
     // Create `ElongationHeader` from `ElongationCell` and set it as `headerView` to `detail` view controller
     let header = cell.elongationHeader
     detail.headerView = header
+    
+    // Get frame of expanded cell and convert it to `containerView` coordinates
+    let rect = rootTableView.rectForRow(at: path)
+    let cellFrame = rootTableView.convert(rect, to: containerView)
     
     // Whole view snapshot
     UIGraphicsBeginImageContextWithOptions(view.bounds.size, false, 0)
@@ -118,12 +127,10 @@ extension ElongationTransition {
     header.bottomViewTopConstraint.constant = appearance.topViewHeight
     header.bottomView.setNeedsLayout()
     
-    // Get frame of expanded cell and convert it to `containerView` coordinates
-    let rect = rootTableView.rectForRow(at: path)
-    let cellFrame = rootTableView.convert(rect, to: containerView)
-
+    let height = isExpanded ? cellFrame.height : appearance.topViewHeight + appearance.bottomViewHeight
+    
     view.frame = CGRect(x: 0, y: cellFrame.minY, width: detailViewFinalFrame.width, height: cellFrame.height)
-    headerSnapshotView.frame = CGRect(x: 0, y: cellFrame.minY, width: cellFrame.width, height: cellFrame.height)
+    headerSnapshotView.frame = CGRect(x: 0, y: cellFrame.minY, width: cellFrame.width, height: height)
     tableViewSnapshotView.frame = CGRect(x: 0, y: detailViewFinalFrame.maxY, width: cellsSize.width, height: cellsSize.height)
     tempView.frame = CGRect(x: 0, y: cellFrame.maxY, width: detailViewFinalFrame.width, height: 0)
     
@@ -138,7 +145,7 @@ extension ElongationTransition {
       header.contentView.layoutIfNeeded()
       
       view.frame = detailViewFinalFrame
-      headerSnapshotView.frame = CGRect(x: 0, y: 0, width: cellFrame.width, height: cellFrame.height)
+      headerSnapshotView.frame = CGRect(x: 0, y: 0, width: cellFrame.width, height: height)
       tableViewSnapshotView.frame = CGRect(x: 0, y: header.frame.height, width: detailViewFinalFrame.width, height: cellsSize.height)
       tempView.frame = CGRect(x: 0, y: headerSnapshotView.frame.maxY, width: detailViewFinalFrame.width, height: detailViewFinalFrame.height)
     }) { (completed) in
@@ -167,7 +174,7 @@ extension ElongationTransition {
       let view = context.view(forKey: detailViewKey), // actual view of `detail` view controller
       let rootTableView = root.tableView, // `tableView` of root view controller
       let detailTableView = detail.tableView, // `tableView` of detail view controller
-      let path = root.expandedIndexPath, // `indexPath` of expanded cell
+      let path = root.expandedIndexPath ?? rootTableView.indexPathForSelectedRow, // `indexPath` of expanded or selected cell
       let expandedCell = rootTableView.cellForRow(at: path) as? ElongationCell
     else { return }
     
