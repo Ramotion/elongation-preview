@@ -50,6 +50,14 @@ public struct ElongationConfig {
   /// Default value: `true`
   public var isSwipeGesturesEnabled = true
   
+  /// Enable `UIPreviewIntearction` on `ElongationCell`.
+  /// Default value: `true`
+  public var forceTouchPreviewIntearctionEnabled = true
+  
+  /// Enable `UILongPressGesture` on `ElongationCell`.
+  /// This gesture will allow to `expand` `ElongationCell` on long tap. By default, this option will be used on devices without 3D Touch technology.
+  /// Default value: `true`
+  public var longPressGestureEnabled = true
   
   // MARK: Appearance 🎨
 
