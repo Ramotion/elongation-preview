@@ -247,10 +247,8 @@ extension ElongationViewController {
       }
     }
     
-    for case let elongationCell as ElongationCell in tableView.visibleCells {
-      if shouldExpand, cell === elongationCell {
-        continue
-      }
+    guard !shouldExpand else { return }
+    for case let elongationCell as ElongationCell in tableView.visibleCells where elongationCell != cell {
       elongationCell.parallaxOffset(offsetY: tableView.contentOffset.y, height: tableView.bounds.height)
     }
     

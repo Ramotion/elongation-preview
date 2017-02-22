@@ -252,6 +252,7 @@ extension ElongationCell {
     contentView.layoutIfNeeded()
   }
 
+  // MARK: Internal
   func hideSeparator(_ value: Bool, animated: Bool) {
     if let separatorHeight = appearance.separatorHeight {
       topViewHeightConstraint.constant = value ? appearance.topViewHeight : appearance.topViewHeight - separatorHeight * 2
