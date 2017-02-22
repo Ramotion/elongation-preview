@@ -9,7 +9,13 @@
 import UIKit
 
 
-
+/**
+ 
+ UITableViewController subclass.
+ 
+ This is the `detail` view controller which can be used for display some details for objects from `root`.
+ 
+ */
 open class ElongationDetailViewController: SwipableTableViewController {
   
   /// Actually this is `expanded` copy of `ElongationCell`.
@@ -27,7 +33,7 @@ extension ElongationDetailViewController {
   override open func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(headerViewTapped))
-    headerView.addGestureRecognizer(tapGesture)
+    headerView?.addGestureRecognizer(tapGesture)
   }
   
   override func gestureRecognizerSwiped(_ gesture: UIPanGestureRecognizer) {

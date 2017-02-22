@@ -107,7 +107,6 @@ extension ElongationViewController {
     for (path, state) in cellStatesDictionary where state {
       moveCells(from: path, force: false, animated: animated)
     }
-//    scrollViewDidScroll(tableView)
   }
   
   /// Expand cell at given `IndexPath`.
@@ -133,7 +132,7 @@ extension ElongationViewController {
   /// Expand given `ElongationDetailViewController`
   ///
   /// - Parameters:
-  ///   - viewController: `ElongationDetailViewController` subclass which will to view hierarchy.
+  ///   - viewController: `ElongationDetailViewController` subclass which will be added to view hierarchy.
   ///   - animated: Should the transition be animated.
   ///   - completion: Optional callback which will be called when transition completes.
   public func expand(viewController: ElongationDetailViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
@@ -310,7 +309,6 @@ extension ElongationViewController {
       cell.parallaxOffset(offsetY: tableView.contentOffset.y, height: tableView.bounds.height)
     }
   }
- 
 }
 
 // MARK: - Transition

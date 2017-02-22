@@ -11,15 +11,15 @@ import UIKit
 
 open class SwipableTableViewController: UITableViewController, UIGestureRecognizerDelegate {
   
-  var gestureRecognizer: UIPanGestureRecognizer!
+  var panGestureRecognizer: UIPanGestureRecognizer!
   var startY: CGFloat = 0
   var swipedView: UIView?
   
   open override func viewDidLoad() {
     super.viewDidLoad()
-    gestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(gestureRecognizerSwiped(_:)))
-    gestureRecognizer.delegate = self
-    tableView.addGestureRecognizer(gestureRecognizer)
+    panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(gestureRecognizerSwiped(_:)))
+    panGestureRecognizer.delegate = self
+    tableView.addGestureRecognizer(panGestureRecognizer)
   }
   
   func gestureRecognizerSwiped(_ gesture: UIPanGestureRecognizer) { }
