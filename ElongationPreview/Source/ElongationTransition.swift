@@ -241,6 +241,7 @@ extension ElongationTransition {
       tableViewSnapshotView.frame = CGRect(x: 0, y: cellFrame.origin.y, width: view.bounds.width, height: cellFrame.height)
       expandedCell.contentView.layoutIfNeeded()
     }, completion: { (completed) in
+      root.state = .normal
       view.removeFromSuperview()
       context.completeTransition(completed)
     })

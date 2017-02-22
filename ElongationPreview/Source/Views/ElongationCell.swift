@@ -197,18 +197,18 @@ extension ElongationCell {
   /// - Parameters:
   ///   - value: true if the cell must be expanded
   ///   - animated: should it be animated
-  open func expand(_ value: Bool, animated: Bool = true) {
+  open func expand(_ value: Bool, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
     isExpanded = value
     
     if animated {
       UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
         self.updateCellState()
-        
         self.hideSeparator(value, animated: false)
-      }, completion: nil)
+      }, completion: completion)
     } else {
       updateCellState()
       hideSeparator(value, animated: false)
+      completion?(true)
     }
   }
   

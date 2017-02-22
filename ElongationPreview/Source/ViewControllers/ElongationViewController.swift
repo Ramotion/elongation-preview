@@ -57,6 +57,7 @@ open class ElongationViewController: SwipableTableViewController {
     return ElongationConfig.shared
   }
   fileprivate var parallaxConfigured = false
+  fileprivate var shouldCommitPreviewAction = false
   
 }
 
@@ -211,7 +212,10 @@ extension ElongationViewController {
   fileprivate func moveCells(from indexPath: IndexPath, force: Bool? = nil, animated: Bool = true) {
     guard let cell = tableView.cellForRow(at: indexPath) as? ElongationCell else { return }
     let shouldExpand = force ?? !(cellStatesDictionary[indexPath] ?? false)
-    cell.expand(shouldExpand, animated: animated)
+    shouldCommitPreviewAction = false
+    cell.expand(shouldExpand, animated: animated) { _ in
+      self.shouldCommitPreviewAction = true
+    }
     cellStatesDictionary[indexPath] = shouldExpand
     
     // Change `self` properties
@@ -367,7 +371,13 @@ extension ElongationViewController: UIPreviewInteractionDelegate {
   public func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdateCommitTransition transitionProgress: CGFloat, ended: Bool) {
     guard ended else { return }
     guard let path = expandedIndexPath else { return }
-    openDetailView(for: path)
+    if shouldCommitPreviewAction {
+      openDetailView(for: path)
+    } else {
+      DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
+        self.openDetailView(for: path)
+      }
+    }
   }
   
 }
