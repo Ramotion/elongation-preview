@@ -247,6 +247,13 @@ extension ElongationViewController {
       }
     }
     
+    for case let elongationCell as ElongationCell in tableView.visibleCells {
+      if shouldExpand, cell === elongationCell {
+        continue
+      }
+      elongationCell.parallaxOffset(offsetY: tableView.contentOffset.y, height: tableView.bounds.height)
+    }
+    
   }
   
   override func gestureRecognizerSwiped(_ gesture: UIPanGestureRecognizer) {
@@ -349,6 +356,8 @@ extension ElongationViewController: UIPreviewInteractionDelegate {
   public func previewInteractionDidCancel(_ previewInteraction: UIPreviewInteraction) {
     collapseCells()
     
+    panGestureRecognizer.isEnabled = true
+    
     // This trick will prevent expanding cell in `didSelectRowAt indexPath` method
     tableView.allowsSelection = false
     DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
@@ -358,6 +367,7 @@ extension ElongationViewController: UIPreviewInteractionDelegate {
   
   public func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdatePreviewTransition transitionProgress: CGFloat, ended: Bool) {
     guard ended else { return }
+    panGestureRecognizer.isEnabled = false
     let location = previewInteraction.location(in: tableView)
     guard let path = tableView.indexPathForRow(at: location) else { return }
     if path == expandedIndexPath {
@@ -371,6 +381,7 @@ extension ElongationViewController: UIPreviewInteractionDelegate {
   public func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdateCommitTransition transitionProgress: CGFloat, ended: Bool) {
     guard ended else { return }
     guard let path = expandedIndexPath else { return }
+    panGestureRecognizer.isEnabled = false
     if shouldCommitPreviewAction {
       openDetailView(for: path)
     } else {
