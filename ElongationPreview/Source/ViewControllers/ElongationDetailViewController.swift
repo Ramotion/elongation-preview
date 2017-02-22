@@ -39,50 +39,25 @@ extension ElongationDetailViewController {
   override func gestureRecognizerSwiped(_ gesture: UIPanGestureRecognizer) {
     guard config.isSwipeGesturesEnabled else { return }
     let location = gesture.location(in: tableView)
-    
     let point = headerView.convert(location, from: tableView)
-    
     guard headerView.point(inside: location, with: nil), let view = headerView.hitTest(point, with: nil) else { return }
     if gesture.state == .began {
       startY = point.y
     }
     
-    
     let newY = point.y
     let goingToBottom = startY < newY
-    
     let rangeReached = abs(startY - newY) > 30
     
     if rangeReached {
       gesture.isEnabled = false
-      gesture.isEnabled = true
-    }
-    
-    switch view {
-    case headerView.scalableView where swipedView == headerView.scalableView && rangeReached:
-      if goingToBottom {
+      if goingToBottom, swipedView === headerView?.scalableView {
         guard !isBeingDismissed else { return }
         dismissViewController()
       }
       startY = newY
-    case headerView.bottomView where swipedView == headerView.bottomView && rangeReached:
-      if goingToBottom {
-        
-      }
-      
-      startY = newY
-    default: break
     }
-    
     swipedView = view
-  }
-  
-  /// Must call `super` if this method was overriden in subclass & `ElongationConfig` was configured to use swipe gestures.
-  open override func scrollViewDidScroll(_ scrollView: UIScrollView) {
-    guard scrollView === tableView, config.isSwipeGesturesEnabled else { return }
-    if scrollView.contentOffset.y < 0, swipedView === headerView?.scalableView {
-      scrollView.setContentOffset(.zero, animated: false)
-    }
   }
   
 }
