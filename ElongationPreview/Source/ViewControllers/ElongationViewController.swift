@@ -86,12 +86,12 @@ private extension ElongationViewController {
     setupTableView()
     setupTapGesture()
     
-    if #available(iOS 10, *), traitCollection.forceTouchCapability == .available, config.forceTouchPreviewIntearctionEnabled {
-      interaction = UIPreviewInteraction(view: view)
-      interaction.delegate = self
-    } else if config.forceTouchPreviewIntearctionEnabled {
+//    if #available(iOS 10, *), traitCollection.forceTouchCapability == .available, config.forceTouchPreviewInteractionEnabled {
+//      interaction = UIPreviewInteraction(view: view)
+//      interaction.delegate = self
+//    } else if config.forceTouchPreviewInteractionEnabled {
       setupLongPressGesture()
-    }
+//    }
   }
   
   private func setupTableView() {
@@ -286,7 +286,7 @@ extension ElongationViewController {
     let location = sender.location(in: tableView)
     guard sender.state == .began, let path = tableView.indexPathForRow(at: location) else { return }
     expandedIndexPath = path
-    openDetailView(for: path)
+    moveCells(from: path)
   }
   
 }
@@ -315,7 +315,10 @@ extension ElongationViewController {
   
   open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard shouldExpand else { return }
-    moveCells(from: indexPath)
+    DispatchQueue.main.async {
+      self.expandedIndexPath = indexPath
+      self.openDetailView(for: indexPath)
+    }
   }
   
   open override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
