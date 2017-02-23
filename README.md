@@ -19,6 +19,7 @@ We specialize in the designing and coding of custom UI for Mobile Apps and Websi
 
 ![animation](/assets/ElongationPreview.gif)
 
+The [iPhone mockup](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=expanding-collection) available [here](https://store.ramotion.com/product/iphone-6-mockups?utm_source=gthb&utm_medium=special&utm_campaign=expanding-collection).
 <br>
 
 ## Requirements
