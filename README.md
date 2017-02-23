@@ -58,7 +58,7 @@ First of all, import module to your source file.
 import ElongationPreview
 ```
 
-### 1. `ElongationViewController`
+### `ElongationViewController`
 
 Then subclass `ElongationViewController` and configure it as you wish.
 
@@ -76,18 +76,30 @@ Now you must register reusable cell in `tableView`. If you prefer to use Storybo
 
    ![hierarchy](/assets/elongationCellHierarchy.png)
    
-##### Required properties:   
-`bottomView` — the view which comes from behind the cell when you tap on the cell.
+  ##### Required properties:   
+  `bottomView` — the view which comes from behind the cell when you tap on the cell.
 
-`scalableView` — the view which will be scaled when you tap on the cell.
+  `scalableView` — the view which will be scaled when you tap on the cell.
  
-`topView` — static top view, add here all the views which wont be scaled and must stay on their position.
+  `topView` — static top view, add here all the views which wont be scaled and must stay on their position.
 
-And these constraints: `topViewHeightConstraint`, `topViewTopConstraint`, `bottomViewHeightConstraint`, `bottomViewTopConstraint`.
+  Also you must connect this constraints: `topViewHeightConstraint`, `topViewTopConstraint`, `bottomViewHeightConstraint`, `bottomViewTopConstraint`.
 
 <br>
 
-### 2. `ElongationDetailViewController`
+>📌 If you need to override
+>```swift
+>func scrollViewDidScroll(_ scrollView: UIScrollView)
+>```
+>or
+>```swift
+>func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
+>```
+>you must call `super` because some important configuration >was made in these methods in superclass (`ElongationViewController`).
+
+<br>
+
+### `ElongationDetailViewController`
 
 ```swift
 class DetailViewController: ElongationDetailViewController { }
@@ -97,18 +109,9 @@ If you want to display some details for objects from the `root` view, it's bette
 
 This class holds `headerView` property which actually represents `ElongationCell` in expanded state and it'll be used as a header for `tableView` by default.
 
-<br>
-
-## Notes
-If you need to override
-```swift
-func scrollViewDidScroll(_ scrollView: UIScrollView)
-```
-or
-```swift
-func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
-```
-you must call `super` because some important configuration was made in these methods in superclass (`ElongationViewController`).
+>📌 Override `openDetailView(for: IndexPath)` method, create your `ElongationDetailViewController` instance and call `expand(viewController: ElongationDetailViewController, animated: Bool)` method with this instance.
+>
+>This is the place where you need to configure your `ElongationDetailViewController` subclass.
 
 <br>
 
@@ -133,7 +136,7 @@ config.separatorColor = .white
 ElongationConfig.shared = config
 ```
 
-> All parameters with their descriptions listed in [`ElongationConfig`](/ElongationPreview/Source/ElongationConfig.swift) file.
+>🗒 All parameters with their descriptions listed in [`ElongationConfig`](/ElongationPreview/Source/ElongationConfig.swift) file.
 
 <br>
 
