@@ -46,6 +46,8 @@ extension ViewController {
   override func openDetailView(for indexPath: IndexPath) {
     let id = String(describing: DetailViewController.self)
     guard let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: id) as? DetailViewController else { return }
+    let villa = datasource[indexPath.row]
+    detailViewController.title = villa.title
     expand(viewController: detailViewController)
   }
   
