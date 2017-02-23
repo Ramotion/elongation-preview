@@ -227,7 +227,7 @@ extension ElongationViewController {
       elongationCell.dim(shouldExpand)
       elongationCell.hideSeparator(shouldExpand, animated: animated)
     }
-
+    
     if !animated {
       UIView.setAnimationsEnabled(false)
     }
@@ -239,11 +239,12 @@ extension ElongationViewController {
     
     // Scroll to calculated rect only if it's not going to collapse whole tableView
     if force == nil {
-      switch config.expandingBehaviour {
-      case .centerInView: tableView.scrollToRow(at: indexPath, at: .middle, animated: animated)
-      case .scrollToBottom: tableView.scrollToRow(at: indexPath, at: .bottom, animated: animated)
-      case .scrollToTop: tableView.scrollToRow(at: indexPath, at: .top, animated: animated)
-      default: break
+      let cellFrame = cell.frame
+      let scrollToFrame = cellFrame
+      if scrollToFrame.maxY > tableView.contentSize.height {
+        tableView.scrollToRow(at: indexPath, at: .bottom, animated: animated)
+      } else {
+        tableView.scrollRectToVisible(scrollToFrame, animated: animated)
       }
     }
     
@@ -307,7 +308,7 @@ extension ElongationViewController {
   open override func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
     guard let cell = cell as? ElongationCell else { return }
     let expanded = state == .expanded
-    cell.dim(expanded, animated: expanded)
+    cell.dim(expanded, animated: true)
     
     // Remove separators from top and bottom cells.
     guard config.customSeparatorEnabled else { return }
@@ -344,7 +345,7 @@ extension ElongationViewController {
       cell.parallaxOffset(offsetY: tableView.contentOffset.y, height: tableView.bounds.height)
     }
   }
-
+  
 }
 
 // MARK: - 3D Touch Preview Interaction
