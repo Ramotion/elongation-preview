@@ -123,19 +123,20 @@ config.topViewHeight = 190
 config.bottomViewHeight = 170
 config.bottomViewOffset = 20
 config.parallaxFactor = 100
-config.separatorHeight = 2
+config.separatorHeight = 0.5
+config.separatorColor = .white
 
 // Save created config as `shared` instance.
 ElongationConfig.shared = config
 ```
 
-> All parameters with their descriptions listed in [`ElongationConfig`](/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift) file.
+> All parameters with their descriptions listed in [`ElongationConfig`](/ElongationPreview/Source/ElongationConfig.swift) file.
 
 <br>
 
 ## License
 
-Expanding collection is released under the MIT license.
+ElongationPreview is released under the MIT license.
 See [LICENSE](./LICENSE) for details.
 
 <br>

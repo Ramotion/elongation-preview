@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
   s.name         = 'ElongationPreview'
   s.version      = '1.0.0'
-  s.summary      = 'This control allow you to have `expandable` tableView with smooth transition to `detail` screen.'
+  s.summary      = 'ElongationPreview is an elegant push-pop style view controller.'
   s.license      = 'MIT'
   s.homepage     = 'https://github.com/Ramotion/elongation-preview'
   s.author       = { 'Abdurahim Jauzee' => 'jauzee@ramotion.com' }
