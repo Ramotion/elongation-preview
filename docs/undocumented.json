@@ -1,0 +1,285 @@
+{
+  "warnings": [
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.CellTouchAction",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.CellTouchAction.collapseOnBoth",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.CellTouchAction.collapseOnBottomExpandOnTop",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.CellTouchAction.collapseOnTopExpandOnBottom",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.CellTouchAction.expandOnBoth",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.CellTouchAction.expandOnBottom",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.CellTouchAction.expandOnTop",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.ExpandingBehaviour",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.ExpandingBehaviour.doNothing",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.HeaderTouchAction",
+      "symbol_kind": "source.lang.swift.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.HeaderTouchAction.collapseOnBottom",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.HeaderTouchAction.collapseOnTop",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.HeaderTouchAction.collpaseOnBoth",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.HeaderTouchAction.noAction",
+      "symbol_kind": "source.lang.swift.decl.enumelement",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationConfig.swift",
+      "line": null,
+      "symbol": "ElongationConfig.expandingBehaviour",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationTransition.swift",
+      "line": null,
+      "symbol": "ElongationTransition.animateTransition(using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ElongationTransition.swift",
+      "line": null,
+      "symbol": "ElongationTransition.transitionDuration(using:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ViewControllers/ElongationDetailViewController.swift",
+      "line": null,
+      "symbol": "ElongationDetailViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ViewControllers/ElongationDetailViewController.swift",
+      "line": null,
+      "symbol": "ElongationDetailViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ViewControllers/ElongationDetailViewController.swift",
+      "line": null,
+      "symbol": "ElongationDetailViewController",
+      "symbol_kind": "source.lang.swift.decl.extension",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ViewControllers/ElongationDetailViewController.swift",
+      "line": null,
+      "symbol": "ElongationDetailViewController.tableView(_:heightForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ViewControllers/ElongationDetailViewController.swift",
+      "line": null,
+      "symbol": "ElongationDetailViewController.tableView(_:viewForHeaderInSection:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ViewControllers/ElongationDetailViewController.swift",
+      "line": null,
+      "symbol": "ElongationDetailViewController.viewDidAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ViewControllers/ElongationViewController.swift",
+      "line": null,
+      "symbol": "ElongationViewController.tableView(_:didSelectRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ViewControllers/ElongationViewController.swift",
+      "line": null,
+      "symbol": "ElongationViewController.tableView(_:heightForRowAt:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ViewControllers/ElongationViewController.swift",
+      "line": null,
+      "symbol": "ElongationViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ViewControllers/ElongationViewController.swift",
+      "line": null,
+      "symbol": "ElongationViewController.viewWillAppear(_:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ViewControllers/SwipableTableViewController.swift",
+      "line": null,
+      "symbol": "SwipableTableViewController",
+      "symbol_kind": "source.lang.swift.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ViewControllers/SwipableTableViewController.swift",
+      "line": null,
+      "symbol": "SwipableTableViewController.gestureRecognizer(_:shouldRecognizeSimultaneouslyWith:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/ViewControllers/SwipableTableViewController.swift",
+      "line": null,
+      "symbol": "SwipableTableViewController.viewDidLoad()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/Views/ElongationCell.swift",
+      "line": null,
+      "symbol": "ElongationCell.configureCell()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/Views/ElongationCell.swift",
+      "line": null,
+      "symbol": "ElongationCell.encode(with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/Views/ElongationCell.swift",
+      "line": null,
+      "symbol": "ElongationCell.hitTest(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/Views/ElongationCell.swift",
+      "line": null,
+      "symbol": "ElongationCell.init(coder:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/Views/ElongationCell.swift",
+      "line": null,
+      "symbol": "ElongationCell.init(style:reuseIdentifier:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/Views/ElongationCell.swift",
+      "line": null,
+      "symbol": "ElongationCell.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/Views/ElongationCell.swift",
+      "line": null,
+      "symbol": "ElongationCell.willMove(toSuperview:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/Views/ElongationHeader.swift",
+      "line": null,
+      "symbol": "ElongationHeader.hitTest(_:with:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/Views/ElongationHeader.swift",
+      "line": null,
+      "symbol": "ElongationHeader.intrinsicContentSize",
+      "symbol_kind": "source.lang.swift.decl.var.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview/ElongationPreview/Source/Views/ElongationHeader.swift",
+      "line": null,
+      "symbol": "ElongationHeader.layoutSubviews()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/private/var/jauzee/Documents/Code/Ramotion/elongation-preview/ElongationPreview"
+}

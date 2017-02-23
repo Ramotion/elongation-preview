@@ -1,0 +1,942 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>ElongationCell Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/swift/Class/ElongationCell" class="dashAnchor"></a>
+    <a title="ElongationCell Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html"> Docs</a> (78% documented)</p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html"> Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        ElongationCell Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/ElongationCell.html">ElongationCell</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ElongationDetailViewController.html">ElongationDetailViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ElongationHeader.html">ElongationHeader</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ElongationTransition.html">ElongationTransition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ElongationViewController.html">ElongationViewController</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/ElongationViewController/State.html">– State</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/SwipableTableViewController.html">SwipableTableViewController</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constructors.html">Constructors</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constructors.html#/s:FV17ElongationPreview16ElongationConfigcFT_S0_">init()</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constructors.html#/s:FE17ElongationPreviewVSC12UIEdgeInsetscFV12CoreGraphics7CGFloatS0_">init(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constructors.html#/s:FE17ElongationPreviewVSC12UIEdgeInsetscFT7paddingV12CoreGraphics7CGFloat11sidePaddingS2__S0_">init(padding:sidePadding:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constructors.html#/s:FE17ElongationPreviewVSC12UIEdgeInsetscFT3topGSqV12CoreGraphics7CGFloat_4leftGSqS2__6bottomGSqS2__5rightGSqS2__10otherSidesGSqS2___S0_">init(top:left:bottom:right:otherSides:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enums</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums.html#/s:OC17ElongationPreview24ElongationViewController5State">State</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Extensions.html">Extensions</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Extensions/UICollectionView.html">UICollectionView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UIEdgeInsets.html">UIEdgeInsets</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Extensions/UITableView.html">UITableView</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Instance Methods.html">Instance Methods</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FC17ElongationPreview24ElongationViewController19animationControllerFT12forDismissedCSo16UIViewController_GSqPSo37UIViewControllerAnimatedTransitioning__">animationController(forDismissed:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FC17ElongationPreview24ElongationViewController19animationControllerFT12forPresentedCSo16UIViewController10presentingS1_6sourceS1__GSqPSo37UIViewControllerAnimatedTransitioning__">animationController(forPresented:presenting:source:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FC17ElongationPreview24ElongationViewController13collapseCellsFT8animatedSb_T_">collapseCells(animated:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FC17ElongationPreview14ElongationCellP33_8D617D3EE17615CD9488E93815F822C310commonInitFT_T_">commonInit()</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FE17ElongationPreviewCSo11UITableView7dequeueuRxCSo15UITableViewCellrFMxx">dequeue(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FE17ElongationPreviewCSo16UICollectionView7dequeueuRxCSo20UICollectionViewCellrFTMx9indexPathV10Foundation9IndexPath_x">dequeue(_:indexPath:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FC17ElongationPreview14ElongationCell3dimFTSb8animatedSb_T_">dim(_:animated:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FC17ElongationPreview14ElongationCell6expandFTSb8animatedSb_T_">expand(_:animated:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FC17ElongationPreview24ElongationViewController6expandFT14viewControllerCS_30ElongationDetailViewController8animatedSb10completionGSqFT_T___T_">expand(viewController:animated:completion:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FC17ElongationPreview24ElongationViewController10expandCellFT2atV10Foundation9IndexPath_T_">expandCell(at:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FC17ElongationPreview24ElongationViewController14openDetailViewFT3forV10Foundation9IndexPath_T_">openDetailView(for:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FE17ElongationPreviewCSo11UITableView8registeruRxCSo15UITableViewCellrFMxT_">register(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FE17ElongationPreviewCSo16UICollectionView8registeruRxCSo20UICollectionViewCellrFMxT_">register(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FE17ElongationPreviewCSo11UITableView11registerNibuRxCSo15UITableViewCellrFMxT_">registerNib(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FE17ElongationPreviewCSo16UICollectionView11registerNibuRxCSo20UICollectionViewCellrFMxT_">registerNib(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FC17ElongationPreview24ElongationViewController19scrollViewDidScrollFCSo12UIScrollViewT_">scrollViewDidScroll(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FC17ElongationPreview30ElongationDetailViewController19scrollViewDidScrollFCSo12UIScrollViewT_">scrollViewDidScroll(_:)</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Methods.html#/s:FC17ElongationPreview24ElongationViewController9tableViewFTCSo11UITableView11willDisplayCSo15UITableViewCell8forRowAtV10Foundation9IndexPath_T_">tableView(_:willDisplay:forRowAt:)</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Instance Variables.html">Instance Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview14ElongationCell10bottomViewGSQCSo6UIView_">bottomView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview16ElongationHeader10bottomViewGSQCSo6UIView_">bottomView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vV17ElongationPreview16ElongationConfig16bottomViewHeightV12CoreGraphics7CGFloat">bottomViewHeight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview14ElongationCell26bottomViewHeightConstraintGSQCSo18NSLayoutConstraint_">bottomViewHeightConstraint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vV17ElongationPreview16ElongationConfig16bottomViewOffsetV12CoreGraphics7CGFloat">bottomViewOffset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview14ElongationCell23bottomViewTopConstraintGSQCSo18NSLayoutConstraint_">bottomViewTopConstraint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview16ElongationHeader23bottomViewTopConstraintGSQCSo18NSLayoutConstraint_">bottomViewTopConstraint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vV17ElongationPreview16ElongationConfig15cellTouchActionOS0_15CellTouchAction">cellTouchAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview16ElongationHeader11contentViewCSo6UIView">contentView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vV17ElongationPreview16ElongationConfig22customSeparatorEnabledSb">customSeparatorEnabled</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vV17ElongationPreview16ElongationConfig24detailDismissingDurationSd">detailDismissingDuration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vV17ElongationPreview16ElongationConfig23detailPresetingDurationSd">detailPresetingDuration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview24ElongationViewController17expandedIndexPathGSqV10Foundation9IndexPath_">expandedIndexPath</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vV17ElongationPreview16ElongationConfig17headerTouchActionOS0_17HeaderTouchAction">headerTouchAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview30ElongationDetailViewController10headerViewGSQCS_16ElongationHeader_">headerView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview14ElongationCell10isExpandedSb">isExpanded</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vV17ElongationPreview16ElongationConfig17isParallaxEnabledSb">isParallaxEnabled</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vV17ElongationPreview16ElongationConfig22isSwipeGesturesEnabledSb">isSwipeGesturesEnabled</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vV17ElongationPreview16ElongationConfig14parallaxFactorGSqV12CoreGraphics7CGFloat_">parallaxFactor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview14ElongationCell28parallaxViewCenterConstraintGSQCSo18NSLayoutConstraint_">parallaxViewCenterConstraint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview14ElongationCell28parallaxViewHeightConstraintGSQCSo18NSLayoutConstraint_">parallaxViewHeightConstraint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview14ElongationCell12scalableViewGSQCSo6UIView_">scalableView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview16ElongationHeader12scalableViewGSQCSo6UIView_">scalableView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vV17ElongationPreview16ElongationConfig20scaleViewScaleFactorV12CoreGraphics7CGFloat">scaleViewScaleFactor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vV17ElongationPreview16ElongationConfig14separatorColorCSo7UIColor">separatorColor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vV17ElongationPreview16ElongationConfig15separatorHeightGSqV12CoreGraphics7CGFloat_">separatorHeight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview24ElongationViewController12shouldExpandSb">shouldExpand</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview24ElongationViewController5stateOS0_5State">state</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview14ElongationCell7topViewGSQCSo6UIView_">topView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview16ElongationHeader7topViewGSQCSo6UIView_">topView</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vV17ElongationPreview16ElongationConfig13topViewHeightV12CoreGraphics7CGFloat">topViewHeight</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview14ElongationCell23topViewHeightConstraintGSQCSo18NSLayoutConstraint_">topViewHeightConstraint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Instance Variables.html#/s:vC17ElongationPreview14ElongationCell20topViewTopConstraintGSQCSo18NSLayoutConstraint_">topViewTopConstraint</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Static Variables.html">Static Variables</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Static Variables.html#/s:ZvV17ElongationPreview16ElongationConfig6sharedS0_">shared</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Structs.html">Structs</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Structs/ElongationConfig.html">ElongationConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ElongationConfig/ExpandingBehaviour.html">– ExpandingBehaviour</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ElongationConfig/CellTouchAction.html">– CellTouchAction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Structs/ElongationConfig/HeaderTouchAction.html">– HeaderTouchAction</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>ElongationCell</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">ElongationCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt">Expandable</span></code></pre>
+
+                </div>
+              </div>
+            <p>UITableViewCell subclass.</p>
+
+<p>This cell used by <code><a href="../Classes/ElongationViewController.html">ElongationViewController</a></code>.
+Cell can be expanded and used for transition to <code><a href="../Classes/ElongationDetailViewController.html">ElongationDetailViewController</a></code>.</p>
+
+<p>Can only be configured from &rsquo;.xib&rsquo; or Storyboard.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public%20properties"></a>
+                <a name="//apple_ref/swift/Section/Public properties" class="dashAnchor"></a>
+                <a href="#/Public%20properties">
+                  <h3 class="section-name">Public properties</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17ElongationPreview14ElongationCell10isExpandedSb"></a>
+                    <a name="//apple_ref/swift/Property/isExpanded" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17ElongationPreview14ElongationCell10isExpandedSb">isExpanded</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Is this cell in <code>expanded</code> state.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="k">var</span> <span class="nv">isExpanded</span><span class="p">:</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17ElongationPreview14ElongationCell7topViewGSQCSo6UIView_"></a>
+                    <a name="//apple_ref/swift/Property/topView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17ElongationPreview14ElongationCell7topViewGSQCSo6UIView_">topView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>View on top half of <code><a href="../Instance Variables.html#/s:vC17ElongationPreview16ElongationHeader11contentViewCSo6UIView">contentView</a></code>.
+Add here all the views which wont be scaled and must stay on their position.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">topView</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17ElongationPreview14ElongationCell23topViewHeightConstraintGSQCSo18NSLayoutConstraint_"></a>
+                    <a name="//apple_ref/swift/Property/topViewHeightConstraint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17ElongationPreview14ElongationCell23topViewHeightConstraintGSQCSo18NSLayoutConstraint_">topViewHeightConstraint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>height</code> constraint of <code><a href="../Classes/ElongationCell.html#/s:vC17ElongationPreview14ElongationCell7topViewGSQCSo6UIView_">topView</a></code>.
+This constraint will be changed according to <code><a href="../Structs/ElongationConfig.html">ElongationConfig</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">topViewHeightConstraint</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17ElongationPreview14ElongationCell20topViewTopConstraintGSQCSo18NSLayoutConstraint_"></a>
+                    <a name="//apple_ref/swift/Property/topViewTopConstraint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17ElongationPreview14ElongationCell20topViewTopConstraintGSQCSo18NSLayoutConstraint_">topViewTopConstraint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>top</code> constraint of <code><a href="../Classes/ElongationCell.html#/s:vC17ElongationPreview14ElongationCell7topViewGSQCSo6UIView_">topView</a></code>.
+This constraint will be changed if <code><a href="../Structs/ElongationConfig.html">ElongationConfig</a></code> was configured for using custom separators.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">topViewTopConstraint</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17ElongationPreview14ElongationCell12scalableViewGSQCSo6UIView_"></a>
+                    <a name="//apple_ref/swift/Property/scalableView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17ElongationPreview14ElongationCell12scalableViewGSQCSo6UIView_">scalableView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This is the front view which can be scaled if <code>scaleFactor</code> was configured in <code><a href="../Structs/ElongationConfig.html">ElongationConfig</a></code>.
+Also to this view can be applied &lsquo;parallax&rsquo; effect.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">scalableView</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17ElongationPreview14ElongationCell28parallaxViewCenterConstraintGSQCSo18NSLayoutConstraint_"></a>
+                    <a name="//apple_ref/swift/Property/parallaxViewCenterConstraint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17ElongationPreview14ElongationCell28parallaxViewCenterConstraintGSQCSo18NSLayoutConstraint_">parallaxViewCenterConstraint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>centerY</code> constraint of view, to which must be applied <code>parallax</code> effect.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">parallaxViewCenterConstraint</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17ElongationPreview14ElongationCell28parallaxViewHeightConstraintGSQCSo18NSLayoutConstraint_"></a>
+                    <a name="//apple_ref/swift/Property/parallaxViewHeightConstraint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17ElongationPreview14ElongationCell28parallaxViewHeightConstraintGSQCSo18NSLayoutConstraint_">parallaxViewHeightConstraint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>height</code> constraint of view, to which must be applied <code>parallax</code> effect.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">parallaxViewHeightConstraint</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17ElongationPreview14ElongationCell10bottomViewGSQCSo6UIView_"></a>
+                    <a name="//apple_ref/swift/Property/bottomView" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17ElongationPreview14ElongationCell10bottomViewGSQCSo6UIView_">bottomView</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The view which comes from behind the cell when you tap on the cell.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">bottomView</span><span class="p">:</span> <span class="kt">UIView</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17ElongationPreview14ElongationCell26bottomViewHeightConstraintGSQCSo18NSLayoutConstraint_"></a>
+                    <a name="//apple_ref/swift/Property/bottomViewHeightConstraint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17ElongationPreview14ElongationCell26bottomViewHeightConstraintGSQCSo18NSLayoutConstraint_">bottomViewHeightConstraint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>height</code> constraint of <code><a href="../Classes/ElongationCell.html#/s:vC17ElongationPreview14ElongationCell10bottomViewGSQCSo6UIView_">bottomView</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">bottomViewHeightConstraint</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:vC17ElongationPreview14ElongationCell23bottomViewTopConstraintGSQCSo18NSLayoutConstraint_"></a>
+                    <a name="//apple_ref/swift/Property/bottomViewTopConstraint" class="dashAnchor"></a>
+                    <a class="token" href="#/s:vC17ElongationPreview14ElongationCell23bottomViewTopConstraintGSQCSo18NSLayoutConstraint_">bottomViewTopConstraint</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><code>top</code> constraint of <code><a href="../Classes/ElongationCell.html#/s:vC17ElongationPreview14ElongationCell10bottomViewGSQCSo6UIView_">bottomView</a></code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="kd">@IBOutlet</span> <span class="kd">public</span> <span class="k">var</span> <span class="nv">bottomViewTopConstraint</span><span class="p">:</span> <span class="kt">NSLayoutConstraint</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Constructor"></a>
+                <a name="//apple_ref/swift/Section/Constructor" class="dashAnchor"></a>
+                <a href="#/Constructor">
+                  <h3 class="section-name">Constructor</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17ElongationPreview14ElongationCellcFT5styleOSC20UITableViewCellStyle15reuseIdentifierGSqSS__S0_"></a>
+                    <a name="//apple_ref/swift/Method/init(style:reuseIdentifier:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17ElongationPreview14ElongationCellcFT5styleOSC20UITableViewCellStyle15reuseIdentifierGSqSS__S0_">init(style:reuseIdentifier:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">ElongationCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt">Expandable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17ElongationPreview14ElongationCellcFT5coderCSo7NSCoder_GSqS0__"></a>
+                    <a name="//apple_ref/swift/Method/init(coder:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17ElongationPreview14ElongationCellcFT5coderCSo7NSCoder_GSqS0__">init(coder:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">ElongationCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt">Expandable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17ElongationPreview14ElongationCell7hitTestFTVSC7CGPoint4withGSqCSo7UIEvent__GSqCSo6UIView_"></a>
+                    <a name="//apple_ref/swift/Method/hitTest(_:with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17ElongationPreview14ElongationCell7hitTestFTVSC7CGPoint4withGSqCSo7UIEvent__GSqCSo6UIView_">hitTest(_:with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">ElongationCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt">Expandable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17ElongationPreview14ElongationCell8willMoveFT11toSuperviewGSqCSo6UIView__T_"></a>
+                    <a name="//apple_ref/swift/Method/willMove(toSuperview:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17ElongationPreview14ElongationCell8willMoveFT11toSuperviewGSqCSo6UIView__T_">willMove(toSuperview:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">ElongationCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt">Expandable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17ElongationPreview14ElongationCell14layoutSubviewsFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/layoutSubviews()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17ElongationPreview14ElongationCell14layoutSubviewsFT_T_">layoutSubviews()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">ElongationCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt">Expandable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17ElongationPreview14ElongationCell13configureCellFT_T_"></a>
+                    <a name="//apple_ref/swift/Method/configureCell()" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17ElongationPreview14ElongationCell13configureCellFT_T_">configureCell()</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">ElongationCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt">Expandable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <div class="task-name-container">
+                <a name="/Public"></a>
+                <a name="//apple_ref/swift/Section/Public" class="dashAnchor"></a>
+                <a href="#/Public">
+                  <h3 class="section-name">Public</h3>
+                </a>
+              </div>
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17ElongationPreview14ElongationCell6expandFTSb8animatedSb_T_"></a>
+                    <a name="//apple_ref/swift/Method/expand(_:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17ElongationPreview14ElongationCell6expandFTSb8animatedSb_T_">expand(_:animated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Expand or collapse the cell.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">expand</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>true if the cell must be expanded</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>should it be animated</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17ElongationPreview14ElongationCell3dimFTSb8animatedSb_T_"></a>
+                    <a name="//apple_ref/swift/Method/dim(_:animated:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17ElongationPreview14ElongationCell3dimFTSb8animatedSb_T_">dim(_:animated:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Apply dark overlay above the cell.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">func</span> <span class="nf">dim</span><span class="p">(</span><span class="n">_</span> <span class="nv">value</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">animated</span><span class="p">:</span> <span class="kt">Bool</span> <span class="o">=</span> <span class="k">default</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>value</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>true if the cell must be dimmed</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>animated</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>should it be animated</p>
+
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/s:FC17ElongationPreview14ElongationCell6encodeFT4withCSo7NSCoder_T_"></a>
+                    <a name="//apple_ref/swift/Method/encode(with:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:FC17ElongationPreview14ElongationCell6encodeFT4withCSo7NSCoder_T_">encode(with:)</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight"><code><span class="n">open</span> <span class="kd">class</span> <span class="kt">ElongationCell</span> <span class="p">:</span> <span class="kt">UITableViewCell</span><span class="p">,</span> <span class="kt">Expandable</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2017 <a class="link" href="" target="_blank" rel="external"></a>. All rights reserved. (Last updated: 2017-02-20)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.7.4</a>, a <a class="link" href="http://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
