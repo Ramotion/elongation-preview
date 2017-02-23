@@ -19,18 +19,6 @@ public struct ElongationConfig {
   public static var shared = ElongationConfig()
   
   // MARK: Behaviour 🔧
-  public enum ExpandingBehaviour {
-    /// Scroll tableView's content to center.
-    case centerInView
-    /// Scroll tableView's content to top.
-    case scrollToTop
-    /// Scroll tableView's content to bottom.
-    case scrollToBottom
-    case doNothing
-  }
-  
-  public var expandingBehaviour: ExpandingBehaviour = .centerInView
-  
   public enum CellTouchAction {
     case collapseOnTopExpandOnBottom, collapseOnBottomExpandOnTop, collapseOnBoth, expandOnBoth, expandOnTop, expandOnBottom
   }
