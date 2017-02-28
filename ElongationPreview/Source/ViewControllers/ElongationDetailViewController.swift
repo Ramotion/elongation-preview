@@ -50,8 +50,8 @@ extension ElongationDetailViewController {
     let rangeReached = abs(startY - newY) > 30
     
     if rangeReached {
-      gesture.isEnabled = false
       if goingToBottom, swipedView === headerView?.scalableView {
+        gesture.isEnabled = false
         guard !isBeingDismissed else { return }
         dismissViewController()
       }
