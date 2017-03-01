@@ -69,7 +69,7 @@ Now you must register reusable cell in `tableView`. If you prefer to use Storybo
 
 #### `ElongationCell`
 
-- Easier way: copy [DemoElongationCell](/ElongationPreview/ElongationPreviewDemo/Views/DemoElongationCell.xib) from demo project and change it as you wish. Add your own views to `top`, `bottom` and `scalable` containers.
+- Easier way: copy [DemoElongationCell](/ElongationPreviewDemo/Views/DemoElongationCell/DemoElongationCell.xib) from demo project and change it as you wish. Add your own views to `top`, `bottom` and `scalable` containers.
 
 - If you want to create cell from scratch, this is how your cell hierarchy should look like:
 
