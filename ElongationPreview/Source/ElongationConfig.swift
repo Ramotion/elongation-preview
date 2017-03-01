@@ -19,6 +19,7 @@ public struct ElongationConfig {
   public static var shared = ElongationConfig()
   
   // MARK: Behaviour 🔧
+  /// :nodoc:
   public enum CellTouchAction {
     case collapseOnTopExpandOnBottom, collapseOnBottomExpandOnTop, collapseOnBoth, expandOnBoth, expandOnTop, expandOnBottom
   }
@@ -26,6 +27,7 @@ public struct ElongationConfig {
   /// What `elongationCell` should do on touch
   public var cellTouchAction = CellTouchAction.collapseOnTopExpandOnBottom
   
+  /// :nodoc:
   public enum HeaderTouchAction {
     case collpaseOnBoth, collapseOnTop, collapseOnBottom, noAction
   }

@@ -9,7 +9,7 @@
 
 import UIKit
 
-
+/// :nodoc:
 public extension UITableView {
   
   /// Register given `UITableViewCell` in tableView.

@@ -9,6 +9,7 @@
 import UIKit
 
 
+/// :nodoc:
 public extension UIEdgeInsets {
 
   /// Initialize UIEdgeInsets with given value for all the sides.

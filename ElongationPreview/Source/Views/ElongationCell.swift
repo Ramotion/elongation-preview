@@ -72,24 +72,25 @@ open class ElongationCell: UITableViewCell, Expandable {
   fileprivate var scalableViewBottomOffset: CGFloat!
   
   // MARK: Constructor
+  /// :nodoc:
   public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
     super.init(style: style, reuseIdentifier: reuseIdentifier)
     commonInit()
   }
   
+  /// :nodoc:
   public required init?(coder aDecoder: NSCoder) {
     super.init(coder: aDecoder)
     decode(from: aDecoder)
     commonInit()
   }
   
-  /// Common initialization. Apply selectionStyle etc.
-  /// Must call `super` if this method was overriden.
   private func commonInit() {
     configureCell()
     addDimmingView()
   }
   
+  /// :nodoc:
   open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
     let scalableViewContainsPoint = scalableView.frame.contains(point)
     let backViewContainsPoint = bottomView.frame.contains(point)
@@ -110,12 +111,14 @@ open class ElongationCell: UITableViewCell, Expandable {
 // MARK: - Lifecycle 🌎
 extension ElongationCell {
   
+  /// :nodoc:
   open override func willMove(toSuperview newSuperview: UIView?) {
     super.willMove(toSuperview: newSuperview)
     setupConstraintsIfNeeded()
     setupCustomSeparatorIfNeeded()
   }
   
+  /// :nodoc:
   open override func layoutSubviews() {
     super.layoutSubviews()
     if #available(iOS 10, *) {
@@ -128,7 +131,7 @@ extension ElongationCell {
 // MARK: - Setup ⛏
 extension ElongationCell {
   
-  open func configureCell() {
+  fileprivate func configureCell() {
     selectionStyle = .none
     selectedBackgroundView = nil
     clipsToBounds = true
@@ -317,6 +320,7 @@ extension ElongationCell {
     return copy
   }
   
+  /// :nodoc:
   open override func encode(with aCoder: NSCoder) {
     super.encode(with: aCoder)
     aCoder.encode(isExpanded, forKey: Keys.isExpanded)

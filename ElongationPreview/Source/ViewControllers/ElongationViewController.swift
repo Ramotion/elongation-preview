@@ -64,11 +64,13 @@ open class ElongationViewController: SwipableTableViewController {
 // MARK: - Lifecycle 🌎
 extension ElongationViewController {
   
+  /// :nodoc:
   override open func viewDidLoad() {
     super.viewDidLoad()
     setup()
   }
   
+  /// :nodoc:
   override open func viewWillAppear(_ animated: Bool) {
     super.viewWillAppear(animated)
     
@@ -255,6 +257,7 @@ extension ElongationViewController {
     
   }
   
+  /// :nodoc:
   override func gestureRecognizerSwiped(_ gesture: UIPanGestureRecognizer) {
     let point = gesture.location(in: tableView)
     guard let path = tableView.indexPathForRow(at: point), path == expandedIndexPath, let cell = tableView.cellForRow(at: path) as? ElongationCell else { return }
@@ -323,6 +326,7 @@ extension ElongationViewController {
     }
   }
   
+  /// :nodoc:
   open override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard shouldExpand else { return }
     DispatchQueue.main.async {
@@ -331,6 +335,7 @@ extension ElongationViewController {
     }
   }
   
+  /// :nodoc:
   open override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
     let isExpanded = cellStatesDictionary[indexPath] ?? false
     let frontViewHeight = config.topViewHeight
@@ -352,6 +357,7 @@ extension ElongationViewController {
 @available(iOS 10.0, *)
 extension ElongationViewController: UIPreviewInteractionDelegate {
   
+  /// :nodoc:
   public func previewInteractionDidCancel(_ previewInteraction: UIPreviewInteraction) {
     collapseCells()
     
@@ -364,6 +370,7 @@ extension ElongationViewController: UIPreviewInteractionDelegate {
     }
   }
   
+  /// :nodoc:
   public func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdatePreviewTransition transitionProgress: CGFloat, ended: Bool) {
     guard ended else { return }
     panGestureRecognizer.isEnabled = false
@@ -377,6 +384,7 @@ extension ElongationViewController: UIPreviewInteractionDelegate {
     }
   }
   
+  /// :nodoc:
   public func previewInteraction(_ previewInteraction: UIPreviewInteraction, didUpdateCommitTransition transitionProgress: CGFloat, ended: Bool) {
     guard ended else { return }
     guard let path = expandedIndexPath else { return }

@@ -30,12 +30,14 @@ open class ElongationDetailViewController: SwipableTableViewController {
 // MARK: - Lifecycle 🌎
 extension ElongationDetailViewController {
   
+  /// :nodoc:
   override open func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
     let tapGesture = UITapGestureRecognizer(target: self, action: #selector(headerViewTapped))
     headerView?.addGestureRecognizer(tapGesture)
   }
   
+  /// :nodoc:
   override func gestureRecognizerSwiped(_ gesture: UIPanGestureRecognizer) {
     guard config.isSwipeGesturesEnabled else { return }
     let location = gesture.location(in: tableView)
@@ -97,10 +99,12 @@ extension ElongationDetailViewController {
 // MARK: - TableView 📚
 extension ElongationDetailViewController {
   
+  /// :nodoc:
   open override func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
     return headerView?.intrinsicContentSize.height ?? 0
   }
   
+  /// :nodoc:
   open override func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
     return headerView
   }

@@ -13,7 +13,7 @@ import UIKit
 public class ElongationTransition: NSObject {
   
   // MARK: Constructor
-  convenience init(presenting: Bool) {
+  internal convenience init(presenting: Bool) {
     self.init()
     self.presenting = presenting
   }
@@ -50,10 +50,12 @@ public class ElongationTransition: NSObject {
 // MARK: - Transition Protocol Implementation
 extension ElongationTransition: UIViewControllerAnimatedTransitioning {
   
+  /// :nodoc:
   open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
     return presenting ? appearance.detailPresetingDuration : appearance.detailDismissingDuration
   }
   
+  /// :nodoc:
   open func animateTransition(using transitionContext: UIViewControllerContextTransitioning) {
     presenting ? present(using: transitionContext) : dismiss(using: transitionContext)
   }

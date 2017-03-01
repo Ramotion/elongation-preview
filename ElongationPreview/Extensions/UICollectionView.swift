@@ -8,7 +8,7 @@
 
 import UIKit
 
-
+/// :nodoc:
 public extension UICollectionView {
   
   /// Register given `UICollectionViewCell` in collectionView.

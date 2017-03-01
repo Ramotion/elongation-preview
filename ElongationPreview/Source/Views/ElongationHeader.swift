@@ -33,17 +33,20 @@ open class ElongationHeader: UIView, Expandable {
     return ElongationConfig.shared
   }
   
+  /// :nodoc:
   override open var intrinsicContentSize: CGSize {
     let height = appearance.topViewHeight + appearance.bottomViewHeight
     let width = UIScreen.main.bounds.width
     return CGSize(width: width, height: height)
   }
   
+  /// :nodoc:
   open override func layoutSubviews() {
     super.layoutSubviews()
     contentView.frame = bounds
   }
   
+  /// :nodoc:
   open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
     let scalableViewContainsPoint = scalableView.frame.contains(point)
     let backViewContainsPoint = bottomView.frame.contains(point)
