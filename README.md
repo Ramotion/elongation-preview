@@ -16,7 +16,7 @@ We specialize in the designing and coding of custom UI for Mobile Apps and Websi
 
 <a href="http://business.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview-contact-us/#Get_in_Touch" > <img src="https://github.com/Ramotion/navigation-stack/raw/master/contact_our_team@2x.png" width="150" height="30"></a>
 
-![animation](/assets/ElongationPreview.gif)
+[![animation](/assets/ElongationPreview.gif)](https://dribbble.com/shots/3333066-Elongation-Preview-App-Interface-UX-UI)
 
 The [iPhone mockup](https://store.ramotion.com/product/iphone-7-mockups?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview) available [here](https://store.ramotion.com/product/iphone-7-mockups?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview).
 <br>
