@@ -80,7 +80,7 @@ Now you must register reusable cell in `tableView`. If you prefer to use Storybo
 
   `scalableView` — the view which will be scaled when you tap on the cell.
  
-  `topView` — static top view, add here all the views which wont be scaled and must stay on their position.
+  `topView` — static top view, add here all the views which won't be scaled and must stay on their position.
 
   Also you must connect this constraints: `topViewHeightConstraint`, `topViewTopConstraint`, `bottomViewHeightConstraint`, `bottomViewTopConstraint`.
 
@@ -94,7 +94,7 @@ Now you must register reusable cell in `tableView`. If you prefer to use Storybo
 >```swift
 >func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath)
 >```
->you must call `super` because some important configuration >was made in these methods in superclass (`ElongationViewController`).
+>you must call `super` because some important configuration was made in these methods in superclass (`ElongationViewController`).
 
 <br>
 
@@ -122,7 +122,6 @@ You can customize both appearance & behaviour of `ElongationPreview` control by 
 var config = ElongationConfig()
 
 // Change desired properties.
-config.parallaxFactor = 20 
 config.scaleViewScaleFactor = 0.9
 config.topViewHeight = 190
 config.bottomViewHeight = 170
