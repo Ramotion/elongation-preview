@@ -18,7 +18,7 @@ We specialize in the designing and coding of custom UI for Mobile Apps and Websi
 
 [![animation](/assets/ElongationPreview.gif)](https://dribbble.com/shots/3333066-Elongation-Preview-App-Interface-UX-UI)
 
-The [iPhone mockup](https://store.ramotion.com/product/iphone-7-mockups?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview) available [here](https://store.ramotion.com/product/iphone-7-mockups?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview).
+The [iPhone mockup](https://store.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview) available [here](https://store.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview).
 <br>
 
 ## Requirements
