@@ -260,39 +260,43 @@ extension ElongationViewController {
   /// :nodoc:
   override func gestureRecognizerSwiped(_ gesture: UIPanGestureRecognizer) {
     let point = gesture.location(in: tableView)
-    guard let path = tableView.indexPathForRow(at: point), path == expandedIndexPath, let cell = tableView.cellForRow(at: path) as? ElongationCell else { return }
+    guard let path = tableView.indexPathForRow(at: point), path == expandedIndexPath, let cell = tableView.cellForRow(at: path) as? ElongationCell else {
+      swipedView = nil
+      return
+    }
     let convertedPoint = cell.convert(point, from: tableView)
-    guard let view = cell.hitTest(convertedPoint, with: nil) else { return }
-    
     if gesture.state == .began {
+      if cell.scalableView.frame.contains(convertedPoint) {
+        swipedView = cell.scalableView
+      } else if cell.bottomView.frame.contains(convertedPoint) {
+        swipedView = cell.bottomView
+      } else {
+        swipedView = nil
+        return
+      }
       startY = convertedPoint.y
     }
+    guard let swipedView = swipedView else { return }
     
     let newY = convertedPoint.y
     let goingToBottom = startY < newY
     
     let rangeReached = abs(startY - newY) > 50
-    
-    switch view {
-    case cell.scalableView where swipedView == cell.scalableView && rangeReached:
+    if swipedView == cell.scalableView && rangeReached {
       if goingToBottom {
         collapseCells(animated: true)
       } else {
         openDetailView(for: path)
       }
       startY = newY
-    case cell.bottomView where swipedView == cell.bottomView && rangeReached:
+    } else if swipedView == cell.bottomView && rangeReached {
       if goingToBottom {
         openDetailView(for: path)
       } else {
         collapseCells(animated: true)
       }
-      
       startY = newY
-    default: break
     }
-    
-    swipedView = view
   }
   
   @objc fileprivate func longPressGestureAction(_ sender: UILongPressGestureRecognizer) {
