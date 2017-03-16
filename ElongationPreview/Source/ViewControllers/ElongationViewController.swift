@@ -259,6 +259,7 @@ extension ElongationViewController {
   
   /// :nodoc:
   override func gestureRecognizerSwiped(_ gesture: UIPanGestureRecognizer) {
+    guard config.isSwipeGesturesEnabled else { return }
     let point = gesture.location(in: tableView)
     guard let path = tableView.indexPathForRow(at: point), path == expandedIndexPath, let cell = tableView.cellForRow(at: path) as? ElongationCell else {
       swipedView = nil
