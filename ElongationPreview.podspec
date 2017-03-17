@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'ElongationPreview'
-  s.version      = '1.0.1'
+  s.version      = '1.0.2'
   s.summary      = 'ElongationPreview is an elegant push-pop style view controller.'
   s.license      = 'MIT'
   s.homepage     = 'https://github.com/Ramotion/elongation-preview'
