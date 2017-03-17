@@ -184,24 +184,20 @@ extension ElongationViewController {
       return
     }
     
-    switch touchedView {
-    case cell.bottomView:
-      
+    if touchedView === cell.bottomView || touchedView.superview === cell.bottomView {
       switch elongationCellTouchAction {
       case .expandOnBoth, .expandOnBottom, .collapseOnTopExpandOnBottom:
         openDetailView(for: path)
       case .collapseOnBoth, .collapseOnBottomExpandOnTop: collapseCells()
       default: break
       }
-      
-    case cell.scalableView:
+    } else if touchedView === cell.scalableView || touchedView.superview === cell.scalableView || touchedView.superview === cell.topView || touchedView === cell.topView {
       switch elongationCellTouchAction {
       case .collapseOnBoth, .collapseOnTopExpandOnBottom: collapseCells()
       case .collapseOnBottomExpandOnTop, .expandOnBoth, .expandOnTop: openDetailView(for: path)
       default: break
       }
-      
-    default:
+    } else {
       switch elongationCellTouchAction {
       case .expandOnBoth: openDetailView(for: path)
       case .collapseOnBoth: collapseCells()
