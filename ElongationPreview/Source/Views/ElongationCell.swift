@@ -89,23 +89,6 @@ open class ElongationCell: UITableViewCell, Expandable {
     configureCell()
     addDimmingView()
   }
-  
-  /// :nodoc:
-  open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-    let scalableViewContainsPoint = scalableView.frame.contains(point)
-    let backViewContainsPoint = bottomView.frame.contains(point)
-    
-    if scalableViewContainsPoint {
-      return scalableView
-    }
-    
-    if backViewContainsPoint {
-      return bottomView
-    }
-    
-    return nil
-  }
-  
 }
 
 // MARK: - Lifecycle 🌎

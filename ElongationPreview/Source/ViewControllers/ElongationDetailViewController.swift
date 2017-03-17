@@ -42,26 +42,34 @@ extension ElongationDetailViewController {
     guard config.isSwipeGesturesEnabled else { return }
     let location = gesture.location(in: tableView)
     let point = headerView.convert(location, from: tableView)
-    guard headerView.point(inside: location, with: nil), let view = headerView.hitTest(point, with: nil) else { return }
+    guard headerView.point(inside: location, with: nil) else {
+      swipedView = nil
+      return
+    }
     if gesture.state == .began {
+      if headerView.scalableView.frame.contains(point) {
+        swipedView = headerView.scalableView
+      } else {
+        swipedView = nil
+        return
+      }
       startY = point.y
     }
+    guard swipedView != nil else { return }
     
     let newY = point.y
     let goingToBottom = startY < newY
     let rangeReached = abs(startY - newY) > 30
     
     if rangeReached {
-      if goingToBottom, swipedView === headerView?.scalableView {
+      if goingToBottom {
         gesture.isEnabled = false
         guard !isBeingDismissed else { return }
         dismissViewController()
       }
       startY = newY
     }
-    swipedView = view
   }
-  
 }
 
 // MARK: - Actions ⚡

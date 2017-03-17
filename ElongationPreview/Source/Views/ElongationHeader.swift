@@ -45,23 +45,6 @@ open class ElongationHeader: UIView, Expandable {
     super.layoutSubviews()
     contentView.frame = bounds
   }
-  
-  /// :nodoc:
-  open override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
-    let scalableViewContainsPoint = scalableView.frame.contains(point)
-    let backViewContainsPoint = bottomView.frame.contains(point)
-    
-    if scalableViewContainsPoint {
-      return scalableView
-    }
-    
-    if backViewContainsPoint {
-      return bottomView
-    }
-    
-    return nil
-  }
-  
 }
 
 
