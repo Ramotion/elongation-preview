@@ -14,11 +14,7 @@ class ViewController: ElongationViewController {
   
   var datasource: [Villa] = Villa.testData
   
-}
-
-// MARK: - Lifecycle 🌎
-extension ViewController {
-  
+  // MARK: Lifecycle 🌎
   override func viewDidLoad() {
     super.viewDidLoad()
     setup()
@@ -26,6 +22,14 @@ extension ViewController {
   
   override var preferredStatusBarStyle: UIStatusBarStyle {
     return .lightContent
+  }
+  
+  override func openDetailView(for indexPath: IndexPath) {
+    let id = String(describing: DetailViewController.self)
+    guard let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: id) as? DetailViewController else { return }
+    let villa = datasource[indexPath.row]
+    detailViewController.title = villa.title
+    expand(viewController: detailViewController)
   }
   
 }
@@ -36,19 +40,6 @@ private extension ViewController {
   func setup() {
     tableView.backgroundColor = UIColor.black
     tableView.registerNib(DemoElongationCell.self)
-  }
-  
-}
-
-// MARK: - Actions ⚡
-extension ViewController {
-  
-  override func openDetailView(for indexPath: IndexPath) {
-    let id = String(describing: DetailViewController.self)
-    guard let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: id) as? DetailViewController else { return }
-    let villa = datasource[indexPath.row]
-    detailViewController.title = villa.title
-    expand(viewController: detailViewController)
   }
   
 }

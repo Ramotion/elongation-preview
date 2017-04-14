@@ -59,11 +59,7 @@ open class ElongationViewController: SwipableTableViewController {
   fileprivate var parallaxConfigured = false
   fileprivate var shouldCommitPreviewAction = false
   
-}
-
-// MARK: - Lifecycle 🌎
-extension ElongationViewController {
-  
+  // MARK: Lifecycle 🌎
   /// :nodoc:
   override open func viewDidLoad() {
     super.viewDidLoad()
@@ -80,43 +76,8 @@ extension ElongationViewController {
     scrollViewDidScroll(tableView)
   }
   
-}
 
-// MARK: - Setup ⛏
-private extension ElongationViewController {
-  
-  func setup() {
-    setupTableView()
-    setupTapGesture()
-    
-    if #available(iOS 10, *), traitCollection.forceTouchCapability == .available, config.forceTouchPreviewInteractionEnabled {
-      interaction = UIPreviewInteraction(view: view)
-      interaction.delegate = self
-    } else if config.forceTouchPreviewInteractionEnabled {
-      setupLongPressGesture()
-    }
-  }
-  
-  private func setupTableView() {
-    tableView.separatorStyle = .none
-  }
-  
-  private func setupTapGesture() {
-    tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped(_:)))
-    tapGesture.isEnabled = false
-    tableView.addGestureRecognizer(tapGesture)
-  }
-  
-  private func setupLongPressGesture() {
-    longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureAction(_:)))
-    tableView.addGestureRecognizer(longPressGesture)
-  }
-  
-}
-
-// MARK: - Actions ⚡
-extension ElongationViewController {
-  
+  // MARK: - Actions ⚡
   // MARK: Public
   
   /// Collapse expanded cell.
@@ -302,6 +263,40 @@ extension ElongationViewController {
     expandedIndexPath = path
     moveCells(from: path)
   }
+  
+}
+
+// MARK: - Setup ⛏
+private extension ElongationViewController {
+  
+  // MARK: - Setup ⛏
+  func setup() {
+    setupTableView()
+    setupTapGesture()
+    
+    if #available(iOS 10, *), traitCollection.forceTouchCapability == .available, config.forceTouchPreviewInteractionEnabled {
+      interaction = UIPreviewInteraction(view: view)
+      interaction.delegate = self
+    } else if config.forceTouchPreviewInteractionEnabled {
+      setupLongPressGesture()
+    }
+  }
+  
+  private func setupTableView() {
+    tableView.separatorStyle = .none
+  }
+  
+  private func setupTapGesture() {
+    tapGesture = UITapGestureRecognizer(target: self, action: #selector(tableViewTapped(_:)))
+    tapGesture.isEnabled = false
+    tableView.addGestureRecognizer(tapGesture)
+  }
+  
+  private func setupLongPressGesture() {
+    longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(longPressGestureAction(_:)))
+    tableView.addGestureRecognizer(longPressGesture)
+  }
+  
   
 }
 

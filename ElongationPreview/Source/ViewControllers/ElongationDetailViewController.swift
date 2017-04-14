@@ -25,11 +25,7 @@ open class ElongationDetailViewController: SwipableTableViewController {
     return .shared
   }
   
-}
-
-// MARK: - Lifecycle 🌎
-extension ElongationDetailViewController {
-  
+  // MARK: Lifecycle 🌎
   /// :nodoc:
   override open func viewDidAppear(_ animated: Bool) {
     super.viewDidAppear(animated)
