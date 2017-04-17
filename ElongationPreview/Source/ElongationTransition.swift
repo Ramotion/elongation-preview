@@ -38,7 +38,17 @@ public class ElongationTransition: NSObject {
   }
   
   fileprivate func root(from context: UIViewControllerContextTransitioning) -> ElongationViewController {
-    return context.viewController(forKey: rootKey) as? ElongationViewController ?? ElongationViewController(nibName: nil, bundle: nil)
+    let viewController = context.viewController(forKey: rootKey)
+    
+    if let navi = viewController as? UINavigationController {
+      for case let elongationViewController as ElongationViewController in navi.viewControllers {
+        return elongationViewController
+      }
+    } else if let elongationViewController = viewController as? ElongationViewController {
+      return elongationViewController
+    }
+    
+    fatalError("Can't get `ElongationViewController` from UINavigationController nor from context's viewController itself.")
   }
   
   fileprivate func detail(from context: UIViewControllerContextTransitioning) -> ElongationDetailViewController {
