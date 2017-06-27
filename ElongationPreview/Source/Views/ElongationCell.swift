@@ -26,6 +26,14 @@ open class ElongationCell: UITableViewCell, Expandable {
   /// Is this cell in `expanded` state.
   open var isExpanded = false
   
+  open var cellBackgroundColor: UIColor = .black
+  open var dimColor: UIColor = .black {
+    didSet {
+      dimmingView?.backgroundColor = dimColor
+    }
+  }
+  open var dimAlpha: CGFloat = 0.9
+  
   /// View on top half of `contentView`.
   /// Add here all the views which wont be scaled and must stay on their position.
   @IBOutlet public var topView: UIView!
@@ -125,7 +133,7 @@ extension ElongationCell {
     dimmingView = UIView()
     contentView.addSubview(dimmingView)
     dimmingView.alpha = 0
-    dimmingView.backgroundColor = UIColor.black
+    dimmingView.backgroundColor = dimColor
     dimmingView.frame = bounds
     dimmingView.autoresizingMask = [.flexibleWidth, .flexibleHeight]
   }
@@ -204,21 +212,21 @@ extension ElongationCell {
   ///   - value: true if the cell must be dimmed
   ///   - animated: should it be animated
   open func dim(_ value: Bool, animated: Bool = true) {
-    let alpha: CGFloat = value ? 0.9 : 0
+    let alpha: CGFloat = value ? dimAlpha : 0
     if animated {
       UIView.animate(withDuration: 0.2) {
         self.dimmingView.alpha = alpha
-        self.contentView.backgroundColor = value ? .black : .clear
+        self.contentView.backgroundColor = value ? self.cellBackgroundColor : .clear
       }
     } else {
       self.dimmingView.alpha = alpha
-      self.contentView.backgroundColor = value ? .black : .clear
+      self.contentView.backgroundColor = value ? cellBackgroundColor : .clear
     }
   }
   
   // MARK: Private
   fileprivate func updateCellState() {
-    let backColor: UIColor = isExpanded ? .black : .clear
+    let backColor: UIColor = isExpanded ? cellBackgroundColor : .clear
     backgroundColor = backColor
     contentView.backgroundColor = backColor
     
