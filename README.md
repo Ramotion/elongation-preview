@@ -151,7 +151,7 @@ See [LICENSE](./LICENSE) for details.
 # Get the Showroom App for iOS to give it a try
 Try this UI component and more like this in our iOS app. Contact us if interested.
 
-
+<br>
 <a href="https://itunes.apple.com/app/apple-store/id1182360240?pt=550053&ct=elongation-preview&mt=8" > 
 <img src="https://github.com/ramotion/gliding-collection/raw/master/app_store@2x.png" width="117" height="34"></a>
 <a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview-contact-us/#Get_in_Touch"> 
