@@ -1,4 +1,5 @@
-[![header](/assets/header.png)](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview-logo)
+[![header](./assets/header.png)](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview-logo)
+![animation](./assets/ElongationPreview.gif)
 
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
 [![PodPlatform](https://img.shields.io/cocoapods/p/ElongationPreview.svg)](https://cocoapods.org/pods/ElongationPreview)
@@ -12,18 +13,16 @@
 
 ## About
 This project is maintained by Ramotion, Inc.<br>
-We specialize in the designing and coding of custom UI for Mobile Apps and Websites.<br><br>**Looking for developers for your project?**
+We specialize in the designing and coding of custom UI for Mobile Apps and Websites..<br>
 
-<a href="https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview-contact-us/#Get_in_Touch" > <img src="https://github.com/Ramotion/navigation-stack/raw/master/contact_our_team@2x.png" width="150" height="30"></a>
+**Looking for developers for your project?**<br>
+This project is maintained by Ramotion, Inc. We specialize in the designing and coding of custom UI for Mobile Apps and Websites.
 
-[![animation](/assets/ElongationPreview.gif)](https://dribbble.com/shots/3333066-Elongation-Preview-App-Interface-UX-UI)
+<a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview-contact-us/#Get_in_Touch"> 
+<img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a> <br>
 
 The [iPhone mockup](https://store.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview) available [here](https://store.ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview).
 <br>
-
-## Try this UI control in action
-
-<a href="https://itunes.apple.com/app/apple-store/id1182360240?pt=550053&ct=elongation-preview&mt=8" > <img src="https://github.com/Ramotion/navigation-stack/raw/master/Download_on_the_App_Store_Badge_US-UK_135x40.png" width="170" height="58"></a>
 
 ## Requirements
 
@@ -149,8 +148,17 @@ ElongationPreview is released under the MIT license.
 See [LICENSE](./LICENSE) for details.
 
 <br>
+# Get the Showroom App for iOS to give it a try
+Try this UI component and more like this in our iOS app. Contact us if interested.
 
-## Follow us
+<a href="https://itunes.apple.com/app/apple-store/id1182360240?pt=550053&ct=elongation-preview&mt=8" > 
+<img src="https://github.com/ramotion/gliding-collection/raw/master/app_store@2x.png" width="117" height="34"></a>
+<a href="https://ramotion.com/?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview-contact-us/#Get_in_Touch"> 
+<img src="https://github.com/ramotion/gliding-collection/raw/master/contact_our_team@2x.png" width="187" height="34"></a>
+<br>
+<br>
+
+Follow us for the latest updates<br>
 
 [![Twitter URL](https://img.shields.io/twitter/url/http/shields.io.svg?style=social)](https://twitter.com/intent/tweet?text=https://github.com/ramotion/elongation-preview)
 [![Twitter Follow](https://img.shields.io/twitter/follow/ramotion.svg?style=social)](https://twitter.com/ramotion)
