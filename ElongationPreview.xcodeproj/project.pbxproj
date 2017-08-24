@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		078089231F4E201500892B33 /* InitialViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 078089201F4E201500892B33 /* InitialViewController.swift */; };
+		078089241F4E201500892B33 /* NCStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 078089211F4E201500892B33 /* NCStoryBoard.storyboard */; };
+		078089251F4E201500892B33 /* TabBStoryBoard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 078089221F4E201500892B33 /* TabBStoryBoard.storyboard */; };
 		9D0CDAD61E4B5A3000BB945B /* UIEdgeInsets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D0CDAD51E4B5A3000BB945B /* UIEdgeInsets.swift */; };
 		9D252C221E57286E00B68833 /* Roboto-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9D252C211E57286E00B68833 /* Roboto-Bold.ttf */; };
 		9D252C241E575B9B00B68833 /* SwipableTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D252C231E575B9B00B68833 /* SwipableTableViewController.swift */; };
@@ -72,6 +75,9 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		078089201F4E201500892B33 /* InitialViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InitialViewController.swift; sourceTree = "<group>"; };
+		078089211F4E201500892B33 /* NCStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = NCStoryBoard.storyboard; sourceTree = "<group>"; };
+		078089221F4E201500892B33 /* TabBStoryBoard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = TabBStoryBoard.storyboard; sourceTree = "<group>"; };
 		9D0CDAD51E4B5A3000BB945B /* UIEdgeInsets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIEdgeInsets.swift; sourceTree = "<group>"; };
 		9D252C211E57286E00B68833 /* Roboto-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Roboto-Bold.ttf"; sourceTree = "<group>"; };
 		9D252C231E575B9B00B68833 /* SwipableTableViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SwipableTableViewController.swift; sourceTree = "<group>"; };
@@ -261,6 +267,9 @@
 		9DE4FAD31E4B1A15008502A3 /* ElongationPreviewDemo */ = {
 			isa = PBXGroup;
 			children = (
+				078089201F4E201500892B33 /* InitialViewController.swift */,
+				078089211F4E201500892B33 /* NCStoryBoard.storyboard */,
+				078089221F4E201500892B33 /* TabBStoryBoard.storyboard */,
 				9DE4FAD41E4B1A15008502A3 /* AppDelegate.swift */,
 				9DE4FAD61E4B1A15008502A3 /* ViewController.swift */,
 				9D8937301E539DDD00FDC29D /* DetailViewController.swift */,
@@ -441,10 +450,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				9D252C221E57286E00B68833 /* Roboto-Bold.ttf in Resources */,
+				078089241F4E201500892B33 /* NCStoryBoard.storyboard in Resources */,
 				9DF1BC5E1E5B5A7700AFB21C /* DemoElongationCell.xib in Resources */,
 				9DF1BC601E5B5A7700AFB21C /* GridViewCell.xib in Resources */,
 				9D69D1321E4EF2A900D38C59 /* Roboto-Regular.ttf in Resources */,
 				9D69D1311E4EF2A900D38C59 /* Roboto-Medium.ttf in Resources */,
+				078089251F4E201500892B33 /* TabBStoryBoard.storyboard in Resources */,
 				9DE4FADF1E4B1A15008502A3 /* LaunchScreen.storyboard in Resources */,
 				9DE4FADC1E4B1A15008502A3 /* Assets.xcassets in Resources */,
 				9DE4FADA1E4B1A15008502A3 /* Main.storyboard in Resources */,
@@ -487,6 +498,7 @@
 				9DE4FAD71E4B1A15008502A3 /* ViewController.swift in Sources */,
 				9DE4FAD51E4B1A15008502A3 /* AppDelegate.swift in Sources */,
 				9D69D13B1E4EF31C00D38C59 /* UIFont.swift in Sources */,
+				078089231F4E201500892B33 /* InitialViewController.swift in Sources */,
 				9D44D0F61E4C3A5E00F6A335 /* Villa.swift in Sources */,
 				9D44D0F31E4C301000F6A335 /* LoremSwiftum.swift in Sources */,
 				9D8937311E539DDD00FDC29D /* DetailViewController.swift in Sources */,

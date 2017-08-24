@@ -22,6 +22,10 @@ fileprivate var interaction: UIPreviewInteraction!
 open class ElongationViewController: SwipableTableViewController {
   
   // MARK: Public properties
+   
+  
+  /// instance representing an object conforming to UIViewControllerAnimatedTransitioning, used to adjust how transition between two vc will behave
+  public var elongationTransition = ElongationTransition()
   
   /// `IndexPath` of expanded cell.
   public var expandedIndexPath: IndexPath?
@@ -396,17 +400,21 @@ extension ElongationViewController: UIPreviewInteractionDelegate {
   
 }
 
-// MARK: - Transition
+// MARK: - Transition  UIViewControllerTransitioningDelegate
 extension ElongationViewController: UIViewControllerTransitioningDelegate {
+
   
   /// This transition object will be used while dismissing `ElongationDetailViewController`.
   public func animationController(forDismissed dismissed: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    return ElongationTransition(presenting: false)
+    
+    //elongationTransition.presenting = false
+    return elongationTransition
   }
   
   /// This transition object will be used while presenting `ElongationDetailViewController`.
   public func animationController(forPresented presented: UIViewController, presenting: UIViewController, source: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-    return ElongationTransition(presenting: true)
+    //elongationTransition.presenting = true
+    return elongationTransition
   }
   
 }
