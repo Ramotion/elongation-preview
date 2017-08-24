@@ -1,48 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="t1C-Dy-Tzl">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="5ZP-4m-Yfa">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="pWB-Td-sHf">
+        <!--NCStoryBoard-->
+        <scene sceneID="ghL-i1-Vlv">
             <objects>
-                <tableViewController id="t1C-Dy-Tzl" customClass="ViewController" customModule="ElongationPreviewDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" id="UaJ-kk-Hv5">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <connections>
-                            <outlet property="dataSource" destination="t1C-Dy-Tzl" id="5mq-gB-SnX"/>
-                            <outlet property="delegate" destination="t1C-Dy-Tzl" id="BMv-Zc-UBS"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hfH-IK-dS7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="NCStoryBoard" id="haG-dG-ImO" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dNp-kp-RZu" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="119" y="3"/>
+            <point key="canvasLocation" x="3233" y="-388"/>
         </scene>
-        <!--Detail View Controller-->
-        <scene sceneID="VTn-jn-qCC">
+        <!--Initial View Controller-->
+        <scene sceneID="vqd-lf-kzd">
             <objects>
-                <tableViewController storyboardIdentifier="DetailViewController" id="l2P-VE-cIq" customClass="DetailViewController" customModule="ElongationPreviewDemo" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="grouped" separatorStyle="default" rowHeight="44" sectionHeaderHeight="1" sectionFooterHeight="1" id="WIC-mh-3FS">
+                <viewController id="5ZP-4m-Yfa" customClass="InitialViewController" customModule="ElongationPreviewDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Gjo-ow-SEC"/>
+                        <viewControllerLayoutGuide type="bottom" id="zlB-lK-agm"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="62r-Up-O6S">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
-                        <connections>
-                            <outlet property="dataSource" destination="l2P-VE-cIq" id="nKG-vo-QwY"/>
-                            <outlet property="delegate" destination="l2P-VE-cIq" id="2fx-Dx-HF7"/>
-                        </connections>
-                    </tableView>
-                </tableViewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4RC-3D-Iwc" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QIH-ty-XxS">
+                                <rect key="frame" x="72" y="190" width="230" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Embeded in Navigation Controller"/>
+                                <connections>
+                                    <action selector="NavigationControllerAction:" destination="5ZP-4m-Yfa" eventType="touchUpInside" id="kOH-az-muV"/>
+                                    <segue destination="haG-dG-ImO" kind="show" id="fh2-qd-b8J">
+                                        <nil key="action"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eIY-8c-wqX">
+                                <rect key="frame" x="72" y="259" width="230" height="61"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Embeded in TabBar Controller"/>
+                                <connections>
+                                    <action selector="tabBarAction:" destination="5ZP-4m-Yfa" eventType="touchUpInside" id="Zmb-DZ-jr8"/>
+                                    <segue destination="jru-FV-y0w" kind="show" id="bo4-M3-KnG">
+                                        <nil key="action"/>
+                                    </segue>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="6hH-oj-r3e" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="842" y="2"/>
+            <point key="canvasLocation" x="2532" y="-240"/>
+        </scene>
+        <!--TabBStoryBoard-->
+        <scene sceneID="R8L-Vi-Qr1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="TabBStoryBoard" id="jru-FV-y0w" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="FWJ-g9-pnm" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3244" y="-101"/>
         </scene>
     </scenes>
 </document>

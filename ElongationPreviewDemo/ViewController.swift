@@ -26,7 +26,12 @@ class ViewController: ElongationViewController {
   
   override func openDetailView(for indexPath: IndexPath) {
     let id = String(describing: DetailViewController.self)
-    guard let detailViewController = UIStoryboard(name: "Main", bundle: nil).instantiateViewController(withIdentifier: id) as? DetailViewController else { return }
+    
+    //retrieve the storyboard_name key stored while touchUpInside event on InitialViewController
+    let storyboardName = UserDefaults.standard.object(forKey: "storyboard_name") as! String
+    
+    //load appropiate storyboard
+    guard let detailViewController = UIStoryboard(name: storyboardName, bundle: nil).instantiateViewController(withIdentifier: id) as? DetailViewController else { return }
     let villa = datasource[indexPath.row]
     detailViewController.title = villa.title
     expand(viewController: detailViewController)
