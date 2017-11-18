@@ -29,7 +29,7 @@ open class SwipableTableViewController: UITableViewController, UIGestureRecogniz
     tableView.addGestureRecognizer(panGestureRecognizer)
   }
   
-  func gestureRecognizerSwiped(_ gesture: UIPanGestureRecognizer) { }
+  @objc func gestureRecognizerSwiped(_ gesture: UIPanGestureRecognizer) { }
   
   /// :nodoc:
   public func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {

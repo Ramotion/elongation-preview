@@ -71,7 +71,7 @@ open class ElongationDetailViewController: SwipableTableViewController {
 // MARK: - Actions ⚡
 extension ElongationDetailViewController {
   
-  func headerViewTapped(_ gesture: UITapGestureRecognizer) {
+  @objc func headerViewTapped(_ gesture: UITapGestureRecognizer) {
     let location = gesture.location(in: headerView)
     let point = headerView.convert(location, from: view)
     let action = ElongationConfig.shared.headerTouchAction

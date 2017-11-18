@@ -28,7 +28,8 @@ The [iPhone mockup](https://store.ramotion.com?utm_source=gthb&utm_medium=specia
 
 - iOS 9.0+
 - Xcode 8
-- Swift 3
+- Swift 3 (<= 1.0.5)
+- Swift 4 (>= 1.1)
 
 <br>
 
