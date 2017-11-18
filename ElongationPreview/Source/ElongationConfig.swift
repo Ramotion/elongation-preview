@@ -98,9 +98,9 @@ public struct ElongationConfig {
     }
   }
   
-  /// Duration of `detail` view controller presention animation
+  /// Duration of `detail` view controller presentation animation
   /// Default value: `0.3`
-  public var detailPresetingDuration: TimeInterval = 0.3
+  public var detailPresentingDuration: TimeInterval = 0.3
   
   /// Duration of `detail` view controller dismissing animation
   /// Default value: `0.4`
