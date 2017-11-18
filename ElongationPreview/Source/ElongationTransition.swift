@@ -64,7 +64,7 @@ extension ElongationTransition: UIViewControllerAnimatedTransitioning {
   
   /// :nodoc:
   open func transitionDuration(using transitionContext: UIViewControllerContextTransitioning?) -> TimeInterval {
-    return presenting ? appearance.detailPresetingDuration : appearance.detailDismissingDuration
+    return presenting ? appearance.detailPresentingDuration : appearance.detailDismissingDuration
   }
   
   /// :nodoc:
