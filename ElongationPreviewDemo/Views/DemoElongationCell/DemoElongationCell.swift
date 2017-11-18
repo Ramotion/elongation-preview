@@ -10,7 +10,7 @@ import UIKit
 import ElongationPreview
 
 
-class DemoElongationCell: ElongationCell {
+final class DemoElongationCell: ElongationCell {
   
   @IBOutlet var topImageView: UIImageView!
   @IBOutlet var localityLabel: UILabel!

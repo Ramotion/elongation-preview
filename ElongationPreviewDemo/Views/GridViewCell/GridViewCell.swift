@@ -9,7 +9,7 @@
 import UIKit
 
 
-class GridViewCell: UITableViewCell {
+final class GridViewCell: UITableViewCell {
   
   @IBOutlet var stackView: UIStackView!
   

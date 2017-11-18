@@ -10,7 +10,7 @@ import UIKit
 import ElongationPreview
 
 
-class DetailViewController: ElongationDetailViewController {
+final class DetailViewController: ElongationDetailViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()

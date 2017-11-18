@@ -10,7 +10,7 @@ import UIKit
 import ElongationPreview
 
 
-class ViewController: ElongationViewController {
+final class ViewController: ElongationViewController {
   
   var datasource: [Villa] = Villa.testData
   
@@ -63,9 +63,9 @@ extension ViewController {
     let villa = datasource[indexPath.row]
     
     let attributedLocality = NSMutableAttributedString(string: villa.locality.uppercased(), attributes: [
-      NSFontAttributeName: UIFont.robotoFont(ofSize: 22, weight: .medium),
-      NSKernAttributeName: 8.2,
-      NSForegroundColorAttributeName: UIColor.white
+      NSAttributedStringKey.font: UIFont.robotoFont(ofSize: 22, weight: .medium),
+      NSAttributedStringKey.kern: 8.2,
+      NSAttributedStringKey.foregroundColor: UIColor.white
       ])
     
     cell.topImageView?.image = UIImage(named: villa.imageName)
