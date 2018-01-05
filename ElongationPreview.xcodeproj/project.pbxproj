@@ -385,7 +385,6 @@
 				TargetAttributes = {
 					9D873CE71E7C2A1200826500 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 2VFCBFYPFW;
 						ProvisioningStyle = Automatic;
 						TestTargetID = 9DE4FAD11E4B1A15008502A3;
 					};
@@ -396,7 +395,6 @@
 					};
 					9DE4FAD11E4B1A15008502A3 = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = 486STKKP6Y;
 						ProvisioningStyle = Automatic;
 					};
 				};
@@ -533,7 +531,7 @@
 		9D873CEF1E7C2A1200826500 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 2VFCBFYPFW;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ElongationPreviewUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -547,7 +545,7 @@
 		9D873CF01E7C2A1200826500 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				DEVELOPMENT_TEAM = 2VFCBFYPFW;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ElongationPreviewUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -719,7 +717,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 486STKKP6Y;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ElongationPreviewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -735,7 +733,7 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = 486STKKP6Y;
+				DEVELOPMENT_TEAM = "";
 				INFOPLIST_FILE = ElongationPreviewDemo/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
