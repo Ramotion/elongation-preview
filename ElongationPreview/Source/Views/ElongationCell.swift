@@ -186,16 +186,10 @@ extension ElongationCell {
   open func expand(_ value: Bool, animated: Bool = true, completion: ((Bool) -> Void)? = nil) {
     isExpanded = value
     
-    if animated {
-      UIView.animate(withDuration: 0.3, delay: 0, options: .curveEaseInOut, animations: {
-        self.updateCellState()
-        self.hideSeparator(value, animated: false)
-      }, completion: completion)
-    } else {
-      updateCellState()
-      hideSeparator(value, animated: false)
-      completion?(true)
-    }
+    UIView.animate(withDuration: animated ? 0.3 : 0, delay: 0, options: .curveEaseInOut, animations: {
+      self.updateCellState()
+      self.hideSeparator(value, animated: false)
+    }, completion: completion)
   }
   
   /// Apply dark overlay above the cell.
