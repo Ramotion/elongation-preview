@@ -86,6 +86,12 @@ extension ElongationTransition {
     let detailView = context.view(forKey: detailViewKey)
     
     let detailViewFinalFrame = context.finalFrame(for: detail) // Final frame for presenting view controller
+    let statusBarHeight: CGFloat
+    if #available(iOS 11, *) {
+      statusBarHeight = UIApplication.shared.statusBarFrame.height
+    } else {
+      statusBarHeight = 0
+    }
     
     guard
       let rootTableView = root.tableView, // get `tableView` from root
@@ -122,7 +128,7 @@ extension ElongationTransition {
     // TableView snapshot
     let cellsSize = CGSize(width: view.frame.width, height: view.frame.height - header.frame.height)
     UIGraphicsBeginImageContextWithOptions(cellsSize, true, 0)
-    fullImage.draw(at: CGPoint(x: 0, y: -header.frame.height))
+    fullImage.draw(at: CGPoint(x: 0, y: -header.frame.height - statusBarHeight))
     let tableSnapshot = UIGraphicsGetImageFromCurrentImageContext() ?? UIImage()
     UIGraphicsEndImageContext()
     
@@ -143,10 +149,10 @@ extension ElongationTransition {
     
     let height = isExpanded ? cellFrame.height : appearance.topViewHeight + appearance.bottomViewHeight
     
-    view.frame = CGRect(x: 0, y: cellFrame.minY, width: detailViewFinalFrame.width, height: cellFrame.height)
-    headerSnapshotView.frame = CGRect(x: 0, y: cellFrame.minY, width: cellFrame.width, height: height)
+    view.frame = CGRect(x: 0, y: cellFrame.minY - statusBarHeight, width: detailViewFinalFrame.width, height: cellFrame.height)
+    headerSnapshotView.frame = CGRect(x: 0, y: cellFrame.minY - statusBarHeight, width: cellFrame.width, height: height)
     tableViewSnapshotView.frame = CGRect(x: 0, y: detailViewFinalFrame.maxY, width: cellsSize.width, height: cellsSize.height)
-    tempView.frame = CGRect(x: 0, y: cellFrame.maxY, width: detailViewFinalFrame.width, height: 0)
+    tempView.frame = CGRect(x: 0, y: cellFrame.maxY - statusBarHeight, width: detailViewFinalFrame.width, height: 0)
     
     // Animate to new state
     UIView.animate(withDuration: duration, delay: 0, options: .curveEaseInOut, animations: {
@@ -160,7 +166,7 @@ extension ElongationTransition {
       
       view.frame = detailViewFinalFrame
       headerSnapshotView.frame = CGRect(x: 0, y: 0, width: cellFrame.width, height: height)
-      tableViewSnapshotView.frame = CGRect(x: 0, y: header.frame.height, width: detailViewFinalFrame.width, height: cellsSize.height)
+      tableViewSnapshotView.frame = CGRect(x: 0, y: header.frame.height + statusBarHeight, width: detailViewFinalFrame.width, height: cellsSize.height)
       tempView.frame = CGRect(x: 0, y: headerSnapshotView.frame.maxY, width: detailViewFinalFrame.width, height: detailViewFinalFrame.height)
     }) { (completed) in
       rootView?.removeFromSuperview()
