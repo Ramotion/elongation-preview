@@ -19,7 +19,6 @@
 		9D69D13B1E4EF31C00D38C59 /* UIFont.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D69D13A1E4EF31C00D38C59 /* UIFont.swift */; };
 		9D69D13D1E4F339300D38C59 /* ElongationTransition.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D69D13C1E4F339300D38C59 /* ElongationTransition.swift */; };
 		9D69D13F1E4F344B00D38C59 /* ElongationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D69D13E1E4F344B00D38C59 /* ElongationDetailViewController.swift */; };
-		9D873CEB1E7C2A1200826500 /* ElongationPreviewUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D873CEA1E7C2A1200826500 /* ElongationPreviewUITests.swift */; };
 		9D8937311E539DDD00FDC29D /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9D8937301E539DDD00FDC29D /* DetailViewController.swift */; };
 		9DC8E8841E4B3CAD00C04F79 /* UICollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC8E8821E4B3CAD00C04F79 /* UICollectionView.swift */; };
 		9DC8E8851E4B3CAD00C04F79 /* UITableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9DC8E8831E4B3CAD00C04F79 /* UITableView.swift */; };
@@ -41,13 +40,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		9D873CED1E7C2A1200826500 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9DE4FABA1E4B1A02008502A3 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9DE4FAD11E4B1A15008502A3;
-			remoteInfo = ElongationPreviewDemo;
-		};
 		9DC8E8971E4B45F300C04F79 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 9DE4FABA1E4B1A02008502A3 /* Project object */;
@@ -84,9 +76,6 @@
 		9D69D13A1E4EF31C00D38C59 /* UIFont.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIFont.swift; sourceTree = "<group>"; };
 		9D69D13C1E4F339300D38C59 /* ElongationTransition.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElongationTransition.swift; sourceTree = "<group>"; };
 		9D69D13E1E4F344B00D38C59 /* ElongationDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ElongationDetailViewController.swift; sourceTree = "<group>"; };
-		9D873CE81E7C2A1200826500 /* ElongationPreviewUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ElongationPreviewUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		9D873CEA1E7C2A1200826500 /* ElongationPreviewUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ElongationPreviewUITests.swift; sourceTree = "<group>"; };
-		9D873CEC1E7C2A1200826500 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		9D8937301E539DDD00FDC29D /* DetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		9DC8E8821E4B3CAD00C04F79 /* UICollectionView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UICollectionView.swift; sourceTree = "<group>"; };
 		9DC8E8831E4B3CAD00C04F79 /* UITableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UITableView.swift; sourceTree = "<group>"; };
@@ -94,7 +83,7 @@
 		9DE4FAC31E4B1A02008502A3 /* ElongationPreview.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ElongationPreview.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE4FAC61E4B1A02008502A3 /* ElongationPreview.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ElongationPreview.h; sourceTree = "<group>"; };
 		9DE4FAC71E4B1A02008502A3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		9DE4FAD21E4B1A15008502A3 /* ElongationPreviewDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ElongationPreviewDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		9DE4FAD21E4B1A15008502A3 /* Elongation Preview.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Elongation Preview.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		9DE4FAD41E4B1A15008502A3 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9DE4FAD61E4B1A15008502A3 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9DE4FAD91E4B1A15008502A3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -110,13 +99,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		9D873CE51E7C2A1200826500 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9DE4FABF1E4B1A02008502A3 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -178,15 +160,6 @@
 			path = Extensions;
 			sourceTree = "<group>";
 		};
-		9D873CE91E7C2A1200826500 /* ElongationPreviewUITests */ = {
-			isa = PBXGroup;
-			children = (
-				9D873CEA1E7C2A1200826500 /* ElongationPreviewUITests.swift */,
-				9D873CEC1E7C2A1200826500 /* Info.plist */,
-			);
-			path = ElongationPreviewUITests;
-			sourceTree = "<group>";
-		};
 		9DC8E8811E4B3CAD00C04F79 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
@@ -233,7 +206,6 @@
 			children = (
 				9DE4FAC51E4B1A02008502A3 /* ElongationPreview */,
 				9DE4FAD31E4B1A15008502A3 /* ElongationPreviewDemo */,
-				9D873CE91E7C2A1200826500 /* ElongationPreviewUITests */,
 				9DE4FAC41E4B1A02008502A3 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -242,8 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				9DE4FAC31E4B1A02008502A3 /* ElongationPreview.framework */,
-				9DE4FAD21E4B1A15008502A3 /* ElongationPreviewDemo.app */,
-				9D873CE81E7C2A1200826500 /* ElongationPreviewUITests.xctest */,
+				9DE4FAD21E4B1A15008502A3 /* Elongation Preview.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -318,24 +289,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		9D873CE71E7C2A1200826500 /* ElongationPreviewUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 9D873CF11E7C2A1200826500 /* Build configuration list for PBXNativeTarget "ElongationPreviewUITests" */;
-			buildPhases = (
-				9D873CE41E7C2A1200826500 /* Sources */,
-				9D873CE51E7C2A1200826500 /* Frameworks */,
-				9D873CE61E7C2A1200826500 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				9D873CEE1E7C2A1200826500 /* PBXTargetDependency */,
-			);
-			name = ElongationPreviewUITests;
-			productName = ElongationPreviewUITests;
-			productReference = 9D873CE81E7C2A1200826500 /* ElongationPreviewUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 		9DE4FAC21E4B1A02008502A3 /* ElongationPreview */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9DE4FACB1E4B1A02008502A3 /* Build configuration list for PBXNativeTarget "ElongationPreview" */;
@@ -370,7 +323,7 @@
 			);
 			name = ElongationPreviewDemo;
 			productName = ElongationPreviewDemo;
-			productReference = 9DE4FAD21E4B1A15008502A3 /* ElongationPreviewDemo.app */;
+			productReference = 9DE4FAD21E4B1A15008502A3 /* Elongation Preview.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -383,11 +336,6 @@
 				LastUpgradeCheck = 0910;
 				ORGANIZATIONNAME = Ramotion;
 				TargetAttributes = {
-					9D873CE71E7C2A1200826500 = {
-						CreatedOnToolsVersion = 8.2.1;
-						ProvisioningStyle = Automatic;
-						TestTargetID = 9DE4FAD11E4B1A15008502A3;
-					};
 					9DE4FAC21E4B1A02008502A3 = {
 						CreatedOnToolsVersion = 8.2.1;
 						LastSwiftMigration = 0820;
@@ -414,19 +362,11 @@
 			targets = (
 				9DE4FAC21E4B1A02008502A3 /* ElongationPreview */,
 				9DE4FAD11E4B1A15008502A3 /* ElongationPreviewDemo */,
-				9D873CE71E7C2A1200826500 /* ElongationPreviewUITests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		9D873CE61E7C2A1200826500 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9DE4FAC11E4B1A02008502A3 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -452,14 +392,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		9D873CE41E7C2A1200826500 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				9D873CEB1E7C2A1200826500 /* ElongationPreviewUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		9DE4FABE1E4B1A02008502A3 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -496,11 +428,6 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		9D873CEE1E7C2A1200826500 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9DE4FAD11E4B1A15008502A3 /* ElongationPreviewDemo */;
-			targetProxy = 9D873CED1E7C2A1200826500 /* PBXContainerItemProxy */;
-		};
 		9DC8E8981E4B45F300C04F79 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 9DE4FAC21E4B1A02008502A3 /* ElongationPreview */;
@@ -528,34 +455,6 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		9D873CEF1E7C2A1200826500 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = ElongationPreviewUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.ElongationPreviewUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = ElongationPreviewDemo;
-			};
-			name = Debug;
-		};
-		9D873CF01E7C2A1200826500 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				DEVELOPMENT_TEAM = "";
-				INFOPLIST_FILE = ElongationPreviewUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.2;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.ElongationPreviewUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 4.0;
-				TEST_TARGET_NAME = ElongationPreviewDemo;
-			};
-			name = Release;
-		};
 		9DE4FAC91E4B1A02008502A3 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -722,7 +621,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.ElongationPreviewDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Elongation Preview";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -738,7 +637,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.ramotion.ElongationPreviewDemo;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "Elongation Preview";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -747,15 +646,6 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		9D873CF11E7C2A1200826500 /* Build configuration list for PBXNativeTarget "ElongationPreviewUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				9D873CEF1E7C2A1200826500 /* Debug */,
-				9D873CF01E7C2A1200826500 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		9DE4FABD1E4B1A02008502A3 /* Build configuration list for PBXProject "ElongationPreview" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

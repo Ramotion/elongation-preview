@@ -8,12 +8,11 @@
 
 import UIKit
 
-
 protocol Expandable {
-  var contentView: UIView { get }
-  var topView: UIView! { get set }
-  var scalableView: UIView! { get set }
-  var bottomView: UIView! { get set }
-  
-  var bottomViewTopConstraint: NSLayoutConstraint! { get set }
+    var contentView: UIView { get }
+    var topView: UIView! { get set }
+    var scalableView: UIView! { get set }
+    var bottomView: UIView! { get set }
+
+    var bottomViewTopConstraint: NSLayoutConstraint! { get set }
 }
