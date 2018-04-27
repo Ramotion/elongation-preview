@@ -1,5 +1,6 @@
 [![header](./assets/header.png)](https://ramotion.com?utm_source=gthb&utm_medium=special&utm_campaign=elongation-preview-logo)
-![animation](./assets/ElongationPreview.gif)
+<img src="https://github.com/Ramotion/elongation-preview/blob/master/assets/elongation-preview.gif" width="600" height="450" />
+<br><br/>
 
 [![Twitter](https://img.shields.io/badge/Twitter-@Ramotion-blue.svg?style=flat)](http://twitter.com/Ramotion)
 [![PodPlatform](https://img.shields.io/cocoapods/p/ElongationPreview.svg)](https://cocoapods.org/pods/ElongationPreview)
