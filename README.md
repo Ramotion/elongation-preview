@@ -142,7 +142,8 @@ ElongationConfig.shared = config
 
 >🗒 All parameters with their descriptions listed in [`ElongationConfig`](/ElongationPreview/Source/ElongationConfig.swift) file.
 
-<br>
+
+This library is a part of a <a href="https://github.com/Ramotion/swift-ui-animation-components-and-libraries"><b>selection of our best UI open-source projects.</b></a>
 
 ## License
 
