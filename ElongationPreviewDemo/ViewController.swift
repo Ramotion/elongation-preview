@@ -63,9 +63,9 @@ extension ViewController {
         let villa = datasource[indexPath.row]
 
         let attributedLocality = NSMutableAttributedString(string: villa.locality.uppercased(), attributes: [
-            NSAttributedStringKey.font: UIFont.robotoFont(ofSize: 22, weight: .medium),
-            NSAttributedStringKey.kern: 8.2,
-            NSAttributedStringKey.foregroundColor: UIColor.white,
+            NSAttributedString.Key.font: UIFont.robotoFont(ofSize: 22, weight: .medium),
+            NSAttributedString.Key.kern: 8.2,
+            NSAttributedString.Key.foregroundColor: UIColor.white,
         ])
 
         cell.topImageView?.image = UIImage(named: villa.imageName)

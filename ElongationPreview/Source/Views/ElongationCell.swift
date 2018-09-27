@@ -74,7 +74,7 @@ open class ElongationCell: UITableViewCell, Expandable {
     // MARK: Constructor
 
     /// :nodoc:
-    public override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+    public override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         commonInit()
     }
@@ -144,11 +144,11 @@ extension ElongationCell {
             separator.backgroundColor = appearance.separatorColor
             separator.translatesAutoresizingMaskIntoConstraints = false
 
-            let topOrBottomAttribute: NSLayoutAttribute = separator === topSeparator ? .top : .bottom
+            let topOrBottomAttribute: NSLayoutConstraint.Attribute = separator === topSeparator ? .top : .bottom
 
             contentView.addConstraints([
                 NSLayoutConstraint(item: separator, attribute: .right, relatedBy: .equal, toItem: contentView, attribute: .right, multiplier: 1, constant: 0),
-                NSLayoutConstraint(item: separator, attribute: .left, relatedBy: NSLayoutRelation.equal, toItem: contentView, attribute: .left, multiplier: 1, constant: 0),
+                NSLayoutConstraint(item: separator, attribute: .left, relatedBy: NSLayoutConstraint.Relation.equal, toItem: contentView, attribute: .left, multiplier: 1, constant: 0),
                 NSLayoutConstraint(item: separator, attribute: topOrBottomAttribute, relatedBy: .equal, toItem: contentView, attribute: topOrBottomAttribute, multiplier: 1, constant: 0),
             ])
 

@@ -20,34 +20,34 @@ open class Lorem {
 
     // ======================================================= //
 
-    open static var word: String {
+    public static var word: String {
         return allWords.randomElement
     }
 
-    open static func words(_ count: Int) -> String {
+    public static func words(_ count: Int) -> String {
         return compose({ word }, count: count, middleSeparator: .Space)
     }
 
-    open static var sentence: String {
+    public static var sentence: String {
         let numberOfWordsInSentence = Int.random(min: 4, max: 16)
         let capitalizeFirstLetterDecorator: (String) -> String = { $0.stringWithCapitalizedFirstLetter }
         return compose({ word }, count: numberOfWordsInSentence, middleSeparator: .Space, endSeparator: .Dot, decorator: capitalizeFirstLetterDecorator)
     }
 
-    open static func sentences(_ count: Int) -> String {
+    public static func sentences(_ count: Int) -> String {
         return compose({ sentence }, count: count, middleSeparator: .Space)
     }
 
-    open static var paragraph: String {
+    public static var paragraph: String {
         let numberOfSentencesInParagraph = Int.random(min: 3, max: 9)
         return sentences(numberOfSentencesInParagraph)
     }
 
-    open static func paragraphs(_ count: Int) -> String {
+    public static func paragraphs(_ count: Int) -> String {
         return compose({ paragraph }, count: count, middleSeparator: .NewLine)
     }
 
-    open static var title: String {
+    public static var title: String {
         let numberOfWordsInTitle = Int.random(min: 2, max: 7)
         let capitalizeStringDecorator: (String) -> String = { $0.capitalized }
         return compose({ word }, count: numberOfWordsInTitle, middleSeparator: .Space, decorator: capitalizeStringDecorator)
@@ -59,33 +59,33 @@ open class Lorem {
 
     // ======================================================= //
 
-    open static var firstName: String {
+    public static var firstName: String {
         return firstNames.randomElement
     }
 
-    open static var lastName: String {
+    public static var lastName: String {
         return lastNames.randomElement
     }
 
-    open static var name: String {
+    public static var name: String {
         return "\(firstName) \(lastName)"
     }
 
-    open static var email: String {
+    public static var email: String {
         let delimiter = emailDelimiters.randomElement
         let domain = emailDomains.randomElement
         return "\(firstName)\(delimiter)\(lastName)@\(domain)".lowercased()
     }
 
-    open static var URL: Foundation.URL {
+    public static var URL: Foundation.URL {
         return Foundation.URL(string: "http://\(domains.randomElement)/")!
     }
 
-    open static var tweet: String {
+    public static var tweet: String {
         return tweets.randomElement
     }
 
-    open static var date: Date {
+    public static var date: Date {
         let currentDate = Date()
         let currentCalendar = Calendar.current
         var referenceDateComponents = DateComponents()

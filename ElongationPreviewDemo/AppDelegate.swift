@@ -14,7 +14,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
+    func application(_: UIApplication, didFinishLaunchingWithOptions _: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 
         // Add dark view behind the status bar
         DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 0.1) {
@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             view.backgroundColor = UIColor.black
             view.alpha = 0.4
             self.window?.addSubview(view)
-            self.window?.bringSubview(toFront: view)
+            self.window?.bringSubviewToFront(view)
         }
 
         // Customize ElongationConfig
